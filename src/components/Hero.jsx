@@ -240,8 +240,8 @@ export default function Hero() {
           <div className="absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
           
           {/* Simple, soft linear gradient matching the reference image.
-              Fades naturally from white to transparent without creating a solid block. */}
-          <div className="absolute inset-y-0 left-0 w-[45%] lg:w-[35%] bg-gradient-to-r from-white to-transparent pointer-events-none" />
+              Extended to 75% width so it covers the nav links smoothly without creating a solid block. */}
+          <div className="absolute inset-y-0 left-0 w-[85%] lg:w-[75%] bg-gradient-to-r from-white to-transparent pointer-events-none" />
         </motion.div>
 
       </div>
