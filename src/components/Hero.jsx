@@ -194,7 +194,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.5 }}
-            style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.32em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
+            style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.52em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
           >
             Nesting Professional
           </motion.p>

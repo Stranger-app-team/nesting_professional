@@ -159,43 +159,19 @@ export default function AmenitiesAbout() {
             {/* Top Fixed Header */}
             <div className="shrink-0 mb-3">
               <Reveal type="fade">
-                <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-2">
+                <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-1">
                   About Us
                 </p>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <h2
-                  className="font-display text-[22px] sm:text-[26px] lg:text-[29px] font-normal text-[#1a1a1a] leading-tight"
-                  style={{ fontFamily: '"Fraunces", serif' }}
-                >
-                  Made for Days That Don't Go According to Plan.
-                </h2>
               </Reveal>
             </div>
 
             {/* Scrollable Content Container with Bottom Fade */}
             <div className="relative flex-1 min-h-0 my-2">
               <div className="about-scroll-container overflow-y-auto max-h-[380px] sm:max-h-[420px] lg:max-h-[500px] pr-3 pb-12 space-y-4 text-[13.5px] sm:text-[14px] leading-relaxed text-[#555]">
-                {/* Initial hook */}
-                <div className="space-y-1">
-                  <span className="block font-medium text-[#1a1a1a]">Meeting ran late?</span>
-                  <span className="block font-medium text-[#1a1a1a]">Traffic took its time?</span>
-                  <span className="block font-medium text-[#1a1a1a]">Decided to stay the night?</span>
-                  <p className="font-semibold text-[#7B2D16] pt-1">
-                    That's exactly where we come in.
-                  </p>
-                </div>
-
-                <p className="text-[#666]">
-                  Chidiya Ghar combines thoughtful hospitality with modern comfort — so whether you're here for business or simply passing through, your stay feels effortless.
-                </p>
-
-                {/* Stay Somewhere With a Story */}
-                <div className="pt-3 border-t border-[#7B2D16]/10 space-y-2">
-                  <h3 className="font-display text-[15px] font-semibold text-[#1a1a1a]" style={{ fontFamily: '"Fraunces", serif' }}>
-                    Stay Somewhere With a Story
-                  </h3>
-                  <p className="text-[#666]">
+                
+                {/* 1. Direct Content after About Us (no "Stay Somewhere With a Story" line) */}
+                <div className="space-y-2.5">
+                  <p className="font-display text-[18px] sm:text-[21px] lg:text-[23px] font-normal text-[#1a1a1a] leading-snug" style={{ fontFamily: '"Fraunces", serif' }}>
                     Chidiya Ghar is more than just a place to stay. It’s a boutique hotel created for people who appreciate comfort, character, and a little something different.
                   </p>
                   <p className="text-[#666]">
@@ -203,9 +179,27 @@ export default function AmenitiesAbout() {
                   </p>
                 </div>
 
-                {/* Why Chidiya Ghar */}
+                {/* 2. Made for Days That Don't Go According to Plan */}
+                <div className="pt-3 border-t border-[#7B2D16]/10 space-y-2.5">
+                  <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a] leading-tight" style={{ fontFamily: '"Fraunces", serif' }}>
+                    Made for Days That Don't Go According to Plan.
+                  </h3>
+                  <div className="space-y-1">
+                    <span className="block font-medium text-[#1a1a1a]">Meeting ran late?</span>
+                    <span className="block font-medium text-[#1a1a1a]">Traffic took its time?</span>
+                    <span className="block font-medium text-[#1a1a1a]">Decided to stay the night?</span>
+                    <p className="font-semibold text-[#7B2D16] pt-1">
+                      That's exactly where we come in.
+                    </p>
+                  </div>
+                  <p className="text-[#666]">
+                    Chidiya Ghar combines thoughtful hospitality with modern comfort — so whether you're here for business or simply passing through, your stay feels effortless.
+                  </p>
+                </div>
+
+                {/* 3. Why Chidiya Ghar? */}
                 <div className="pt-3 border-t border-[#7B2D16]/10 space-y-3">
-                  <h3 className="font-display text-[15px] font-semibold text-[#1a1a1a]" style={{ fontFamily: '"Fraunces", serif' }}>
+                  <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]" style={{ fontFamily: '"Fraunces", serif' }}>
                     Why Chidiya Ghar?
                   </h3>
 
@@ -237,9 +231,9 @@ export default function AmenitiesAbout() {
                   </div>
                 </div>
 
-                {/* Comfort Without the Complication */}
+                {/* 4. Comfort Without the Complication */}
                 <div className="pt-3 border-t border-[#7B2D16]/10 space-y-2">
-                  <h3 className="font-display text-[15px] font-semibold text-[#1a1a1a]" style={{ fontFamily: '"Fraunces", serif' }}>
+                  <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]" style={{ fontFamily: '"Fraunces", serif' }}>
                     Comfort Without the Complication
                   </h3>
                   <p className="text-[#666]">
@@ -249,6 +243,7 @@ export default function AmenitiesAbout() {
                     From the moment you arrive to the moment you check out, our goal is to make your stay smooth, relaxed, and memorable.
                   </p>
                 </div>
+
               </div>
 
               {/* Bottom Fade Gradient Mask over the scroll container */}
@@ -269,7 +264,7 @@ export default function AmenitiesAbout() {
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-5 items-stretch mt-4 lg:mt-5">
           {/* Location */}
           <div 
-            className="bg-white rounded-[20px] p-7 lg:p-10 flex flex-col justify-between"
+            className="bg-[#FDF8F4] rounded-[20px] p-7 lg:p-10 flex flex-col justify-between"
             style={{ 
               boxShadow: cardShadow,
               borderRadius: '20px'
@@ -297,7 +292,7 @@ export default function AmenitiesAbout() {
 
           {/* Dining */}
           <div 
-            className="bg-white rounded-[20px] p-7 lg:p-10 flex flex-col justify-between"
+            className="bg-[#FDF8F4] rounded-[20px] p-7 lg:p-10 flex flex-col justify-between"
             style={{ 
               boxShadow: cardShadow,
               borderRadius: '20px'

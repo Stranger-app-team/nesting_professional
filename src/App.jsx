@@ -101,8 +101,8 @@ export default function App() {
         <GallerySection />
         {/* Pune Location & Connectivity — small compact section */}
         <LocationMap />
-        {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace */}
-        <MeetingBanner />
+        {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace (commented out) */}
+        {/* <MeetingBanner /> */}
       </main>
       <Footer />
     </>

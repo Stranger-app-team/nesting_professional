@@ -27,13 +27,13 @@ export default function MeetingBanner() {
       </div>
 
       {/* ── Content Layer ── */}
-      <div className="relative z-10 max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="relative z-10 max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-16 py-9 sm:py-11 lg:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Left text block */}
         <div className="max-w-[480px] z-10">
           <Reveal delay={0.1}>
             <h2
-              className="font-display text-[30px] sm:text-[36px] lg:text-[42px] font-normal text-[#1a1a1a] leading-[1.12] mb-3"
+              className="font-display text-[26px] sm:text-[32px] lg:text-[36px] font-normal text-[#1a1a1a] leading-[1.15] mb-2"
               style={{ fontFamily: '"Fraunces", serif' }}
             >
               Got a Meeting Tomorrow?
@@ -41,7 +41,7 @@ export default function MeetingBanner() {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <p className="text-[#666] text-[15px] sm:text-[16px] leading-relaxed mb-7 font-normal">
+            <p className="text-[#666] text-[14px] sm:text-[15px] leading-relaxed mb-5 font-normal">
               You might as well make tonight comfortable.
             </p>
           </Reveal>
@@ -51,7 +51,7 @@ export default function MeetingBanner() {
               href="#contact"
               whileHover={{ scale: 1.02, backgroundColor: '#6a2513' }}
               whileTap={{ scale: 0.97 }}
-              className="inline-block bg-[#7B2D16] text-white font-semibold text-[14px] px-8 py-3.5 rounded-lg transition-colors duration-200 tracking-wide shadow-md"
+              className="inline-block bg-[#7B2D16] text-white font-semibold text-[13px] px-7 py-2.5 rounded-lg transition-colors duration-200 tracking-wide shadow-md"
             >
               Book Your Stay
             </motion.a>
@@ -65,17 +65,17 @@ export default function MeetingBanner() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="flex flex-col items-center sm:items-end text-[#7B2D16] text-[28px] sm:text-[34px] leading-[1.28] tracking-wide"
+            className="flex flex-col items-center sm:items-end text-[#7B2D16] text-[22px] sm:text-[27px] leading-[1.22] tracking-wide"
             style={{ fontFamily: '"Caveat", "Playfair Display", Georgia, cursive, serif', fontStyle: 'italic', fontWeight: 500 }}
           >
             <span className="transform rotate-[-3deg]">Meet </span>
-            <span className="transform rotate-[2deg] sm:mr-3">Work</span>
-            <span className="transform rotate-[-2deg] sm:mr-6">Explore</span>
-            <span className="transform rotate-[2deg] sm:mr-2">Relax</span>
+            <span className="transform rotate-[2deg] sm:mr-2">Work</span>
+            <span className="transform rotate-[-2deg] sm:mr-4">Explore</span>
+            <span className="transform rotate-[2deg] sm:mr-1">Relax</span>
             <span className="transform rotate-[-1deg] font-semibold text-[#6a2513]">Repeat</span>
             
             {/* Subtle brush underline underneath Repeat */}
-            <div className="w-12 h-0.5 bg-[#7B2D16]/50 rounded-full mt-2 sm:mr-2" />
+            <div className="w-10 h-0.5 bg-[#7B2D16]/50 rounded-full mt-1.5 sm:mr-1" />
           </motion.div>
         </div>
 

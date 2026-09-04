@@ -27,28 +27,28 @@ export default function Navbar() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-[0_1px_4px_rgba(0,0,0,0.08)]' : 'bg-transparent'}`}>
-        {/* Adjusted padding and sizing to match reference: logo larger, nav center, button right */}
+        {/* Compact, elegant navbar container */}
         <div className="max-w-[1800px] w-full mx-auto px-4 lg:px-12 xl:px-16 py-2 flex items-center justify-between gap-4">
 
-          {/* Logo — using requested SVG, much larger now */}
+          {/* Logo — increased height from bottom */}
           <a href="#top" className="flex items-center shrink-0">
             <motion.img
               src={logoSvg}
               alt="Chidiya Ghar Logo"
-              className="h-[75px] sm:h-[90px] w-auto object-contain"
+              className="h-[48px] sm:h-[54px] w-auto object-contain"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.25 }}
             />
           </a>
 
           {/* Desktop nav — centered */}
-          <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
+          <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
             {navLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setActiveLink(item.label)}
-                className={`relative text-[13px] font-normal tracking-wide transition-colors group ${
+                className={`relative text-[13px] font-normal tracking-wide transition-colors group py-1 ${
                   activeLink === item.label
                     ? 'text-[#7B2D16] font-medium'
                     : 'text-[#333] hover:text-[#7B2D16]'
@@ -65,11 +65,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Book Now button — dark brown, rounded */}
-          <div className="hidden lg:block shrink-0">
+          {/* Book Now button — exact same height & level as logo */}
+          <div className="hidden lg:flex items-center shrink-0">
             <a
               href="#contact"
-              className="inline-block bg-[#7B2D16] text-white text-[13px] font-semibold px-6 py-3 rounded-md hover:bg-[#6a2513] transition-colors duration-200 tracking-wide"
+              className="inline-flex items-center justify-center h-[40px] sm:h-[42px] bg-[#7B2D16] text-white text-[13px] font-semibold px-6 rounded-md hover:bg-[#6a2513] transition-colors duration-200 tracking-wide shadow-sm"
             >
               Book Now
             </a>
