@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import logoSvg from '../assets/image/finallogo.png'
-import whiteLogo from '../assets/image/chidiya-ghar-white-logo-fixed-counters.svg'
+import logoSvg from '../assets/image/chidiya_ghar_logo_animated.gif'
+import whiteLogo from '../assets/image/chidiya_ghar_logo_animated.gif'
 
 const navLinks = [
   { label: 'Home', href: '#top' },
@@ -35,8 +35,10 @@ export default function Navbar() {
             <motion.img
               src={logoSvg}
               alt="Chidiya Ghar Logo"
-              className="h-[48px] sm:h-[54px] w-auto object-contain"
-              whileHover={{ scale: 1.02 }}
+              className="h-[48px] sm:h-[54px] w-auto object-contain origin-left"
+              initial={{ scale: 2.5 }}
+              animate={{ scale: 2.5 }}
+              whileHover={{ scale: 2.6 }}
               transition={{ duration: 0.25 }}
             />
           </a>
@@ -100,7 +102,7 @@ export default function Navbar() {
           >
             <div className="flex justify-between items-center p-6">
               <a href="#top" onClick={() => setOpen(false)}>
-                <img src={whiteLogo} alt="Chidiya Ghar" className="h-10 w-auto" />
+                <img src={whiteLogo} alt="Chidiya Ghar" className="h-10 w-auto scale-[2.5] origin-left" />
               </a>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-2xl hover:opacity-70 transition-opacity">
                 ✕

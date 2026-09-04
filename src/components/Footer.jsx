@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import brownLogo from '../assets/image/brown_logo.svg'
+import brownLogo from '../assets/image/chidiya_ghar_logo_animated.gif'
 
 // Decorative bird background
 function FooterBirds() {
@@ -32,7 +32,7 @@ export default function Footer() {
               <img 
                 src={brownLogo} 
                 alt="Chidiya Ghar Logo" 
-                className="h-16 lg:h-20 w-auto object-contain hover:scale-105 transition-transform duration-300" 
+                className="h-16 lg:h-20 w-auto object-contain scale-[2.5] origin-left hover:scale-[2.6] transition-transform duration-300" 
               />
             </a>
             <p className="text-white/45 text-[12px] leading-relaxed mb-6">
