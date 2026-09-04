@@ -172,7 +172,8 @@ export default function AmenitiesAbout() {
                 {/* 1. Direct Content after About Us (no "Stay Somewhere With a Story" line) */}
                 <div className="space-y-2.5">
                   <p className="font-display text-[18px] sm:text-[21px] lg:text-[23px] font-normal text-[#1a1a1a] leading-snug" style={{ fontFamily: '"Fraunces", serif' }}>
-                    Chidiya Ghar is more than just a place to stay. It’s a boutique hotel created for people who appreciate comfort, character, and a little something different.
+                    Chidiya Ghar is more than just a place to stay. It’s a thoughtfully crafted experience for those who value comfort, character, and a little something different.
+
                   </p>
                   <p className="text-[#666]">
                     Whether you're visiting Pune for work, catching a game, meeting friends, or simply taking a break from your everyday routine, Chidiya Ghar gives you a comfortable place to settle in.
