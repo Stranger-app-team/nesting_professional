@@ -28,7 +28,7 @@ export default function Navbar() {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-[0_1px_4px_rgba(0,0,0,0.08)]' : 'bg-transparent'}`}>
         {/* Adjusted padding and sizing to match reference: logo larger, nav center, button right */}
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-2 flex items-center justify-between gap-4">
+        <div className="max-w-[1800px] w-full mx-auto px-4 lg:px-12 xl:px-16 py-2 flex items-center justify-between gap-4">
 
           {/* Logo — using requested SVG, much larger now */}
           <a href="#top" className="flex items-center shrink-0">
@@ -42,7 +42,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop nav — centered */}
-          <nav className="hidden lg:flex items-center gap-7 flex-1 justify-center">
+          <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
             {navLinks.map((item) => (
               <a
                 key={item.href}

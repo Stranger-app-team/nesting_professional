@@ -139,7 +139,7 @@ export default function Hero() {
       <div className="flex flex-col lg:flex-row min-h-[600px] max-h-[750px] lg:h-[90vh]">
 
         {/* LEFT column — white bg, text pushed towards right */}
-        <div className="flex-[0_0_100%] lg:flex-[0_0_45%] flex items-center bg-white px-6 lg:pl-[12vw] xl:pl-[14vw] py-32 lg:py-0 z-10 relative">
+        <div className="flex-[0_0_100%] lg:flex-[0_0_50%] flex items-center bg-white px-6 lg:pl-[12vw] xl:pl-[14vw] py-32 lg:py-0 z-10 relative">
           
           <div style={{ maxWidth: 440 }}>
             {/* WELCOME TO */}
@@ -147,7 +147,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: '#7B2D16', textTransform: 'uppercase', marginBottom: 10 }}
+              style={{ fontSize: 20, fontWeight: 700, letterSpacing: '0.22em', color: '#7B2D16', textTransform: 'uppercase', marginBottom: 10 }}
             >
               Welcome To
             </motion.p>
@@ -157,7 +157,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{ fontFamily: '"Fraunces", serif', fontSize: 'clamp(2.6rem, 5.5vw, 4rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: 6 }}
+              style={{ fontFamily: '"Fraunces", serif', fontSize: 'clamp(3.6rem, 5.5vw, 4rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: 6 }}
             >
               <span style={{ color: '#1a1a1a' }}>Chidiya </span>
               <span style={{ color: '#7B2D16', fontStyle: 'italic' }}>Ghar</span>
@@ -229,7 +229,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.9, ease: 'easeOut' }}
-          className="flex-1 relative overflow-hidden min-h-[400px] lg:min-h-0"
+          className="flex-1 relative overflow-hidden min-h-[1000px] lg:min-h-0"
         >
           <img
             src={heroImg}
