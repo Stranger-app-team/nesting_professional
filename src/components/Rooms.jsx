@@ -9,21 +9,21 @@ const rooms = [
   {
     id: 'deluxe',
     name: 'Deluxe Room',
-    desc: 'Cozy and comfortable room with all the essentials for a relaxing stay.',
+    desc: 'Comfortable, practical, and perfect for a quick city stay.',
     price: '₹4,500',
     image: acc1,
   },
   {
     id: 'premium',
     name: 'Premium Room',
-    desc: 'More space, more comfort. Perfect for business or leisure travelers.',
+    desc: 'More space to stretch out after a long day of meetings.',
     price: '₹6,000',
     image: acc2,
   },
   {
     id: 'executive',
     name: 'Executive Suite',
-    desc: 'Luxury and spacious suite with a separate living area and premium amenities.',
+    desc: 'Extra room when your stay calls for a little more.',
     price: '₹8,500',
     image: acc3,
   },
@@ -36,37 +36,40 @@ function RoomCard({ room, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: index * 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white overflow-hidden group"
-      style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.07)' }}
+      className="bg-white overflow-hidden group p-4 flex flex-col justify-between"
+      style={{ 
+        boxShadow: '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)', 
+        borderRadius: '20px' 
+      }}
     >
-      {/* Room image — no border radius, square crop */}
-      <div className="relative h-[200px] overflow-hidden">
+      {/* Room image — 12px radius inside the 20px card */}
+      <div className="relative h-[250px] overflow-hidden rounded-[12px]">
         <ImageWithFallback
           src={room.image}
           alt={room.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-[12px]"
         />
       </div>
 
       {/* Card content */}
-      <div className="p-5">
-        <h3 className="font-bold text-[#1a1a1a] text-[16px] mb-1.5" style={{ fontWeight: 700 }}>{room.name}</h3>
-        <p className="text-[#666] text-[13px] leading-relaxed mb-4">{room.desc}</p>
+      <div className="px-2 pt-5 pb-2">
+        <h3 className="font-bold text-[#1a1a1a] text-[17px] mb-2" style={{ fontWeight: 700 }}>{room.name}</h3>
+        <p className="text-[#666] text-[14px] leading-relaxed mb-5">{room.desc}</p>
 
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-[#555] text-[13px]">From </span>
-            <span className="text-[#7B2D16] font-bold text-[15px]">{room.price}</span>
-            <span className="text-[#999] text-[12px]"> / night</span>
+            <span className="text-[#555] text-[14px]">From </span>
+            <span className="text-[#7B2D16] font-bold text-[16px]">{room.price}</span>
+            <span className="text-[#999] text-[13px]"> / night</span>
           </div>
           {/* Circle arrow button */}
           <motion.button
             whileHover={{ backgroundColor: '#7B2D16', borderColor: '#7B2D16' }}
             whileTap={{ scale: 0.95 }}
-            className="w-9 h-9 rounded-full border border-[#bbb] flex items-center justify-center transition-all duration-200 group/btn"
+            className="w-10 h-10 rounded-full border border-[#bbb] flex items-center justify-center transition-all duration-200 group/btn"
             style={{ color: '#1a1a1a' }}
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" className="group-hover/btn:stroke-white transition-colors duration-200">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="group-hover/btn:stroke-white transition-colors duration-200">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </motion.button>
@@ -78,31 +81,55 @@ function RoomCard({ room, index }) {
 
 export default function Rooms() {
   return (
-    <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-28 pb-16">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+    <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-16 pb-12 scroll-mt-24">
+      
+      {/* ── INTRO SECTION ── */}
+      <div className="max-w-[1000px] mx-auto px-6 text-center mb-16">
+        <Reveal delay={0.1}>
+          <h2 className="font-display text-[28px] lg:text-[40px] font-normal text-[#1a1a1a] mb-6" style={{ fontFamily: '"Fraunces", serif' }}>
+            A Little Escape. Right in Your City.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="text-[#555] text-[16px] leading-relaxed mb-4">
+            Step away from the usual routine and spend your day somewhere a little more interesting.
+          </p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="text-[#555] text-[16px] leading-relaxed mb-8">
+            Chidiya Ghar is a refreshing city experience designed for families, friends, kids and anyone looking for a fun day out without going far.
+          </p>
+        </Reveal>
+        <Reveal delay={0.25}>
+          <p className="text-[#7B2D16] font-bold text-[14px] uppercase tracking-[0.2em]">
+            Explore. Relax. Discover. Make Memories.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
 
         {/* Section heading */}
         <div className="text-center mb-10">
           <Reveal type="fade">
-            <p className="text-[11px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-3">
-              Our Rooms & Suites
+            <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-3">
+              Rooms & Suites
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="font-display text-[28px] lg:text-[34px] font-normal text-[#1a1a1a] mb-3" style={{ fontFamily: '"Fraunces", serif' }}>
-              Stay Comfortable, Stay Inspired
+            <h2 className="font-display text-[28px] lg:text-[36px] font-normal text-[#1a1a1a] mb-3" style={{ fontFamily: '"Fraunces", serif' }}>
+              Your Day Was Busy. Your Room Doesn't Have to Be.
             </h2>
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="text-[#666] text-[13px] max-w-[420px] mx-auto leading-relaxed">
-              Thoughtfully designed rooms with elegant interiors and modern amenities<br />
-              to make your stay truly relaxing.
+            <p className="text-[#666] text-[14px] max-w-[520px] mx-auto leading-relaxed">
+              Thoughtfully designed rooms with everything you need to switch off after a productive day.
             </p>
           </Reveal>
         </div>
 
-        {/* 3-column room grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        {/* 3-column room grid with tighter gaps */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mb-10">
           {rooms.map((room, i) => (
             <RoomCard key={room.id} room={room} index={i} />
           ))}
@@ -114,7 +141,7 @@ export default function Rooms() {
             href="#contact"
             whileHover={{ scale: 1.02, backgroundColor: '#6a2513' }}
             whileTap={{ scale: 0.97 }}
-            className="bg-[#7B2D16] text-white font-semibold text-[13px] px-8 py-[11px] rounded-md transition-colors duration-200 tracking-wide"
+            className="bg-[#7B2D16] text-white font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide"
           >
             View All Rooms
           </motion.a>

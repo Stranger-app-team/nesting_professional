@@ -21,7 +21,7 @@ export default function Footer() {
     <footer id="contact" className="relative overflow-hidden pt-12 pb-6" style={{ backgroundColor: '#2A1205' }}>
       <FooterBirds />
 
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-10 relative z-10">
+      <div className="max-w-[1700px] mx-auto px-4 lg:px-12 xl:px-16 relative z-10">
 
         {/* 4-column grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
@@ -36,7 +36,7 @@ export default function Footer() {
               />
             </a>
             <p className="text-white/45 text-[12px] leading-relaxed mb-6">
-              Chidiya Ghar is a boutique hotel that offers a perfect blend of luxury, comfort and warm hospitality.
+              At Chidiya Ghar, find your nest, make yourself comfortable, and enjoy a stay that feels just right.
             </p>
             {/* Social icons row */}
             <div className="flex items-center gap-2.5">
@@ -81,9 +81,18 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-[11px] font-bold mb-4 uppercase tracking-[0.18em]">Quick Links</h4>
             <div className="grid grid-cols-2 gap-x-3 gap-y-2">
-              {['Home', 'Gallery', 'Rooms & Suites', 'Offers', 'Amenities', 'Contact Us', 'Dining', 'Privacy Policy'].map((link) => (
-                <a key={link} href="#top" className="text-white/50 text-[12px] hover:text-[#C9A06A] transition-colors duration-200">
-                  {link}
+              {[
+                { name: 'Home', href: '#top' },
+                { name: 'About Us', href: '#about' },
+                { name: 'Rooms & Suites', href: '#rooms' },
+                { name: 'Amenities', href: '#amenities' },
+                { name: 'Gallery', href: '#gallery' },
+                { name: 'Location', href: '#location' },
+                { name: 'Offers', href: '#contact' },
+                { name: 'Contact Us', href: '#contact' },
+              ].map((item) => (
+                <a key={item.name} href={item.href} className="text-white/50 text-[12px] hover:text-[#C9A06A] transition-colors duration-200">
+                  {item.name}
                 </a>
               ))}
             </div>

@@ -5,6 +5,8 @@ import Hero from './components/Hero'
 import Rooms from './components/Rooms'
 import AmenitiesAbout from './components/AmenitiesAbout'
 import GallerySection from './components/GallerySection'
+import LocationMap from './components/LocationMap'
+import MeetingBanner from './components/MeetingBanner'
 import Footer from './components/Footer'
 import ScrollCompanion from './components/common/ScrollCompanion'
 import CursorTrail from './components/common/CursorTrail'
@@ -69,7 +71,7 @@ function LoadCurtain({ onDone }) {
           transition={{ delay: 1.4, duration: 0.4 }}
           style={{ color: 'rgba(255,255,255,0.35)', fontSize: '10px', marginTop: '6px', letterSpacing: '0.3em', textTransform: 'uppercase' }}
         >
-          Boutique Hotel
+          Nesting Professional
         </motion.p>
       </motion.div>
     </motion.div>
@@ -97,6 +99,10 @@ export default function App() {
         <AmenitiesAbout />
         {/* Gallery — warm cream */}
         <GallerySection />
+        {/* Pune Location & Connectivity — small compact section */}
+        <LocationMap />
+        {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace */}
+        <MeetingBanner />
       </main>
       <Footer />
     </>

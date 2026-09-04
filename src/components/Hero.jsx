@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import ImageWithFallback from './common/ImageWithFallback'
-import heroImg from '../assets/image/hero-image.png'
+import heroImg from '../assets/image/acc-1.png'
 
 /* ────────────────────────────────────────────────────────────
    Bird row SVG — matches reference exactly
@@ -34,7 +34,7 @@ function BirdRowSVG() {
   ]
 
   return (
-    <svg viewBox="0 0 280 32" className="w-[260px] h-auto" fill="none">
+    <svg viewBox="0 0 280 32" className="w-[320px] lg:w-[400px] h-auto" fill="none">
       <line x1="0" y1="26" x2="280" y2="26" stroke="#7B2D16" strokeWidth="0.8" opacity="0.45"/>
       {birds.map((b, i) => <Bird key={i} {...b} />)}
     </svg>
@@ -70,9 +70,10 @@ function BookingBar() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.0, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="mx-auto bg-white rounded-2xl px-2 py-2 w-[90%] max-w-[780px]"
+      className="mx-auto bg-white rounded-[20px] px-2 py-2 w-[90%] max-w-[780px]"
       style={{
         boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+        borderRadius: '20px'
       }}
     >
       <div className="flex flex-col sm:flex-row items-center sm:divide-x divide-gray-100">
@@ -114,7 +115,7 @@ function BookingBar() {
               fontWeight: 600,
               fontSize: 13,
               padding: '12px 22px',
-              borderRadius: 10,
+              borderRadius: '12px',
               border: 'none',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
@@ -134,116 +135,119 @@ export default function Hero() {
   return (
     <section id="top" style={{ background: '#fff', position: 'relative', paddingBottom: '30px' }}>
 
-      {/* ── Two-column hero ── */}
-      {/* Full height to top edge, flex layout matches reference */}
-      <div className="flex flex-col lg:flex-row min-h-[600px] max-h-[750px] lg:h-[90vh]">
-
-        {/* LEFT column — white bg, text pushed towards right */}
-        <div className="flex-[0_0_100%] lg:flex-[0_0_50%] flex items-center bg-white px-6 lg:pl-[12vw] xl:pl-[14vw] py-32 lg:py-0 z-10 relative">
-          
-          <div style={{ maxWidth: 440 }}>
-            {/* WELCOME TO */}
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              style={{ fontSize: 20, fontWeight: 700, letterSpacing: '0.22em', color: '#7B2D16', textTransform: 'uppercase', marginBottom: 10 }}
-            >
-              Welcome To
-            </motion.p>
-
-            {/* CHIDIYA GHAR */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{ fontFamily: '"Fraunces", serif', fontSize: 'clamp(3.6rem, 5.5vw, 4rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: 6 }}
-            >
-              <span style={{ color: '#1a1a1a' }}>Chidiya </span>
-              <span style={{ color: '#7B2D16', fontStyle: 'italic' }}>Ghar</span>
-            </motion.h1>
-
-            {/* BOUTIQUE HOTEL */}
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28, duration: 0.5 }}
-              style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.32em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 18 }}
-            >
-              Boutique Hotel
-            </motion.p>
-
-            {/* Bird row illustration */}
-            <motion.div
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.38, duration: 0.6 }}
-              style={{ marginBottom: 22 }}
-            >
-              <BirdRowSVG />
-            </motion.div>
-
-            {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.48, duration: 0.6 }}
-              style={{ fontSize: 14, color: '#555', lineHeight: 1.65, marginBottom: 28, maxWidth: 280 }}
-            >
-              Where comfort meets warmth and every moment feels like home.
-            </motion.p>
-
-            {/* CTA row */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}
-            >
-              <motion.a
-                href="#rooms"
-                whileHover={{ backgroundColor: '#6a2513' }}
-                whileTap={{ scale: 0.97 }}
-                style={{ background: '#7B2D16', color: '#fff', fontWeight: 600, fontSize: 13, padding: '11px 22px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
-              >
-                Explore Rooms
-              </motion.a>
-
-              <motion.a
-                href="#about"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#1a1a1a', fontSize: 13, fontWeight: 500 }}
-              >
-                <span style={{ width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #bbb', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
-                  <svg width="9" height="11" viewBox="0 0 9 11" fill="none"><polygon points="0,0 9,5.5 0,11" fill="#1a1a1a"/></svg>
-                </span>
-                Watch Video
-              </motion.a>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* RIGHT column — hero image, full-bleed to right edge and top */}
-        <motion.div
+      {/* ── Background Layer (Full Bleed Image) ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <motion.img
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.9, ease: 'easeOut' }}
-          className="flex-1 relative overflow-hidden min-h-[1000px] lg:min-h-0"
-        >
-          <img
-            src={heroImg}
-            alt="Chidiya Ghar luxury room"
-            className="w-full h-full object-cover object-center absolute inset-0"
-          />
-          {/* Subtle bottom gradient to ensure it doesn't look cut off abruptly */}
-          <div className="absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
-          
-          {/* Simple, soft linear gradient matching the reference image.
-              Extended to 75% width so it covers the nav links smoothly without creating a solid block. */}
-          <div className="absolute inset-y-0 left-0 w-[85%] lg:w-[75%] bg-gradient-to-r from-white to-transparent pointer-events-none" />
-        </motion.div>
+          src={heroImg}
+          alt="Chidiya Ghar luxury room"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Top subtle fade so navbar options & Book Now are clearly readable over darker photo areas */}
+        <div 
+          className="absolute inset-x-0 top-0 h-[130px] pointer-events-none z-[1]" 
+          style={{
+            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.3) 75%, transparent 100%)'
+          }}
+        />
 
+        {/* Smooth eased gradient angled at 105deg to match the left text curve and seamlessly fade out without sharp edges */}
+        <div 
+          className="absolute inset-0 bg-white/95 lg:bg-transparent z-[1]"
+          style={{
+            backgroundImage: `linear-gradient(105deg, #ffffff 0%, #ffffff 22%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.88) 35%, rgba(255,255,255,0.65) 44%, rgba(255,255,255,0.35) 54%, rgba(255,255,255,0.1) 64%, transparent 72%)`
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-white to-transparent pointer-events-none z-[1]" />
+      </div>
+
+      {/* ── Content Layer ── */}
+      <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
+        
+        {/* Text container */}
+        <div className="pointer-events-auto" style={{ maxWidth: 500 }}>
+          {/* WELCOME TO */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            style={{ fontSize: 30, fontWeight: 900, letterSpacing: '0.22em', color: '#7B2D16', textTransform: 'uppercase', marginBottom: 11 }}
+          >
+            Welcome To
+          </motion.p>
+
+          {/* CHIDIYA GHAR */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            style={{ fontFamily: '"Fraunces", serif', fontSize: 'clamp(3.8rem, 5.5vw, 5rem)', fontWeight: 1400, lineHeight: 1.05, marginBottom: 6 }}
+          >
+            <span style={{ color: '#1a1a1a' }}>Chidiya </span>
+            <span style={{ color: '#7B2D16', fontStyle: 'italic' }}>Ghar</span>
+          </motion.h1>
+
+          {/* Nesting Professional */}
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.5 }}
+            style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.32em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
+          >
+            Nesting Professional
+          </motion.p>
+
+          {/* Bird row illustration */}
+          {/* <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.38, duration: 0.6 }}
+            style={{ marginBottom: 22 }}
+          >
+            <BirdRowSVG />
+          </motion.div> */}
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.48, duration: 0.6 }}
+            style={{ fontSize: 19, color: '#555', lineHeight: 1.65, marginBottom: 36, maxWidth: 500 }}
+          >
+            Where comfort meets warmth and every moment feels like home.
+          </motion.p>
+
+          {/* CTA row */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}
+          >
+            <motion.a
+              href="#rooms"
+              whileHover={{ backgroundColor: '#6a2513' }}
+              whileTap={{ scale: 0.97 }}
+              style={{ background: '#7B2D16', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
+            >
+              Explore Rooms
+            </motion.a>
+
+            <motion.a
+              href="#about"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#1a1a1a', fontSize: 15, fontWeight: 500 }}
+            >
+              <span style={{ width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #bbb', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
+                <svg width="9" height="11" viewBox="0 0 9 11" fill="none"><polygon points="0,0 9,5.5 0,11" fill="#1a1a1a"/></svg>
+              </span>
+              Watch Video
+            </motion.a>
+          </motion.div>
+        </div>
       </div>
 
       {/* ── Booking bar strip (overlapping borders) ── */}

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import logoSvg from '../assets/image/Group 1171275868 (1).svg'
+import logoSvg from '../assets/image/finallogo.png'
 import whiteLogo from '../assets/image/chidiya-ghar-white-logo-fixed-counters.svg'
 
 const navLinks = [
   { label: 'Home', href: '#top' },
+  { label: 'About Us', href: '#about' },
   { label: 'Rooms & Suites', href: '#rooms' },
   { label: 'Amenities', href: '#amenities' },
-  { label: 'Dining', href: '#dining' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Offers', href: '#offers' },
   { label: 'Contact', href: '#contact' },
@@ -50,14 +50,14 @@ export default function Navbar() {
                 onClick={() => setActiveLink(item.label)}
                 className={`relative text-[13px] font-normal tracking-wide transition-colors group ${
                   activeLink === item.label
-                    ? 'text-[#1a1a1a]'
+                    ? 'text-[#7B2D16] font-medium'
                     : 'text-[#333] hover:text-[#7B2D16]'
                 }`}
               >
                 {item.label}
-                {/* Red/brown underline on active */}
+                {/* Brown underline on active and hover */}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-[#C0392B] transition-all duration-300 ${
+                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-[#7B2D16] transition-all duration-300 ${
                     activeLink === item.label ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
