@@ -117,3 +117,8 @@ Netlify, or any static host. No server/backend required (the
 contact form currently only shows a local "sent" confirmation state;
 wire it to Formspree, a serverless function, or your CRM of choice
 inside `ContactCTA.jsx`'s `handleSubmit`).
+
+
+
+
+
