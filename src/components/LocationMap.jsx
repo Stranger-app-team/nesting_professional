@@ -123,13 +123,7 @@ export default function LocationMap() {
             </div>
 
             <Reveal delay={0.25}>
-              <div className="flex flex-col items-start gap-4 mt-2">
-                <p className="text-[#555] text-[13px] leading-relaxed max-w-[420px]">
-                  <strong className="text-[#1a1a1a]">Chidiya Ghar</strong><br />
-                  Flat - 202, 2nd Floor, Anjaneya Apartments,<br />
-                  Landmark - In front of ASIA House, Near Mamta Chowk,<br />
-                  Balewadi High Street, Pune 411045
-                </p>
+              <div className="flex flex-col items-start mt-2">
                 <motion.a
                   href="https://maps.app.goo.gl/jNRpAnTTi5yhA3KH9?g_st=ic"
                   target="_blank"

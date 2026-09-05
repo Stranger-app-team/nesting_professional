@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="max-w-[1700px] mx-auto px-4 lg:px-12 xl:px-16 relative z-10">
 
         {/* 4-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pb-10 border-b border-white/10">
 
           {/* Col 1: Logo + description + social icons */}
           <div>
@@ -106,7 +106,7 @@ export default function Footer() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A06A" strokeWidth="1.8" className="mt-0.5 shrink-0">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 14.92z"/>
                 </svg>
-                <span className="text-white/55 text-[12px]">+91 12345 67890</span>
+                <span className="text-white/55 text-[12px]">+91 7080901275</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A06A" strokeWidth="1.8" className="mt-0.5 shrink-0">
@@ -121,14 +121,17 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
                 <span className="text-white/55 text-[12px]">
-                  123, Serenity Street,<br />City, State - 123456
+                  Flat - 202, 2nd Floor, Anjaneya Apartments,<br />
+                  Landmark - In front of ASIA House,<br />
+                  Near Mamta Chowk, Balewadi High Street,<br />
+                  Pune 411045
                 </span>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Newsletter */}
-          <div>
+          {/* <div>
             <h4 className="text-white text-[11px] font-bold mb-4 uppercase tracking-[0.18em]">Newsletter</h4>
             <p className="text-white/45 text-[12px] mb-4 leading-relaxed">
               Subscribe to get the latest offers and updates.
@@ -149,12 +152,12 @@ export default function Footer() {
                 </svg>
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom copyright */}
         <div className="pt-5 text-center">
-          <span className="text-white/25 text-[11px]">© 2025 Chidiya Ghar. All Rights Reserved.</span>
+          <span className="text-white/25 text-[11px]">© 2026 Chidiya Ghar. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

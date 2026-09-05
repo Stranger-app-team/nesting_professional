@@ -5,8 +5,27 @@ import { CalendarDays, X } from 'lucide-react'
 export default function FloatingInquiry() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    checkIn: '',
+    checkOut: '',
+    rooms: '1 Room',
+    persons: '2 Persons'
+  })
+
   useEffect(() => {
-    const handleOpen = () => setIsOpen(true)
+    const handleOpen = (e) => {
+      if (e.detail) {
+        setFormData(prev => ({
+          ...prev,
+          checkIn: e.detail.checkIn || prev.checkIn,
+          checkOut: e.detail.checkOut || prev.checkOut,
+          persons: e.detail.persons || prev.persons
+        }))
+      }
+      setIsOpen(true)
+    }
     window.addEventListener('openInquiry', handleOpen)
     return () => window.removeEventListener('openInquiry', handleOpen)
   }, [])
@@ -14,7 +33,7 @@ export default function FloatingInquiry() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // Normally you'd send this data to an API, Email service, or WhatsApp
-    console.log("Inquiry submitted")
+    console.log("Inquiry submitted", formData)
     setIsOpen(false)
   }
 
@@ -83,6 +102,8 @@ export default function FloatingInquiry() {
                       <input 
                         type="text" 
                         required 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="Enter your name"
                         className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]"
                       />
@@ -92,6 +113,8 @@ export default function FloatingInquiry() {
                       <input 
                         type="tel" 
                         required 
+                        value={formData.mobile}
+                        onChange={(e) => setFormData({...formData, mobile: e.target.value})}
                         placeholder="Enter your mobile number"
                         className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]"
                       />
@@ -105,6 +128,8 @@ export default function FloatingInquiry() {
                       <input 
                         type="date" 
                         required 
+                        value={formData.checkIn}
+                        onChange={(e) => setFormData({...formData, checkIn: e.target.value})}
                         className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]"
                       />
                     </div>
@@ -113,6 +138,8 @@ export default function FloatingInquiry() {
                       <input 
                         type="date" 
                         required 
+                        value={formData.checkOut}
+                        onChange={(e) => setFormData({...formData, checkOut: e.target.value})}
                         className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]"
                       />
                     </div>
@@ -122,7 +149,10 @@ export default function FloatingInquiry() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[#1a1a1a] text-sm font-bold mb-1.5">No. of Rooms</label>
-                      <select className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]">
+                      <select 
+                        value={formData.rooms}
+                        onChange={(e) => setFormData({...formData, rooms: e.target.value})}
+                        className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]">
                         <option>1 Room</option>
                         <option>2 Rooms</option>
                         <option>3 Rooms</option>
@@ -131,7 +161,10 @@ export default function FloatingInquiry() {
                     </div>
                     <div>
                       <label className="block text-[#1a1a1a] text-sm font-bold mb-1.5">No. of Persons</label>
-                      <select className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]">
+                      <select 
+                        value={formData.persons}
+                        onChange={(e) => setFormData({...formData, persons: e.target.value})}
+                        className="w-full bg-[#FAF6F1] border border-[#E5DFD3] rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#7B2D16] transition-colors text-[#1a1a1a]">
                         <option>1 Person</option>
                         <option>2 Persons</option>
                         <option>3 Persons</option>
