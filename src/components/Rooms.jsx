@@ -55,14 +55,14 @@ function RoomCard({ room, index }) {
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white overflow-hidden group p-4 flex flex-col justify-between w-[85vw] sm:w-[340px] lg:w-[380px] shrink-0 snap-start"
+      className="bg-white overflow-hidden group p-3 sm:p-4 flex flex-col justify-between w-[72vw] max-w-[280px] sm:max-w-none sm:w-[340px] lg:w-[380px] shrink-0 snap-center sm:snap-start"
       style={{ 
         boxShadow: '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)', 
         borderRadius: '20px' 
       }}
     >
       {/* Room image — 12px radius inside the 20px card */}
-      <div className="relative h-[250px] overflow-hidden rounded-[12px]">
+      <div className="relative h-[180px] sm:h-[250px] overflow-hidden rounded-[12px]">
         <ImageWithFallback
           src={room.image}
           alt={room.name}
@@ -71,15 +71,15 @@ function RoomCard({ room, index }) {
       </div>
 
       {/* Card content */}
-      <div className="px-2 pt-5 pb-2">
-        <h3 className="font-bold text-[#1a1a1a] text-[17px] mb-2" style={{ fontWeight: 700 }}>{room.name}</h3>
-        <p className="text-[#666] text-[14px] leading-relaxed mb-5">{room.desc}</p>
+      <div className="px-1 sm:px-2 pt-4 pb-1">
+        <h3 className="font-bold text-[#1a1a1a] text-[15px] sm:text-[17px] mb-1.5" style={{ fontWeight: 700 }}>{room.name}</h3>
+        <p className="text-[#666] text-[12px] sm:text-[14px] leading-relaxed mb-4">{room.desc}</p>
 
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-[#555] text-[14px]">From </span>
-            <span className="text-[#7B2D16] font-bold text-[16px]">{room.price}</span>
-            <span className="text-[#999] text-[13px]"> / night</span>
+            <span className="text-[#555] text-[12px] sm:text-[14px]">From </span>
+            <span className="text-[#7B2D16] font-bold text-[14px] sm:text-[16px]">{room.price}</span>
+            <span className="text-[#999] text-[11px] sm:text-[13px]"> / night</span>
           </div>
           {/* Circle arrow button */}
           <motion.button
@@ -109,7 +109,7 @@ export default function Rooms() {
   }
 
   return (
-    <section id="rooms" style={{ backgroundColor: '#2A1205' }} className="pt-16 pb-12 scroll-mt-24">
+    <section id="rooms" style={{ backgroundColor: '#2A1205' }} className="pt-24 lg:pt-28 pb-12 scroll-mt-24">
       
       {/* ── INTRO SECTION ── */}
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-16">
@@ -170,7 +170,7 @@ export default function Rooms() {
             </svg>
           </button>
 
-          <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-4 lg:gap-5 pb-8 hide-scrollbar scroll-smooth">
+          <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 lg:gap-5 pb-8 pt-4 hide-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-8 sm:px-8">
             {rooms.map((room, i) => (
               <RoomCard key={room.id} room={room} index={i} />
             ))}

@@ -77,35 +77,39 @@ function BookingBar() {
       }}
     >
       <div className="flex flex-col sm:flex-row items-center sm:divide-x divide-gray-100">
-        {/* Check In */}
-        <div className="flex items-center gap-3 flex-1 px-5 py-3 w-full sm:w-auto">
-          <CalIcon />
-          <div>
-            <p style={{ fontSize: 10, color: '#7B2D16', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 2 }}>Check In</p>
-            <p style={{ fontSize: 13, color: '#1a1a1a', fontWeight: 500 }}>12 May 2025</p>
+        
+        {/* Top Row on Mobile / Left Section on Desktop */}
+        <div className="flex flex-row w-full sm:w-auto flex-1 divide-x divide-gray-100 border-b border-gray-100 sm:border-b-0">
+          {/* Check In */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
+            <div className="hidden md:block"><CalIcon /></div>
+            <div className="text-center sm:text-left">
+              <p className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5">Check In</p>
+              <p className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium whitespace-nowrap">12 May 25</p>
+            </div>
           </div>
-        </div>
 
-        {/* Check Out */}
-        <div className="flex items-center gap-3 flex-1 px-5 py-3 w-full sm:w-auto">
-          <CalIcon />
-          <div>
-            <p style={{ fontSize: 10, color: '#7B2D16', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 2 }}>Check Out</p>
-            <p style={{ fontSize: 13, color: '#1a1a1a', fontWeight: 500 }}>13 May 2025</p>
+          {/* Check Out */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
+            <div className="hidden md:block"><CalIcon /></div>
+            <div className="text-center sm:text-left">
+              <p className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5">Check Out</p>
+              <p className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium whitespace-nowrap">13 May 25</p>
+            </div>
           </div>
-        </div>
 
-        {/* Guests */}
-        <div className="flex items-center gap-3 flex-1 px-5 py-3 w-full sm:w-auto">
-          <PersonIcon />
-          <div>
-            <p style={{ fontSize: 10, color: '#7B2D16', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 2 }}>Guests</p>
-            <p style={{ fontSize: 13, color: '#1a1a1a', fontWeight: 500 }}>2 Guests</p>
+          {/* Guests */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
+            <div className="hidden md:block"><PersonIcon /></div>
+            <div className="text-center sm:text-left">
+              <p className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5">Guests</p>
+              <p className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium whitespace-nowrap">2 Guests</p>
+            </div>
           </div>
         </div>
 
         {/* Check Availability button */}
-        <div className="px-3 py-2 w-full sm:w-auto shrink-0">
+        <div className="px-3 py-3 w-full sm:w-auto shrink-0">
           <motion.button
             whileHover={{ backgroundColor: '#6a2513' }}
             whileTap={{ scale: 0.97 }}
@@ -153,11 +157,19 @@ export default function Hero() {
           }}
         />
 
-        {/* Smooth eased gradient angled at 105deg to match the left text curve and seamlessly fade out without sharp edges */}
+        {/* Mobile/Tablet Gradient: Covers the left and top for text readability, but leaves right side visible */}
         <div 
-          className="absolute inset-0 bg-white/95 lg:bg-transparent z-[1]"
+          className="absolute inset-0 z-[1] lg:hidden"
           style={{
-            backgroundImage: `linear-gradient(105deg, #ffffff 0%, #ffffff 22%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.88) 35%, rgba(255,255,255,0.65) 44%, rgba(255,255,255,0.35) 54%, rgba(255,255,255,0.1) 64%, transparent 72%)`
+            background: `linear-gradient(110deg, #ffffff 0%, #ffffff 55%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.4) 85%, transparent 100%)`
+          }}
+        />
+
+        {/* Desktop Gradient: Smooth eased gradient angled at 105deg */}
+        <div 
+          className="absolute inset-0 z-[1] hidden lg:block"
+          style={{
+            background: `linear-gradient(105deg, #ffffff 0%, #ffffff 22%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.88) 35%, rgba(255,255,255,0.65) 44%, rgba(255,255,255,0.35) 54%, rgba(255,255,255,0.1) 64%, transparent 72%)`
           }}
         />
         <div className="absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-white to-transparent pointer-events-none z-[1]" />
@@ -170,11 +182,10 @@ export default function Hero() {
         <div className="pointer-events-auto" style={{ maxWidth: 500 }}>
           {/* WELCOME TO */}
           <motion.p
-            className="font-display"
+            className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            style={{ fontSize: 30, fontWeight: 900, letterSpacing: '0.22em', color: '#7B2D16', textTransform: 'uppercase', marginBottom: 11 }}
           >
             Welcome To
           </motion.p>
@@ -185,7 +196,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontSize: 'clamp(3.8rem, 5.5vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 6, whiteSpace: 'nowrap' }}
+            style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 6, whiteSpace: 'nowrap' }}
           >
             <span style={{ color: '#1a1a1a' }}>Chidiya </span>
             <span style={{ color: '#7B2D16' }}>Ghar</span>
@@ -193,10 +204,10 @@ export default function Hero() {
 
           {/* Nesting Professional */}
           <motion.p
+            className="text-[12px] md:text-[15px] font-normal tracking-[0.52em] text-[#1a1a1a] uppercase mb-6"
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.5 }}
-            style={{ fontSize: 15, fontWeight: 400, letterSpacing: '0.52em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
           >
             Nesting Professional
           </motion.p>
@@ -213,10 +224,10 @@ export default function Hero() {
 
           {/* Tagline */}
           <motion.p
+            className="text-[16px] md:text-[19px] font-light text-[#555] leading-relaxed mb-8 max-w-[400px]"
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.48, duration: 0.6 }}
-            style={{ fontSize: 19, fontWeight: 300, color: '#555', lineHeight: 1.45, marginBottom: 36, maxWidth: 400 }}
           >
             Where comfort meets warmth and every moment feels like home.
           </motion.p>

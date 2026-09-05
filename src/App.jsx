@@ -10,6 +10,7 @@ import GallerySection from './components/GallerySection'
 import LocationMap from './components/LocationMap'
 import MeetingBanner from './components/MeetingBanner'
 import Footer from './components/Footer'
+import FloatingInquiry from './components/FloatingInquiry'
 import ScrollCompanion from './components/common/ScrollCompanion'
 import CursorTrail from './components/common/CursorTrail'
 
@@ -80,7 +81,7 @@ export default function App() {
       
       {/* Content wrapper with left margin for the desktop sidebar */}
       <div className="lg:ml-[160px] flex flex-col min-h-screen">
-        <main style={{ backgroundColor: '#FAF6F1' }} className="flex-1">
+        <main style={{ backgroundColor: '#FAF6F1' }} className="flex-1 pt-16 lg:pt-0">
         {/* Hero — white badge */}
         <Hero />
         {/* Rooms & Suites — brown */}
@@ -100,6 +101,9 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      
+      {/* Global floating UI */}
+      <FloatingInquiry />
     </>
   )
 }

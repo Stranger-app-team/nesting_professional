@@ -55,7 +55,7 @@ export default function Dining() {
           {/* ── Right Images Grid ── */}
           <div className="lg:col-span-8 grid grid-cols-3 gap-3 lg:gap-5">
             <Reveal delay={0.2} className="h-full">
-              <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-[16px]">
+              <div className="relative h-[160px] sm:h-[300px] lg:h-[500px] overflow-hidden rounded-[16px]">
                 <ImageWithFallback
                   src={dining1}
                   alt="Dining Hall"
@@ -64,7 +64,7 @@ export default function Dining() {
               </div>
             </Reveal>
             <Reveal delay={0.25} className="h-full">
-              <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-[16px]">
+              <div className="relative h-[160px] sm:h-[300px] lg:h-[500px] overflow-hidden rounded-[16px]">
                 <ImageWithFallback
                   src={dining2}
                   alt="Delicious Food"
@@ -73,7 +73,7 @@ export default function Dining() {
               </div>
             </Reveal>
             <Reveal delay={0.3} className="h-full">
-              <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-[16px]">
+              <div className="relative h-[160px] sm:h-[300px] lg:h-[500px] overflow-hidden rounded-[16px]">
                 <ImageWithFallback
                   src={dining3}
                   alt="Outdoor Dining"

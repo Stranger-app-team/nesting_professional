@@ -151,7 +151,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <nav className="flex-1 flex flex-col items-start justify-center gap-6 px-10">
+            <nav className="flex-1 flex flex-col items-start justify-start gap-5 px-8 pt-8 pb-12 overflow-y-auto">
               {navLinks.map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -163,22 +163,24 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + i * 0.07 }}
-                  className="font-display text-4xl text-[#333] hover:text-[#7B2D16] transition-colors flex items-center gap-4"
+                  className="font-display text-2xl text-[#333] hover:text-[#7B2D16] transition-colors flex items-center gap-3.5"
                 >
-                  <item.icon className="w-8 h-8 opacity-50" />
+                  <item.icon className="w-6 h-6 opacity-50" />
                   {item.label}
                 </motion.a>
               ))}
-              <motion.a
-                href="#contact"
-                onClick={() => setOpen(false)}
+              <motion.button
+                onClick={() => {
+                  setOpen(false)
+                  window.dispatchEvent(new CustomEvent('openInquiry'))
+                }}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="mt-6 bg-[#7B2D16] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#6a2513] transition-colors shadow-sm"
+                transition={{ delay: 0.5 }}
+                className="mt-4 bg-[#7B2D16] text-white font-semibold px-6 py-2.5 rounded-md hover:bg-[#6a2513] transition-colors shadow-sm text-lg"
               >
                 Book Now
-              </motion.a>
+              </motion.button>
             </nav>
           </motion.div>
         )}
