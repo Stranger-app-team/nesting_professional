@@ -88,8 +88,8 @@ export default function Footer() {
                 { name: 'Amenities', href: '#amenities' },
                 { name: 'Gallery', href: '#gallery' },
                 { name: 'Location', href: '#location' },
-                { name: 'Offers', href: '#contact' },
-                { name: 'Contact Us', href: '#contact' },
+                // { name: 'Offers', href: '#contact' },
+                // { name: 'Contact Us', href: '#contact' },
               ].map((item) => (
                 <a key={item.name} href={item.href} className="text-white/50 text-[12px] hover:text-[#C9A06A] transition-colors duration-200">
                   {item.name}
