@@ -57,15 +57,15 @@ export default function Footer() {
                 </svg>
               </a>
               {/* Globe/TripAdvisor */}
-              <a href="#" aria-label="Website"
+              {/* <a href="#" aria-label="Website"
                 className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#7B2D16] transition-colors duration-200">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8">
                   <circle cx="12" cy="12" r="10"/>
                   <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
                 </svg>
-              </a>
+              </a> */}
               {/* TripAdvisor owl/circle */}
-              <a href="#" aria-label="TripAdvisor"
+              {/* <a href="#" aria-label="TripAdvisor"
                 className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#7B2D16] transition-colors duration-200">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8">
                   <circle cx="12" cy="12" r="9"/>
@@ -73,7 +73,7 @@ export default function Footer() {
                   <circle cx="16" cy="12" r="2.5"/>
                   <path d="M5 8C6 5 9 4 12 4C15 4 18 5 19 8" strokeLinecap="round"/>
                 </svg>
-              </a>
+              </a> */}
             </div>
           </div>
 
