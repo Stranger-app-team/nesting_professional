@@ -3,9 +3,9 @@ import Reveal from './common/Reveal'
 import ImageWithFallback from './common/ImageWithFallback'
 
 // Placeholders for the dining images based on the screenshot
-import dining1 from '../assets/image/gal-3.png'
-import dining2 from '../assets/image/gal-4.png'
-import dining3 from '../assets/image/gal-5.png'
+import dining1 from '../assets/image/dining/image.png'
+import dining2 from '../assets/image/dining/image copy.png'
+import dining3 from '../assets/image/dining/image copy 2.png'
 
 export default function Dining() {
   return (

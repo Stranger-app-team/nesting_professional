@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import ImageWithFallback from './common/ImageWithFallback'
 import Reveal from './common/Reveal'
 import acc1 from '../assets/image/acc-1.png'
 import acc2 from '../assets/image/acc-2.png'
 import acc3 from '../assets/image/acc-3.png'
+import acc4 from '../assets/image/acc-4.png'
+import acc5 from '../assets/image/acc-5.png'
 
 const rooms = [
   {
@@ -27,16 +30,32 @@ const rooms = [
     price: '₹8,500',
     image: acc3,
   },
+  {
+    id: 'studio',
+    name: 'Studio Room',
+    desc: 'Compact yet fully equipped for the solo traveler.',
+    price: '₹3,500',
+    image: acc4,
+  },
+  {
+    id: 'family',
+    name: 'Family Suite',
+    desc: 'Plenty of space for everyone to relax and unwind together.',
+    price: '₹10,500',
+    image: acc5,
+  },
 ]
 
 function RoomCard({ room, index }) {
   return (
     <motion.div
+      layout
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white overflow-hidden group p-4 flex flex-col justify-between"
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-white overflow-hidden group p-4 flex flex-col justify-between w-[85vw] sm:w-[340px] lg:w-[380px] shrink-0 snap-start"
       style={{ 
         boxShadow: '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)', 
         borderRadius: '20px' 
@@ -80,6 +99,15 @@ function RoomCard({ room, index }) {
 }
 
 export default function Rooms() {
+  const scrollRef = useRef(null)
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }
+
   return (
     <section id="rooms" style={{ backgroundColor: '#2A1205' }} className="pt-16 pb-12 scroll-mt-24">
       
@@ -128,23 +156,36 @@ export default function Rooms() {
           </Reveal>
         </div>
 
-        {/* 3-column room grid with tighter gaps */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mb-10">
-          {rooms.map((room, i) => (
-            <RoomCard key={room.id} room={room} index={i} />
-          ))}
-        </div>
-
-        {/* View All Rooms button — centered */}
-        <div className="flex justify-center">
-          <motion.a
-            href="#contact"
-            whileHover={{ backgroundColor: '#C9A06A', color: '#1a1a1a' }}
-            whileTap={{ scale: 0.97 }}
-            className="border border-[#C9A06A] text-[#C9A06A] font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide uppercase"
+        {/* Horizontal scroll slider with Navigation Arrows */}
+        <div className="relative group/slider">
+          
+          {/* Left Arrow */}
+          <button 
+            onClick={() => scroll('left')}
+            className="absolute left-2 lg:-left-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#C9A06A] hover:text-[#1a1a1a] transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
+            aria-label="Scroll left"
           >
-            View All Rooms
-          </motion.a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-4 lg:gap-5 pb-8 hide-scrollbar scroll-smooth">
+            {rooms.map((room, i) => (
+              <RoomCard key={room.id} room={room} index={i} />
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button 
+            onClick={() => scroll('right')}
+            className="absolute right-2 lg:-right-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#C9A06A] hover:text-[#1a1a1a] transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
+            aria-label="Scroll right"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
