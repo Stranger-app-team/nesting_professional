@@ -16,8 +16,10 @@ export default {
         rust: '#8C5A3C',       // warm feather brown, sparingly
       },
       fontFamily: {
-        display: ['"Fraunces"', 'serif'],
-        body: ['"Manrope"', 'sans-serif'],
+        sans: ['Delight', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
+        title: ['Montserrat', 'sans-serif'],
+        body: ['Delight', 'sans-serif'],
       },
       fontSize: {
         'display-xl': ['clamp(3.2rem, 8vw, 8rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],

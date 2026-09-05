@@ -1,33 +1,34 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ShoppingBag, Trophy, Briefcase, Car } from 'lucide-react'
 import Reveal from './common/Reveal'
 import puneMap from '../assets/image/pune-location.png'
 
 const landmarks = [
   {
     id: 'highstreet',
-    icon: '🛍️',
+    icon: <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />,
     title: 'Near Balewadi High Street',
     desc: 'Top dining, cafes & vibrant retail',
     coords: { top: '34%', left: '37.5%' },
   },
   {
     id: 'stadium',
-    icon: '🏟️',
+    icon: <Trophy className="w-5 h-5" strokeWidth={1.5} />,
     title: 'Near Balewadi Stadium',
     desc: 'Close to major sports & event arenas',
     coords: { top: '29%', left: '32.5%' },
   },
   {
     id: 'ithub',
-    icon: '💼',
+    icon: <Briefcase className="w-5 h-5" strokeWidth={1.5} />,
     title: 'Centre of Pune IT Hub',
     desc: 'Minutes to Hinjewadi & Baner tech parks',
     coords: { top: '50%', left: '50%' },
   },
   {
     id: 'perks',
-    icon: '🚗',
+    icon: <Car className="w-5 h-5" strokeWidth={1.5} />,
     title: 'Nearby Location Perks',
     desc: 'Expressway, airport & city transit links',
     coords: { top: '42%', left: '62%' },
@@ -69,7 +70,7 @@ export default function LocationMap() {
             <Reveal delay={0.06}>
               <h2
                 className="font-display text-[26px] sm:text-[32px] lg:text-[38px] font-normal text-[#1a1a1a] leading-[1.15] mb-4"
-                style={{ fontFamily: '"Fraunces", serif' }}
+               
               >
                 Connected to Everything That Matters in Pune
               </h2>
@@ -103,8 +104,8 @@ export default function LocationMap() {
                         : 'bg-[#FAF6F1]/85 border border-black/[0.03] hover:bg-[#FAF6F1]'
                     }`}
                   >
-                    <span className={`w-8 h-8 shrink-0 rounded-[8px] flex items-center justify-center text-[15px] shadow-sm transition-colors ${
-                      isSelected ? 'bg-[#7B2D16] text-white' : 'bg-white'
+                    <span className={`shrink-0 flex items-center justify-center transition-all duration-200 ${
+                      isSelected ? 'text-[#7B2D16] scale-110' : 'text-[#7B2D16]'
                     }`}>
                       {item.icon}
                     </span>

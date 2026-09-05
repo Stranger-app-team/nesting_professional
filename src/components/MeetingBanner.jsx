@@ -34,7 +34,7 @@ export default function MeetingBanner() {
           <Reveal delay={0.1}>
             <h2
               className="font-display text-[26px] sm:text-[32px] lg:text-[36px] font-normal text-[#1a1a1a] leading-[1.15] mb-2"
-              style={{ fontFamily: '"Fraunces", serif' }}
+             
             >
               Got a Meeting Tomorrow?
             </h2>
@@ -66,7 +66,7 @@ export default function MeetingBanner() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7 }}
             className="flex flex-col items-center sm:items-end text-[#7B2D16] text-[22px] sm:text-[27px] leading-[1.22] tracking-wide"
-            style={{ fontFamily: '"Caveat", "Playfair Display", Georgia, cursive, serif', fontStyle: 'italic', fontWeight: 500 }}
+            style={{ fontStyle: 'italic', fontWeight: 500 }}
           >
             <span className="transform rotate-[-3deg]">Meet </span>
             <span className="transform rotate-[2deg] sm:mr-2">Work</span>

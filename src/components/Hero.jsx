@@ -170,6 +170,7 @@ export default function Hero() {
         <div className="pointer-events-auto" style={{ maxWidth: 500 }}>
           {/* WELCOME TO */}
           <motion.p
+            className="font-display"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
@@ -180,13 +181,14 @@ export default function Hero() {
 
           {/* CHIDIYA GHAR */}
           <motion.h1
+            className="font-display"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: '"Fraunces", serif', fontSize: 'clamp(3.8rem, 5.5vw, 5rem)', fontWeight: 1400, lineHeight: 1.05, marginBottom: 6 }}
+            style={{ fontSize: 'clamp(3.8rem, 5.5vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 6, whiteSpace: 'nowrap' }}
           >
             <span style={{ color: '#1a1a1a' }}>Chidiya </span>
-            <span style={{ color: '#7B2D16', fontStyle: 'italic' }}>Ghar</span>
+            <span style={{ color: '#7B2D16' }}>Ghar</span>
           </motion.h1>
 
           {/* Nesting Professional */}
@@ -194,7 +196,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.5 }}
-            style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.52em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
+            style={{ fontSize: 15, fontWeight: 400, letterSpacing: '0.52em', color: '#1a1a1a', textTransform: 'uppercase', marginBottom: 24 }}
           >
             Nesting Professional
           </motion.p>
@@ -214,7 +216,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.48, duration: 0.6 }}
-            style={{ fontSize: 19, color: '#555', lineHeight: 1.65, marginBottom: 36, maxWidth: 500 }}
+            style={{ fontSize: 19, fontWeight: 300, color: '#555', lineHeight: 1.45, marginBottom: 36, maxWidth: 400 }}
           >
             Where comfort meets warmth and every moment feels like home.
           </motion.p>

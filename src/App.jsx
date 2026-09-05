@@ -3,7 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Rooms from './components/Rooms'
-import AmenitiesAbout from './components/AmenitiesAbout'
+import Amenities from './components/Amenities'
+import Dining from './components/Dining'
+import About from './components/About'
 import GallerySection from './components/GallerySection'
 import LocationMap from './components/LocationMap'
 import MeetingBanner from './components/MeetingBanner'
@@ -75,21 +77,29 @@ export default function App() {
       <ScrollCompanion />
 
       <Navbar />
-      <main style={{ backgroundColor: '#FAF6F1' }}>
-        {/* Hero — white bg with room image */}
+      
+      {/* Content wrapper with left margin for the desktop sidebar */}
+      <div className="lg:ml-[160px] flex flex-col min-h-screen">
+        <main style={{ backgroundColor: '#FAF6F1' }} className="flex-1">
+        {/* Hero — white badge */}
         <Hero />
-        {/* Rooms & Suites — warm cream */}
+        {/* Rooms & Suites — brown */}
         <Rooms />
-        {/* Amenities + About Us — warm cream */}
-        <AmenitiesAbout />
+        {/* Amenities — white badge */}
+        <Amenities />
+        {/* Dining — brown */}
+        <Dining />
+        {/* About — white badge */}
+        <About />
         {/* Gallery — warm cream */}
         <GallerySection />
         {/* Pune Location & Connectivity — small compact section */}
         <LocationMap />
         {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace (commented out) */}
         {/* <MeetingBanner /> */}
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

@@ -81,27 +81,27 @@ function RoomCard({ room, index }) {
 
 export default function Rooms() {
   return (
-    <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-16 pb-12 scroll-mt-24">
+    <section id="rooms" style={{ backgroundColor: '#2A1205' }} className="pt-16 pb-12 scroll-mt-24">
       
       {/* ── INTRO SECTION ── */}
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-16">
         <Reveal delay={0.1}>
-          <h2 className="font-display text-[28px] lg:text-[40px] font-normal text-[#1a1a1a] mb-6" style={{ fontFamily: '"Fraunces", serif' }}>
+          <h2 className="font-display text-[28px] lg:text-[40px] font-normal text-white mb-6">
             A Little Escape. Right in Your City.
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="text-[#555] text-[16px] leading-relaxed mb-4">
+          <p className="text-white/70 text-[16px] leading-relaxed mb-4">
             Step away from the usual routine and spend your day somewhere a little more interesting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="text-[#555] text-[16px] leading-relaxed mb-8">
+          <p className="text-white/70 text-[16px] leading-relaxed mb-8">
             Chidiya Ghar is a refreshing city experience designed for families, friends, kids and anyone looking for a fun day out without going far.
           </p>
         </Reveal>
         <Reveal delay={0.25}>
-          <p className="text-[#7B2D16] font-bold text-[14px] uppercase tracking-[0.2em]">
+          <p className="text-[#C9A06A] font-bold text-[14px] uppercase tracking-[0.2em]">
             Explore. Relax. Discover. Make Memories.
           </p>
         </Reveal>
@@ -112,17 +112,17 @@ export default function Rooms() {
         {/* Section heading */}
         <div className="text-center mb-10">
           <Reveal type="fade">
-            <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-3">
+            <p className="text-[12px] font-bold tracking-[0.22em] text-[#C9A06A] uppercase mb-3">
               Rooms & Suites
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="font-display text-[28px] lg:text-[36px] font-normal text-[#1a1a1a] mb-3" style={{ fontFamily: '"Fraunces", serif' }}>
+            <h2 className="font-display text-[28px] lg:text-[36px] font-normal text-white mb-3">
               Your Day Was Busy. Your Room Doesn't Have to Be.
             </h2>
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="text-[#666] text-[14px] max-w-[520px] mx-auto leading-relaxed">
+            <p className="text-white/70 text-[14px] max-w-[520px] mx-auto leading-relaxed">
               Thoughtfully designed rooms with everything you need to switch off after a productive day.
             </p>
           </Reveal>
@@ -139,9 +139,9 @@ export default function Rooms() {
         <div className="flex justify-center">
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.02, backgroundColor: '#6a2513' }}
+            whileHover={{ backgroundColor: '#C9A06A', color: '#1a1a1a' }}
             whileTap={{ scale: 0.97 }}
-            className="bg-[#7B2D16] text-white font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide"
+            className="border border-[#C9A06A] text-[#C9A06A] font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide uppercase"
           >
             View All Rooms
           </motion.a>

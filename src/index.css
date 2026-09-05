@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Full-Version/WebFonts/Montserrat/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Full-Version/WebFonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Full-Version/WebFonts/Montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Full-Version/WebFonts/Montserrat/Montserrat-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Delight';
+  src: url('./assets/fonts/delight-font-family/delight-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Delight';
+  src: url('./assets/fonts/delight-font-family/delight-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Delight';
+  src: url('./assets/fonts/delight-font-family/delight-black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +63,8 @@ body {
   margin: 0;
   background-color: #FAF6F1;
   color: #1a1a1a;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Delight', sans-serif;
+  letter-spacing: 2px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -48,10 +98,7 @@ textarea:focus-visible {
   border-radius: 2px;
 }
 
-.font-display {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'SOFT' 40;
-}
+
 
 /* subtle grain overlay used on dark sections for texture */
 .grain-overlay {
@@ -277,4 +324,19 @@ textarea:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─── Custom Scrollbar for Sidebar ────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
 }

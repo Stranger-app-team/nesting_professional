@@ -28,20 +28,20 @@ export default function GallerySection() {
   const goPrev = (e) => { e.stopPropagation(); setOpen((i) => (i - 1 + photos.length) % photos.length) }
 
   return (
-    <section id="gallery" style={{ backgroundColor: '#FAF6F1' }} className="pt-6 pb-16 scroll-mt-24">
+    <section id="gallery" style={{ backgroundColor: '#2A1205' }} className="pt-6 pb-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
 
         {/* Section heading */}
         <div className="text-center mb-12">
           <Reveal type="fade">
-            <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-3">
+            <p className="text-[12px] font-bold tracking-[0.22em] text-[#C9A06A] uppercase mb-3">
               Gallery
             </p>
           </Reveal>
           <Reveal delay={0.08}>
             <h2
-              className="font-display text-[28px] lg:text-[36px] font-normal text-[#1a1a1a]"
-              style={{ fontFamily: '"Fraunces", serif' }}
+              className="font-display text-[28px] lg:text-[36px] font-normal text-white"
+             
             >
               Moments at Chidiya Ghar
             </h2>
@@ -109,9 +109,9 @@ export default function GallerySection() {
         <div className="flex justify-center">
           <motion.button
             onClick={() => setOpen(0)}
-            whileHover={{ scale: 1.02, backgroundColor: '#6a2513' }}
+            whileHover={{ backgroundColor: '#C9A06A', color: '#1a1a1a' }}
             whileTap={{ scale: 0.97 }}
-            className="bg-[#7B2D16] text-white font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide cursor-pointer"
+            className="border border-[#C9A06A] text-[#C9A06A] font-semibold text-[14px] px-9 py-3 rounded-md transition-colors duration-200 tracking-wide cursor-pointer uppercase"
           >
             View More Photos
           </motion.button>
