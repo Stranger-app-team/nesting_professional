@@ -111,10 +111,10 @@ function BookingBar() {
         {/* Check Availability button */}
         <div className="px-3 py-3 w-full sm:w-auto shrink-0">
           <motion.button
-            whileHover={{ backgroundColor: '#6a2513' }}
+            whileHover={{ backgroundColor: '#1a0b03' }}
             whileTap={{ scale: 0.97 }}
             style={{
-              background: '#7B2D16',
+              background: '#2A1205',
               color: '#fff',
               fontWeight: 600,
               fontSize: 13,
@@ -199,7 +199,7 @@ export default function Hero() {
             style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 6, whiteSpace: 'nowrap' }}
           >
             <span style={{ color: '#1a1a1a' }}>Chidiya </span>
-            <span style={{ color: '#7B2D16' }}>Ghar</span>
+            <span style={{ color: '#2A1205' }}>Ghar</span>
           </motion.h1>
 
           {/* Nesting Professional */}
@@ -241,9 +241,9 @@ export default function Hero() {
           >
             <motion.a
               href="#rooms"
-              whileHover={{ backgroundColor: '#6a2513' }}
+              whileHover={{ backgroundColor: '#1a0b03' }}
               whileTap={{ scale: 0.97 }}
-              style={{ background: '#7B2D16', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
+              style={{ background: '#2A1205', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
             >
               Explore Rooms
             </motion.a>
