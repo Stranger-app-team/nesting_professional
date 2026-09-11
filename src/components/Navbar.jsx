@@ -6,7 +6,7 @@ import whiteLogo from '../assets/image/chidiya_ghar_logo_animated.gif'
 
 const navLinks = [
   { label: 'Home', href: '#top', icon: Home },
-  { label: 'Rooms & Suites', href: '#rooms', icon: BedDouble },
+  { label: 'Rooms', href: '#rooms', icon: BedDouble },
   { label: 'Amenities', href: '#amenities', icon: Leaf },
   { label: 'Dining', href: '#dining', icon: Utensils },
   { label: 'About', href: '#about', icon: User },
@@ -74,7 +74,7 @@ export default function Navbar() {
       </header>
 
       {/* ---------------- DESKTOP SIDEBAR (lg:flex) ---------------- */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-[160px] bg-white shadow-[2px_0_15px_-3px_rgba(0,0,0,0.05)] z-50 flex-col items-center py-4 border-r border-[#7B2D16]/10">
+      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-[160px] bg-[#2A1205] shadow-[2px_0_15px_-3px_rgba(0,0,0,0.05)] z-50 flex-col items-center py-4 border-r border-[#7B2D16]/10">
         
         {/* Logo at the top */}
         <div className="mb-6 px-4 w-full">
@@ -101,9 +101,9 @@ export default function Navbar() {
                 {/* Connecting Line & Dot (skip for first item) */}
                 {index > 0 && (
                   <div className="flex flex-col items-center my-1 opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-[1px] h-3 bg-[#8c5d4e]"></div>
-                    <div className="w-1 h-1 rounded-full bg-[#8c5d4e] my-0.5"></div>
-                    <div className="w-[1px] h-3 bg-[#8c5d4e]"></div>
+                    <div className="w-[1px] h-3 bg-[#F26836]"></div>
+                    <div className="w-1 h-1 rounded-full bg-[#F26836] my-0.5"></div>
+                    <div className="w-[1px] h-3 bg-[#F26836]"></div>
                   </div>
                 )}
                 
@@ -114,12 +114,12 @@ export default function Navbar() {
                 >
                   <Icon 
                     strokeWidth={2}
-                    className={`w-5 h-5 transition-opacity duration-300 text-[#8c5d4e] ${
+                    className={`w-5 h-5 transition-opacity duration-300 text-[#F26836] ${
                       isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
                     }`} 
                   />
                   <span 
-                    className={`text-[9.5px] font-bold tracking-[0.15em] uppercase text-center transition-opacity duration-300 text-[#8c5d4e] ${
+                    className={`text-[9.5px] font-bold tracking-[0.15em] uppercase text-center transition-opacity duration-300 text-[#F26836] ${
                       isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
                     }`}
                   >
