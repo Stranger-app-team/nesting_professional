@@ -14,7 +14,7 @@ import FloatingInquiry from './components/FloatingInquiry'
 import ScrollCompanion from './components/common/ScrollCompanion'
 import CursorTrail from './components/common/CursorTrail'
 
-import loaderVideo from './assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.mp4'
+import loaderVideo from './assets/logo/Chidiya Ghar Logo Final Colour.mp4'
 
 // Full-screen video loading curtain
 function LoadCurtain({ onDone }) {
