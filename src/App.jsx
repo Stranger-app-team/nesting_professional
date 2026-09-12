@@ -14,7 +14,7 @@ import FloatingInquiry from './components/FloatingInquiry'
 import ScrollCompanion from './components/common/ScrollCompanion'
 import CursorTrail from './components/common/CursorTrail'
 
-import loaderVideo from './assets/VID-20260904-WA0015.mp4'
+import loaderVideo from './assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.mp4'
 
 // Full-screen video loading curtain
 function LoadCurtain({ onDone }) {
@@ -22,7 +22,7 @@ function LoadCurtain({ onDone }) {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 1.0
+      videoRef.current.playbackRate = 1.5
       
       // 1. Try to play WITH sound automatically
       const playPromise = videoRef.current.play()
