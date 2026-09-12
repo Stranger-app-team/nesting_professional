@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Home, BedDouble, Leaf, Utensils, User, Image as ImageIcon, Tag, Mail } from 'lucide-react'
 
-import whiteLogo from '../assets/logo/main_logo.png'
+import mainLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.png'
 
 const navLinks = [
   { label: 'Home', href: '#top', icon: Home },
@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="px-4 py-2 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center shrink-0">
             <motion.img
-              src={whiteLogo}
+              src={mainLogo}
               alt="Chidiya Ghar Logo"
               className="h-8 md:h-10 w-auto object-contain"
               whileHover={{ scale: 1.05 }}
@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="mb-8 mt-2 px-5 w-full flex justify-center">
           <a href="#top" className="block outline-none">
             <motion.img
-              src={whiteLogo}
+              src={mainLogo}
               alt="Chidiya Ghar Logo"
               className="w-full max-w-[70px] h-auto object-contain"
               whileHover={{ scale: 1.05 }}
@@ -141,7 +141,7 @@ export default function Navbar() {
           >
             <div className="flex justify-between items-center p-6 border-b border-[#7B2D16]/10">
               <a href="#top" onClick={() => setOpen(false)} className="block outline-none">
-                <img src={whiteLogo} alt="Chidiya Ghar" className="h-8 w-auto object-contain" />
+                <img src={mainLogo} alt="Chidiya Ghar" className="h-8 w-auto object-contain" />
               </a>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-2xl hover:text-[#7B2D16] transition-colors">
                 ✕
