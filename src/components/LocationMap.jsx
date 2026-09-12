@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Briefcase, Car, TrainFront, Bus, MapPin } from 'lucide-react'
 import Reveal from './common/Reveal'
 import puneMap from '../assets/image/pune-location.png'
-import mapVideo from '../assets/video/map.webm'
+import mapVideo from '../assets/logo/d554a20447ba46479eedcc9865dc1771.webm'
 
 const landmarks = [
   {
@@ -36,14 +36,6 @@ const landmarks = [
   },
 ]
 
-// Classic Map Pin SVG Icon
-function MapPinSVG({ className = '' }) {
-  return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="#7B2D16" className={`drop-shadow-lg ${className}`}>
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-    </svg>
-  )
-}
 
 export default function LocationMap() {
   const [activeLandmark, setActiveLandmark] = useState(null)
@@ -165,27 +157,7 @@ export default function LocationMap() {
                 />
               </div>
 
-              {/* Chidiya Ghar Pin Marker (Centered relative to the video) */}
-              <div
-                className="absolute flex flex-col items-center z-30 -translate-x-1/2 -translate-y-[90%]"
-                style={{ top: '56%', left: '55%' }}
-              >
-                <motion.div
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex flex-col items-center"
-                >
-                  <MapPinSVG />
-                </motion.div>
 
-                {/* Chidiya Ghar Label Badge */}
-                <motion.div
-                  animate={{ scale: isMapHovered ? 1.05 : 1 }}
-                  className="bg-[#7B2D16] text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xl whitespace-nowrap mt-0.5 tracking-wide border border-white/20"
-                >
-                  Chidiya Ghar
-                </motion.div>
-              </div>
 
               {/* Landmark Dots & Labels — All reveal clearly on map hover or when clicked */}
               {landmarks.map((item) => {
