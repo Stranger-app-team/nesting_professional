@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import brownLogo from '../assets/image/chidiya_ghar_logo_animated.gif'
+import highlightLogo from '../assets/logo/Highlight Logo PNG.png'
 
 // Decorative bird background
 function FooterBirds() {
@@ -30,9 +30,9 @@ export default function Footer() {
           <div>
             <a href="#top" className="inline-block mb-5">
               <img 
-                src={brownLogo} 
+                src={highlightLogo} 
                 alt="Chidiya Ghar Logo" 
-                className="h-16 lg:h-20 w-auto object-contain scale-[2.5] origin-left hover:scale-[2.6] transition-transform duration-300" 
+                className="h-14 lg:h-16 w-auto object-contain hover:scale-105 transition-transform duration-300 origin-left" 
               />
             </a>
             <p className="text-white/45 text-[12px] leading-relaxed mb-6">

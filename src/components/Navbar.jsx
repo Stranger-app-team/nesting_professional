@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Home, BedDouble, Leaf, Utensils, User, Image as ImageIcon, Tag, Mail } from 'lucide-react'
-import logoSvg from '../assets/image/chidiya_ghar_logo_animated.gif'
-import whiteLogo from '../assets/image/chidiya_ghar_logo_animated.gif'
+
+import whiteLogo from '../assets/logo/main_logo.png'
 
 const navLinks = [
   { label: 'Home', href: '#top', icon: Home },
@@ -53,11 +53,10 @@ export default function Navbar() {
         <div className="px-4 py-2 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center shrink-0">
             <motion.img
-              src={logoSvg}
+              src={whiteLogo}
               alt="Chidiya Ghar Logo"
-              className="h-[48px] w-auto object-contain origin-left"
-              initial={{ scale: 2 }}
-              animate={{ scale: 2 }}
+              className="h-8 md:h-10 w-auto object-contain"
+              whileHover={{ scale: 1.05 }}
             />
           </a>
 
@@ -77,15 +76,13 @@ export default function Navbar() {
       <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-[160px] bg-[#2A1205] shadow-[2px_0_15px_-3px_rgba(0,0,0,0.05)] z-50 flex-col items-center py-4 border-r border-[#7B2D16]/10">
         
         {/* Logo at the top */}
-        <div className="mb-6 px-4 w-full">
+        <div className="mb-8 mt-2 px-5 w-full flex justify-center">
           <a href="#top" className="block outline-none">
             <motion.img
-              src={logoSvg}
+              src={whiteLogo}
               alt="Chidiya Ghar Logo"
-              className="w-full h-auto object-contain"
-              initial={{ scale: 1.5 }}
-              animate={{ scale: 1.5 }}
-              whileHover={{ scale: 1.55 }}
+              className="w-full max-w-[70px] h-auto object-contain"
+              whileHover={{ scale: 1.05 }}
             />
           </a>
         </div>
@@ -144,7 +141,7 @@ export default function Navbar() {
           >
             <div className="flex justify-between items-center p-6 border-b border-[#7B2D16]/10">
               <a href="#top" onClick={() => setOpen(false)} className="block outline-none">
-                <img src={logoSvg} alt="Chidiya Ghar" className="h-10 w-auto scale-[1.6] origin-left" />
+                <img src={whiteLogo} alt="Chidiya Ghar" className="h-8 w-auto object-contain" />
               </a>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-2xl hover:text-[#7B2D16] transition-colors">
                 ✕
