@@ -81,7 +81,7 @@ export default function About() {
   const cardShadow = '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)'
 
   return (
-    <section id="about" style={{ backgroundColor: '#FAF6F1' }} className="pt-8 pb-16 scroll-mt-24">
+    <section id="about" style={{ backgroundColor: '#2A1205' }} className="pt-20 lg:pt-24 pb-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
         
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-5 items-stretch">

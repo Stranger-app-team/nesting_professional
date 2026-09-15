@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import ImageWithFallback from './common/ImageWithFallback'
-import heroImg from '../assets/image/acc-1.png'
+import heroVideo from '../assets/logo/Camera_panning_across_bedroom_in…_202608311757.mp4'
 
 /* ────────────────────────────────────────────────────────────
    Bird row SVG — matches reference exactly
@@ -174,38 +173,25 @@ export default function Hero() {
 
       {/* ── Background Layer (Full Bleed Image) ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <motion.img
+        <motion.video
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.9, ease: 'easeOut' }}
-          src={heroImg}
-          alt="Chidiya Ghar luxury room"
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover object-center"
         />
-        {/* Top subtle fade so navbar options & Book Now are clearly readable over darker photo areas */}
+        {/* Subtle low fade on left half section */}
         <div 
-          className="absolute inset-x-0 top-0 h-[130px] pointer-events-none z-[1]" 
+          className="absolute inset-y-0 left-0 w-full md:w-[50%] pointer-events-none z-[1]" 
           style={{
-            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.3) 75%, transparent 100%)'
+            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 60%, transparent 100%)'
           }}
         />
-
-        {/* Mobile/Tablet Gradient: Covers the left and top for text readability, but leaves right side visible */}
-        <div 
-          className="absolute inset-0 z-[1] lg:hidden"
-          style={{
-            background: `linear-gradient(110deg, #ffffff 0%, #ffffff 55%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.4) 85%, transparent 100%)`
-          }}
-        />
-
-        {/* Desktop Gradient: Smooth eased gradient angled at 105deg */}
-        <div 
-          className="absolute inset-0 z-[1] hidden lg:block"
-          style={{
-            background: `linear-gradient(105deg, #ffffff 0%, #ffffff 22%, rgba(255,255,255,0.98) 28%, rgba(255,255,255,0.88) 35%, rgba(255,255,255,0.65) 44%, rgba(255,255,255,0.35) 54%, rgba(255,255,255,0.1) 64%, transparent 72%)`
-          }}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-white to-transparent pointer-events-none z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-[40px] bg-gradient-to-t from-white/50 to-transparent pointer-events-none z-[1]" />
       </div>
 
       {/* ── Content Layer ── */}
@@ -287,10 +273,10 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
               style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#1a1a1a', fontSize: 15, fontWeight: 500 }}
             >
-              <span style={{ width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #bbb', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
+              {/* <span style={{ width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #bbb', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
                 <svg width="9" height="11" viewBox="0 0 9 11" fill="none"><polygon points="0,0 9,5.5 0,11" fill="#1a1a1a"/></svg>
-              </span>
-              Watch Video
+              </span> */}
+              {/* Watch Video */}
             </motion.a>
           </motion.div>
         </div>
