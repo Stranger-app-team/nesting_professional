@@ -141,7 +141,7 @@ export default function Rooms() {
         <div className="text-center mb-10">
           <Reveal type="fade">
             <p className="text-[12px] font-bold tracking-[0.22em] text-[#C9A06A] uppercase mb-3">
-              Rooms & Suites
+              Rooms
             </p>
           </Reveal>
           <Reveal delay={0.08}>
