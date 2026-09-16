@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import Reveal from './common/Reveal'
 import birdSvgImage from '../assets/image/Bird Svg.svg'
+import birdVideo from '../assets/logo/1000253046.mp4'
 
 const whyUsData = [
   {
@@ -67,10 +68,19 @@ function AccordionItem({ item, isOpen, onClick }) {
 function BirdsOnWire() {
   return (
     <div className="w-full overflow-hidden flex items-center justify-center h-[48px] sm:h-[56px] relative">
-      <img
-        src={birdSvgImage}
-        alt="Chidiya Ghar Birds"
-        className="w-full min-w-[520px] max-w-none h-auto object-cover select-none pointer-events-none"
+      <video
+        src={birdVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full min-w-[520px] max-w-none h-auto object-cover select-none pointer-events-none mix-blend-multiply"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+          WebkitMaskComposite: 'source-in',
+          maskComposite: 'intersect'
+        }}
       />
     </div>
   )
