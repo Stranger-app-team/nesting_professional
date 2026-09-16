@@ -6,24 +6,24 @@ import birdSvgImage from '../assets/image/Bird Svg.svg'
 
 const whyUsData = [
   {
-    title: "01 — Comfort That Feels Natural",
-    content: "Thoughtfully designed rooms, cozy spaces, and everything you need for a relaxed stay."
+    title: "01 — Hotel Comfort, Home Warmth",
+    content: "Enjoy the cleanliness, privacy, and amenities of a quality hotel with the relaxed, welcoming atmosphere of home."
   },
   {
-    title: "02 — Right Where You Need to Be",
-    content: "Conveniently located near Pune’s IT hubs, major destinations, and the stadium, so the city is never too far away."
+    title: "02 — Truly Flexible Duration",
+    content: "Stay for a day, a week, a month, or as long as your assignment lasts — with zero long-term lease lock-ins or brokerage."
   },
   {
-    title: "03 — A Hotel With Personality",
-    content: "From our playful identity to our interiors, Chidiya Ghar has a distinctive character without trying too hard."
+    title: "03 — Affordable Professional Living",
+    content: "A practical alternative designed to bridge the gap between high-cost hotels, serviced apartments, and restrictive PGs."
   },
   {
-    title: "04 — Hospitality, Made Personal",
-    content: "Friendly, attentive service that makes you feel welcomed rather than simply checked in."
+    title: "04 — Community & Networking",
+    content: "Connect with like-minded corporate employees, tech talent, startup teams, athletes, and visiting professionals."
   },
   {
-    title: "05 — Easy Stays, Good Memories",
-    content: "Whether you're here for work, a match, a quick city visit, or a longer stay, we make coming back to your room the best part of the day."
+    title: "05 — Responsible Living & Decorum",
+    content: "A peaceful, disciplined, and courteous environment where everyone enjoys flexibility while respecting society decorum and privacy."
   }
 ]
 
@@ -86,7 +86,7 @@ export default function About() {
         
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-5 items-stretch">
           
-          {/* ─── About Us ─── */}
+          {/* ─── The Concept & Philosophy ─── */}
           <div
             className="rounded-[20px] pt-7 px-7 lg:pt-10 lg:px-10 pb-[3px] relative overflow-hidden flex flex-col justify-between h-full min-h-[520px] lg:min-h-[580px] scroll-mt-24"
             style={{ 
@@ -95,65 +95,64 @@ export default function About() {
               borderRadius: '20px'
             }}
           >
-            <style>{`
-              .about-scroll-container::-webkit-scrollbar {
-                width: 4px;
-              }
-              .about-scroll-container::-webkit-scrollbar-track {
-                background: rgba(123, 45, 22, 0.04);
-                border-radius: 4px;
-              }
-              .about-scroll-container::-webkit-scrollbar-thumb {
-                background: rgba(123, 45, 22, 0.25);
-                border-radius: 4px;
-              }
-              .about-scroll-container::-webkit-scrollbar-thumb:hover {
-                background: rgba(123, 45, 22, 0.5);
-              }
-            `}</style>
-
             <div className="shrink-0 mb-3">
               <Reveal type="fade">
-                <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-1">
-                  About Us
-                </p>
+                <div className="flex items-center gap-3 mb-1">
+                  <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
+                    About Us
+                  </p>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
+                    <path d="M5 14C8 11 12 11 16 13C17 11 19 9 21 11C20 14 16 17 12 16C8 15 6 18 3 17C2 16 3 15 5 14Z" fill="currentColor"/>
+                  </svg>
+                  <div className="w-20 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
+                </div>
               </Reveal>
             </div>
 
             <div className="relative flex-1 min-h-0 my-2">
-              <div className="about-scroll-container overflow-y-auto max-h-[380px] sm:max-h-[420px] lg:max-h-[500px] pr-3 pb-12 space-y-4 text-[13.5px] sm:text-[14px] leading-relaxed text-[#555]">
+              <div className="pr-1 pb-4 flex flex-col justify-center h-full">
                 
-                <div className="space-y-2.5">
-                  <p className="font-display text-[18px] sm:text-[21px] lg:text-[23px] font-normal text-[#1a1a1a] leading-snug">
-                    Chidiya Ghar is more than just a place to stay. It’s a thoughtfully crafted experience for those who value comfort, character, and a little something different.
-                  </p>
-                  <p className="text-[#666]">
-                    Whether you're visiting Pune for work, catching a game, meeting friends, or simply taking a break from your everyday routine, Chidiya Ghar gives you a comfortable place to settle in.
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#7B2D16]/10 space-y-2.5">
-                  <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a] leading-tight">
-                    Made for Days That Don't Go According to Plan.
+                <div className="space-y-6">
+                  {/* Headline */}
+                  <h3 className="font-display text-[20px] sm:text-[24px] lg:text-[26px] font-normal text-[#1a1a1a] leading-snug">
+                    A modern, professionally managed home-away-from-home for nesting professionals.
                   </h3>
-                  <div className="space-y-1">
-                    <span className="block font-medium text-[#1a1a1a]">Meeting ran late?</span>
-                    <span className="block font-medium text-[#1a1a1a]">Traffic took its time?</span>
-                    <span className="block font-medium text-[#1a1a1a]">Decided to stay the night?</span>
-                    <p className="font-semibold text-[#7B2D16] pt-1">
-                      That's exactly where we come in.
+                  
+                  {/* Summary Concept Paragraph */}
+                  <p className="text-[#555] text-[14.5px] leading-relaxed">
+                    Nest comfortably while pursuing your work. We provide a practical living community that bridges the gap between <strong className="font-medium text-[#7B2D16]">expensive hotels and traditional PGs</strong>—free from high costs and rigid limitations.
+                  </p>
+
+                  <div className="w-12 h-[1px] bg-[#7B2D16]/20"></div>
+
+                  {/* Summary Philosophy Paragraph */}
+                  <div className="space-y-2">
+                    <h4 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]">
+                      The Philosophy
+                    </h4>
+                    <p className="text-[#555] text-[14.5px] leading-relaxed">
+                      Like birds in a nest, we bring together professionals from diverse industries. It's more than accommodation—it's <strong className="font-medium text-[#7B2D16]">the comfort of home with total flexibility</strong>.
                     </p>
                   </div>
-                  <p className="text-[#666]">
-                    Chidiya Ghar combines thoughtful hospitality with modern comfort — so whether you're here for business or simply passing through, your stay feels effortless.
+                  
+                  {/* Quote */}
+                  <div className="p-4 rounded-[12px] bg-[#7B2D16]/5 border border-[#7B2D16]/10">
+                    <p className="font-medium text-[#7B2D16] text-[13px] italic leading-relaxed text-center">
+                      "Everyone has somewhere to go and a journey to pursue—for the duration of your stay, Chidiya Ghar becomes your nest."
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-5 border-t border-[#7B2D16]/10 flex flex-col gap-2.5 items-center justify-center">
+                  <p className="text-[#7B2D16] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-center">
+                    Freedom of living comes with responsibility.
+                  </p>
+                  <p className="text-[#7B2D16] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-center opacity-70">
+                    A preferred partner for corporate tie-ups & sports delegations.
                   </p>
                 </div>
 
               </div>
-              
-              <div 
-                className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#FDF8F4] via-[#FDF8F4]/80 to-transparent z-10" 
-              />
             </div>
             
             <div className="shrink-0 w-full mb-[3px] z-20 relative">
@@ -161,7 +160,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* ─── Why Chidiya Ghar ─── */}
+          {/* ─── The Chidiya Ghar Advantage ─── */}
           <div 
             className="bg-[#FDF8F4] rounded-[20px] p-7 lg:p-10 flex flex-col h-full"
             style={{ 
@@ -171,13 +170,19 @@ export default function About() {
           >
             <div className="flex flex-col flex-1 h-full overflow-hidden relative">
               <Reveal type="fade">
-                <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-2.5">
-                  Why Us
-                </p>
+                <div className="flex items-center gap-3 mb-2.5">
+                  <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
+                    The Advantage
+                  </p>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
+                    <path d="M5 14C8 11 12 11 16 13C17 11 19 9 21 11C20 14 16 17 12 16C8 15 6 18 3 17C2 16 3 15 5 14Z" fill="currentColor"/>
+                  </svg>
+                  <div className="w-20 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
+                </div>
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="font-display text-[24px] lg:text-[28px] font-normal text-[#1a1a1a] mb-2">
-                  Why Chidiya Ghar?
+                  A Home Without Long-Term Commitments
                 </h2>
               </Reveal>
               
@@ -198,13 +203,10 @@ export default function About() {
                 <Reveal delay={0.18}>
                   <div className="mt-2 pt-4 border-t border-[#7B2D16]/10 space-y-2">
                     <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]">
-                      Comfort Without the Complication
+                      Bridging the Living Gap
                     </h3>
                     <p className="text-[#666] text-[13.5px] leading-relaxed">
-                      We keep things simple: a comfortable room, a welcoming atmosphere, thoughtful details, and service that feels personal.
-                    </p>
-                    <p className="text-[#666] text-[13.5px] leading-relaxed">
-                      From the moment you arrive to the moment you check out, our goal is to make your stay smooth, relaxed, and memorable.
+                      Chidiya Ghar bridges the gap between hotels, serviced apartments, rentals, and PGs — offering professionals a flexible place to stay that fits their work, timeline, and lifestyle.
                     </p>
                   </div>
                 </Reveal>

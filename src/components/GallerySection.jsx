@@ -81,9 +81,13 @@ export default function GallerySection() {
         {/* Section heading */}
         <div className="text-center mb-12">
           <Reveal type="fade">
-            <p className="text-[12px] font-bold tracking-[0.22em] text-[#C9A06A] uppercase mb-3">
-              Video Gallery
-            </p>
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="w-10 h-[1px] bg-[#C9A06A]/30"></div>
+              <p className="text-[12px] font-bold tracking-[0.22em] text-[#C9A06A] uppercase">
+                Gallery
+              </p>
+              <div className="w-10 h-[1px] bg-[#C9A06A]/30"></div>
+            </div>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-[28px] lg:text-[36px] font-normal text-white mb-3">

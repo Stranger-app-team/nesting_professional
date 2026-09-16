@@ -36,7 +36,7 @@ export default function Footer() {
               />
             </a>
             <p className="text-white/45 text-[12px] leading-relaxed mb-6">
-              At Chidiya Ghar, find your nest, make yourself comfortable, and enjoy a stay that feels just right.
+              Creating a network of professionally managed “nests” for India’s mobile workforce — places where professionals can stay comfortably, connect with like-minded people, and focus on what brought them to the city.
             </p>
             {/* Social icons row */}
             <div className="flex items-center gap-2.5">
@@ -115,17 +115,24 @@ export default function Footer() {
                 </svg>
                 <span className="text-white/55 text-[12px]">info@chidiyagharhotel.com</span>
               </li>
-              <li className="flex items-start gap-2.5">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A06A" strokeWidth="1.8" className="mt-0.5 shrink-0">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span className="text-white/55 text-[12px]">
-                  Flat - 202, 2nd Floor, Anjaneya Apartments,<br />
-                  Landmark - In front of ASIA House,<br />
-                  Near Mamta Chowk, Balewadi High Street,<br />
-                  Pune 411045
-                </span>
+            
+              <li>
+                <a 
+                  href="https://maps.app.goo.gl/dNV9k7YUxAm6xgEs8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 group cursor-pointer"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A06A" strokeWidth="1.8" className="mt-0.5 shrink-0 group-hover:stroke-white transition-colors">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span className="text-white/55 text-[12px] group-hover:text-white/80 transition-colors">
+                    Chidiya Ghar,<br />
+                    Near Mamta Chowk, Balewadi High Street,<br />
+                    Pune 411045
+                  </span>
+                </a>
               </li>
             </ul>
           </div>

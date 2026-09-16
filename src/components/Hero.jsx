@@ -129,11 +129,11 @@ function BookingBar() {
                 onChange={(e) => setGuests(e.target.value)}
                 className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
               >
-                <option value="1 Person">1 Person</option>
-                <option value="2 Persons">2 Persons</option>
-                <option value="3 Persons">3 Persons</option>
-                <option value="4 Persons">4 Persons</option>
-                <option value="5+ Persons">5+ Persons</option>
+                <option value="1 Persons">1 P</option>
+                <option value="2 Persons">2 P</option>
+                <option value="3 Persons">3 P</option>
+                <option value="4 Persons">4 P</option>
+                <option value="5+ Persons">5+ P</option>
               </select>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.5 }}
           >
-            Nesting Professional
+            Nesting Professionals
           </motion.p>
 
           {/* Bird row illustration */}
@@ -248,7 +248,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.48, duration: 0.6 }}
           >
-            Where comfort meets warmth and every moment feels like home.
+            Your home away from home, while you pursue your journey.
           </motion.p>
 
           {/* CTA row */}

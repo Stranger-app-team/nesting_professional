@@ -1,41 +1,73 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Briefcase, Car, TrainFront, Bus, MapPin } from 'lucide-react'
+import { 
+  Building2, 
+  ShoppingBag, 
+  Trophy, 
+  TrainFront, 
+  GraduationCap, 
+  HeartPulse, 
+  Laptop, 
+  Medal, 
+  BookOpen, 
+  Users,
+  MapPin,
+  Compass
+} from 'lucide-react'
 import Reveal from './common/Reveal'
-import puneMap from '../assets/image/pune-location.png'
 import mapVideo from '../assets/logo/d554a20447ba46479eedcc9865dc1771.webm'
 
 const landmarks = [
   {
-    id: 'bhujbal_bridge',
-    icon: <Car className="w-5 h-5" strokeWidth={1.5} />,
-    title: 'Bhujbal Bridge',
-    desc: 'Seamless connectivity to major routes',
-    coords: { top: '40%', left: '35%' },
-  },
-  {
-    id: 'metro_stop',
-    icon: <TrainFront className="w-5 h-5" strokeWidth={1.5} />,
-    title: 'Balewadi Metro Station',
-    desc: 'Fast and convenient city transit',
-    coords: { top: '60%', left: '40%' },
-  },
-  {
-    id: 'bus_stop',
-    icon: <Bus className="w-5 h-5" strokeWidth={1.5} />,
-    title: 'Balewadi Bus Stop',
-    desc: 'Local transport hub',
-    coords: { top: '55%', left: '65%' },
-  },
-  {
     id: 'hinjewadi',
-    icon: <Briefcase className="w-5 h-5" strokeWidth={1.5} />,
-    title: 'Hinjewadi IT Park',
-    desc: "Pune's largest tech and business corridor",
-    coords: { top: '30%', left: '70%' },
+    icon: <Building2 className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Hinjewadi IT Park & Asia House',
+    desc: 'Premier IT corridor & corporate centers',
+    coords: { top: '30%', left: '72%' },
+  },
+  {
+    id: 'high_street',
+    icon: <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Balewadi High Street',
+    desc: 'Boutique dining, cafes & lifestyle retail',
+    coords: { top: '48%', left: '36%' },
+  },
+  {
+    id: 'stadium',
+    icon: <Trophy className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Balewadi Sports Stadium',
+    desc: 'International sports complex & events',
+    coords: { top: '24%', left: '46%' },
+  },
+  {
+    id: 'metro',
+    icon: <TrainFront className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Pune Metro Station',
+    desc: 'Fast, seamless citywide transit',
+    coords: { top: '65%', left: '42%' },
+  },
+  {
+    id: 'education',
+    icon: <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Top Schools & Institutions',
+    desc: 'Rabindranath Tagore & VIBGYOR School',
+    coords: { top: '42%', left: '22%' },
+  },
+  {
+    id: 'hospital',
+    icon: <HeartPulse className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.6} />,
+    title: 'Mirayee Hospital',
+    desc: '24×7 multi-speciality medical care',
+    coords: { top: '58%', left: '68%' },
   },
 ]
 
+const audienceSegments = [
+  { label: 'Corporate & Tech', icon: Laptop },
+  { label: 'Sports Professionals', icon: Medal },
+  { label: 'Students & Academics', icon: BookOpen },
+  { label: 'Families & Leisure', icon: Users },
+]
 
 export default function LocationMap() {
   const [activeLandmark, setActiveLandmark] = useState(null)
@@ -46,7 +78,7 @@ export default function LocationMap() {
     <section id="location" style={{ backgroundColor: '#FAF6F1' }} className="py-14 sm:py-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
         <div
-          className="bg-white rounded-[20px] p-7 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12"
+          className="bg-white rounded-[20px] p-6 sm:p-9 lg:p-11 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
           style={{
             boxShadow: cardShadow,
             borderRadius: '20px',
@@ -55,28 +87,32 @@ export default function LocationMap() {
           {/* Left Text & Key Connectivity */}
           <div className="flex-1 max-w-[620px]">
             <Reveal type="fade">
-              <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-2.5">
-                Location
-              </p>
+              <div className="flex items-center gap-3 mb-4">
+                <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
+                  Location
+                </p>
+                {/* Simple bird icon / decorative element */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
+                  <path d="M5 14C8 11 12 11 16 13C17 11 19 9 21 11C20 14 16 17 12 16C8 15 6 18 3 17C2 16 3 15 5 14Z" fill="currentColor"/>
+                </svg>
+                <div className="w-20 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
+              </div>
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h2
-                className="font-display text-[26px] sm:text-[32px] lg:text-[38px] font-normal text-[#1a1a1a] leading-[1.15] mb-4"
-
-              >
+              <h2 className="font-display text-[26px] sm:text-[32px] lg:text-[36px] font-normal text-[#1a1a1a] leading-[1.15] mb-3.5">
                 Connected to Everything That Matters in Pune
               </h2>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="text-[#666] text-[14px] sm:text-[15px] leading-relaxed mb-6">
-                Located within effortless reach of Pune's leading business districts, IT corridors, and city attractions. Click any landmark below to highlight its location on the map.
+              <p className="text-[#666] text-[13.5px] sm:text-[14.5px] leading-relaxed mb-5">
+                Strategically positioned in Pune's IT and commercial hub, Chidiya Ghar provides effortless access to corporate corridors, premier sports facilities, educational institutions, and lively lifestyle districts.
               </p>
             </Reveal>
 
-            {/* Sleek low-height rectangular list tiles with click interaction */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-7">
+            {/* 6 Unique Interactive Landmark Tiles */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
               {landmarks.map((item, i) => {
                 const isSelected = activeLandmark === item.id
 
@@ -88,24 +124,25 @@ export default function LocationMap() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.12 + i * 0.05, duration: 0.4 }}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`flex items-center gap-3 px-3.5 py-2.5 rounded-[12px] text-left transition-all duration-200 cursor-pointer ${isSelected
-                        ? 'bg-[#7B2D16]/10 border-2 border-[#7B2D16] shadow-sm'
-                        : 'bg-[#FAF6F1]/85 border border-black/[0.03] hover:bg-[#FAF6F1]'
-                      }`}
+                    transition={{ delay: 0.08 + i * 0.04, duration: 0.35 }}
+                    className={`flex items-center gap-2.5 px-3 py-2 rounded-[12px] text-left border-2 transition-colors duration-200 cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#7B2D16]/10 border-[#7B2D16] shadow-sm'
+                        : 'bg-[#FAF6F1]/85 border-transparent hover:bg-[#FAF6F1] hover:border-black/[0.04]'
+                    }`}
                   >
-                    <span className={`shrink-0 flex items-center justify-center transition-all duration-200 ${isSelected ? 'text-[#7B2D16] scale-110' : 'text-[#7B2D16]'
-                      }`}>
+                    <span className={`shrink-0 flex items-center justify-center p-1.5 rounded-lg transition-all duration-200 ${
+                      isSelected ? 'text-white bg-[#7B2D16]' : 'text-[#7B2D16] bg-white shadow-xs'
+                    }`}>
                       {item.icon}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h4 className={`font-bold text-[12.5px] sm:text-[13px] leading-tight truncate ${isSelected ? 'text-[#7B2D16]' : 'text-[#1a1a1a]'
-                        }`}>
+                      <h4 className={`font-bold text-[12px] sm:text-[12.5px] leading-tight truncate ${
+                        isSelected ? 'text-[#7B2D16]' : 'text-[#1a1a1a]'
+                      }`}>
                         {item.title}
                       </h4>
-                      <p className="text-[#777] text-[11px] leading-tight truncate mt-0.5">
+                      <p className="text-[#777] text-[10.5px] leading-tight truncate mt-0.5">
                         {item.desc}
                       </p>
                     </div>
@@ -114,16 +151,43 @@ export default function LocationMap() {
               })}
             </div>
 
+            {/* Customer Segments Pill Row (Commented Out) */}
+            {/* <div className="pt-3 border-t border-[#7B2D16]/10 mb-5">
+              <p className="text-[11px] font-semibold text-[#7B2D16] tracking-wider uppercase mb-2 flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5" /> Ideal Destination For
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {audienceSegments.map((seg, i) => {
+                  const Icon = seg.icon
+                  return (
+                    <motion.span
+                      key={seg.label}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + i * 0.05 }}
+                      whileHover={{ scale: 1.04, backgroundColor: '#7B2D16', color: '#ffffff' }}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#FAF6F1] text-[#2A1205] border border-[#7B2D16]/15 transition-all duration-200 shadow-xs cursor-default"
+                    >
+                      <Icon className="w-3 h-3 text-[#7B2D16] group-hover:text-white" />
+                      {seg.label}
+                    </motion.span>
+                  )
+                })}
+              </div>
+            </div> */}
+
             <Reveal delay={0.25}>
-              <div className="flex flex-col items-start mt-2">
+              <div className="flex items-center gap-4">
                 <motion.a
                   href="https://maps.app.goo.gl/jNRpAnTTi5yhA3KH9?g_st=ic"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02, backgroundColor: '#6a2513' }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-block bg-[#7B2D16] text-white font-semibold text-[13px] px-8 py-3 rounded-md transition-colors duration-200 tracking-wide shadow-sm"
+                  className="inline-flex items-center gap-2 bg-[#7B2D16] text-white font-semibold text-[13px] px-6 py-2.5 rounded-md transition-colors duration-200 tracking-wide shadow-sm"
                 >
+                  <MapPin className="w-4 h-4" />
                   Get Directions
                 </motion.a>
               </div>

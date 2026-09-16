@@ -111,25 +111,83 @@ export default function Rooms() {
   return (
     <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-20 pb-16 scroll-mt-24">
       {/* ── INTRO SECTION ── */}
-      <div className="max-w-[1000px] mx-auto px-6 text-center mb-16">
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-[28px] lg:text-[40px] font-normal text-[#1a1a1a] mb-6">
-            A Little Escape. Right in Your City.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p className="text-[#666] text-[16px] leading-relaxed mb-4">
-            Step away from the usual routine and spend your day somewhere a little more interesting.
-          </p>
+      <div className="max-w-[1100px] mx-auto px-6 text-center mb-10">
+        <Reveal type="fade" delay={0}>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
+            <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase">
+              Rooms
+            </p>
+            <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
+          </div>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="text-[#666] text-[16px] leading-relaxed mb-8">
-            Chidiya Ghar is a refreshing city experience designed for families, friends, kids and anyone looking for a fun day out without going far.
+          <h2 className="font-display text-[26px] lg:text-[34px] font-normal text-[#1a1a1a] mb-3">
+            Who is Chidiya Ghar For?
+          </h2>
+        </Reveal>
+        <Reveal delay={0.5}>
+          <p className="text-[#666] text-[15px] sm:text-[16px] leading-relaxed mb-4 max-w-[900px] mx-auto">
+            Chidiya Ghar is designed to accommodate people from diverse professional backgrounds. Our flexibility of stay caters to both short-term requirements and extended stays.
           </p>
         </Reveal>
-        <Reveal delay={0.25}>
-          <p className="text-[#7B2D16] font-bold text-[14px] uppercase tracking-[0.2em]">
-            Explore. Relax. Discover. Make Memories.
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, margin: "-10%" }}
+          variants={{
+            hidden: { opacity: 0, clipPath: 'inset(0% 0% 100% 0%)', y: -20 },
+            show: { 
+              opacity: 1, 
+              clipPath: 'inset(-20% -20% -20% -20%)', 
+              y: 0,
+              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+            }
+          }}
+        >
+          <motion.div 
+            whileHover="hover"
+            className="flex flex-wrap justify-center gap-1.5 sm:gap-2 w-full mx-auto mb-5 py-4 -my-4"
+          >
+            {[
+              'IT & Technology Professionals',
+              'Corporate Employees',
+              'Consultants & Project Teams',
+              'Startup Professionals',
+              'Business Travellers',
+              'Trainers & Visiting Faculty',
+              'Medical Professionals',
+              'Sports Professionals',
+              'Students & Aspiring Professionals',
+              'Visiting Families'
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="relative inline-flex items-center text-[10.5px] sm:text-[11.5px] font-medium bg-white text-[#7B2D16] px-2.5 py-1 rounded-full shadow-sm cursor-default group"
+              >
+                {/* Base Faint Border */}
+                <span className="absolute inset-0 rounded-full border border-[#7B2D16]/20 pointer-events-none"></span>
+                
+                {/* Animated Dark Border (constructs continuously on hover) */}
+                <motion.span 
+                  variants={{
+                    hover: {
+                      clipPath: ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"],
+                      transition: { duration: 1.2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }
+                    }
+                  }}
+                  initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
+                  className="absolute inset-0 rounded-full border border-[#7B2D16] pointer-events-none"
+                ></motion.span>
+                
+                <span className="relative z-10">{tag}</span>
+              </span>
+            ))}
+          </motion.div>
+        </motion.div>
+        <Reveal delay={1.1}>
+          <p className="text-[#7B2D16] font-bold text-[11px] sm:text-[13px] uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+            Stay for a day. Stay for a month. Stay for as long as your work requires.
           </p>
         </Reveal>
       </div>
@@ -137,12 +195,7 @@ export default function Rooms() {
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
 
         {/* Section heading */}
-        <div className="text-center mb-10">
-          <Reveal type="fade">
-            <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase mb-3">
-              Rooms
-            </p>
-          </Reveal>
+        <div className="text-center mb-8">
           <Reveal delay={0.08}>
             <h2 className="font-display text-[28px] lg:text-[36px] font-normal text-[#1a1a1a] mb-3">
               Your Day Was Busy. Your Room Doesn't Have to Be.
@@ -186,6 +239,7 @@ export default function Rooms() {
             </svg>
           </button>
         </div>
+
       </div>
     </section>
   )
