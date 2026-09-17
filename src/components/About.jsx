@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import Reveal from './common/Reveal'
 import birdSvgImage from '../assets/image/Bird Svg.svg'
-import birdVideo from '../assets/logo/1000253046.mp4'
+import birdVideo from '../assets/logo/birdgroup.mp4'
 
 const whyUsData = [
   {
@@ -133,7 +133,7 @@ export default function About() {
                     Nest comfortably while pursuing your work. We provide a practical living community that bridges the gap between <strong className="font-medium text-[#7B2D16]">expensive hotels and traditional PGs</strong>—free from high costs and rigid limitations.
                   </p>
 
-                  <div className="w-12 h-[1px] bg-[#7B2D16]/20"></div>
+                  <div className="w-90 h-[1px] bg-[#7B2D16]/20"></div>
 
                   {/* Summary Philosophy Paragraph */}
                   <div className="space-y-2">
