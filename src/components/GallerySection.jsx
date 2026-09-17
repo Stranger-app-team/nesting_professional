@@ -97,7 +97,7 @@ export default function GallerySection() {
   }
 
   return (
-    <section id="gallery" style={{ backgroundColor: '#2A1205' }} className="pt-16 pb-20 scroll-mt-24">
+    <section id="gallery" style={{ backgroundColor: '#2A1205' }} className="pt-12 pb-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
 
         {/* Section heading */}

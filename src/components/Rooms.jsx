@@ -109,7 +109,7 @@ export default function Rooms() {
   }
 
   return (
-    <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-20 pb-16 scroll-mt-24">
+    <section id="rooms" style={{ backgroundColor: '#FAF6F1' }} className="pt-12 pb-16 scroll-mt-24">
       {/* ── INTRO SECTION ── */}
       <div className="max-w-[1100px] mx-auto px-6 text-center mb-10">
         <Reveal type="fade" delay={0}>

@@ -13,18 +13,73 @@ const amenities = [
   { icon: MapPin,           name: 'Prime Location',      desc: 'Centrally located with easy access to major hubs.' },
 ]
 
+const fountainParticles = [
+  { x: 0, y: -40, delay: 0 },
+  { x: 22, y: -32, delay: 0.15 },
+  { x: -22, y: -32, delay: 0.3 },
+  { x: 35, y: -15, delay: 0.45 },
+  { x: -35, y: -15, delay: 0.6 },
+]
+
+const particleVariants = {
+  hidden: { opacity: 0, scale: 0, x: 0, y: 0 },
+  visible: { opacity: 0, scale: 0, x: 0, y: 0 },
+  hover: (custom) => ({
+    opacity: [0, 0.8, 0],
+    scale: [0.2, 1, 0.3],
+    x: [0, custom.x],
+    y: [0, custom.y],
+    transition: {
+      duration: 1.2,
+      repeat: Infinity,
+      delay: custom.delay,
+      ease: "easeOut"
+    }
+  })
+}
+
 function AmenityItem({ icon: Icon, name, desc, index }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
+      whileHover="hover"
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.05, duration: 0.45 }}
-      className="flex flex-col items-center text-center p-4 lg:p-5 relative group"
+      variants={{
+        hidden: { opacity: 0, y: 12 },
+        visible: { opacity: 1, y: 0, transition: { delay: index * 0.05, duration: 0.45 } }
+      }}
+      className="flex flex-col items-center text-center p-4 lg:p-5 relative cursor-default"
     >
-      <div className="w-10 h-10 shrink-0 flex items-center justify-center text-[#7B2D16] mb-3 transition-transform group-hover:scale-110 duration-300">
-        <Icon className="w-[28px] h-[28px]" strokeWidth={1.5} />
+      <div className="w-10 h-10 shrink-0 flex items-center justify-center text-[#7B2D16] mb-3 relative">
+        {/* Fountain Particles */}
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+          {fountainParticles.map((p, i) => (
+            <motion.div
+              key={i}
+              custom={p}
+              variants={particleVariants}
+              className="absolute"
+            >
+              <Icon className="w-[14px] h-[14px] text-[#7B2D16]/70" strokeWidth={2} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Main Icon */}
+        <motion.div 
+          variants={{ 
+            hidden: { scale: 1 }, 
+            visible: { scale: 1 }, 
+            hover: { scale: 1.15 } 
+          }} 
+          transition={{ duration: 0.3 }}
+          className="relative z-10"
+        >
+          <Icon className="w-[28px] h-[28px]" strokeWidth={1.5} />
+        </motion.div>
       </div>
+      
       <div>
         <h4 className="font-bold text-[#7B2D16] text-[13px] lg:text-[14px] leading-tight mb-2">{name}</h4>
         <p className="text-[#666] text-[11px] lg:text-[12px] leading-relaxed max-w-[180px] mx-auto">{desc}</p>
@@ -37,45 +92,47 @@ export default function Amenities() {
   const cardShadow = '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)'
 
   return (
-    <section id="amenities" style={{ backgroundColor: '#FAF6F1' }} className="pt-8 pb-16 scroll-mt-24">
+    <section id="amenities" style={{ backgroundColor: '#FAF6F1' }} className="pt-12 pb-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
         
+        {/* Headings outside the card */}
+        <div className="text-center mb-8 lg:mb-10">
+          <Reveal type="fade">
+            <div className="flex items-center justify-center gap-3 mb-2.5">
+              <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
+              <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase">
+                Our Amenities
+              </p>
+              <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h2 className="font-display text-[26px] lg:text-[32px] font-normal text-[#1a1a1a]">
+              Everything You Need
+            </h2>
+          </Reveal>
+        </div>
+
         <div className="mb-4 lg:mb-5">
           <div 
-            className="bg-white rounded-[20px] p-7 lg:p-8 flex flex-col"
+            className="bg-white rounded-[20px] py-6 px-4 sm:p-7 lg:p-8 flex flex-col"
             style={{
               boxShadow: cardShadow,
               borderRadius: '20px'
             }}
           >
-            <div className="flex flex-col">
-              <div className="text-center mb-2">
-                <Reveal type="fade">
-                  <div className="flex items-center justify-center gap-3 mb-2.5">
-                    <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
-                    <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase">
-                      Our Amenities
-                    </p>
-                    <div className="w-10 h-[1px] bg-[#7B2D16]/30"></div>
-                  </div>
-                </Reveal>
-                <Reveal delay={0.06}>
-                  <h2 className="font-display text-[26px] lg:text-[32px] font-normal text-[#1a1a1a]">
-                    Everything You Need
-                  </h2>
-                </Reveal>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 mb-6 divide-x divide-y sm:divide-y-0 border-t border-b sm:border-b-0 sm:border-transparent border-[#7B2D16]/10 sm:divide-[#7B2D16]/10">
-                {amenities.map((item, i) => (
-                  <div key={item.name} className={`
-                    ${i >= 4 ? 'sm:border-t sm:border-[#7B2D16]/10' : ''} 
-                    ${i % 4 === 0 ? 'sm:border-l-0' : ''}
-                  `}>
-                    <AmenityItem {...item} index={i} />
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-b sm:border-t-0 sm:border-b-0 border-[#7B2D16]/10">
+              {amenities.map((item, i) => (
+                <div key={item.name} className={`
+                  border-[#7B2D16]/10
+                  ${i % 2 !== 0 ? 'border-l' : ''} 
+                  ${i >= 2 ? 'border-t' : ''}
+                  ${i % 4 !== 0 ? 'sm:border-l' : 'sm:border-l-0'}
+                  ${i >= 4 ? 'sm:border-t' : 'sm:border-t-0'}
+                `}>
+                  <AmenityItem {...item} index={i} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
