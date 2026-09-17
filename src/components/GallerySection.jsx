@@ -69,6 +69,28 @@ export default function GallerySection() {
   const defaultIndex = 3 // middle video (0016-Chidiya Ghar-Short Video Landscape.mp4)
   const [hoveredIndex, setHoveredIndex] = useState(defaultIndex)
   const [isMuted, setIsMuted] = useState(true)
+  const mobileScrollRef = useRef(null)
+
+  useEffect(() => {
+    if (mobileScrollRef.current && window.innerWidth < 768) {
+      const container = mobileScrollRef.current
+      const targetChild = container.children[defaultIndex]
+      if (targetChild) {
+        // Small timeout ensures layout has painted before scrolling
+        setTimeout(() => {
+          const scrollPos = targetChild.offsetLeft - (container.clientWidth / 2) + (targetChild.clientWidth / 2)
+          container.scrollTo({ left: scrollPos, behavior: 'instant' })
+        }, 50)
+      }
+    }
+  }, [defaultIndex])
+
+  const scrollMobile = (direction) => {
+    if (mobileScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350
+      mobileScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }
 
   const toggleMute = () => {
     setIsMuted(prev => !prev)
@@ -102,36 +124,60 @@ export default function GallerySection() {
         </div>
 
         {/* Mobile Scrolling Video Gallery (True 16:9 Widescreen) */}
-        <div className="flex lg:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 pt-4 hide-scrollbar -mx-4 px-4 sm:-mx-8 sm:px-8">
-          {galleryVideos.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ scale: 0.92, opacity: 0.8 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              viewport={{ margin: "-10% 0px -10% 0px", amount: 0.6 }}
-              className="relative shrink-0 w-[86vw] max-w-[500px] aspect-video rounded-[20px] p-2 sm:p-2.5 bg-[#1A0A04]/40 border border-[#C9A06A]/20 snap-center shadow-[0_15px_30px_-5px_rgba(0,0,0,0.3)]"
-            >
-              {/* Gold frame corner accents */}
-              <div className="absolute -top-1 -left-1 w-6 h-6 border-t-[2px] border-l-[2px] border-[#C9A06A]/70 rounded-tl-md pointer-events-none z-10" />
-              <div className="absolute -top-1 -right-1 w-6 h-6 border-t-[2px] border-r-[2px] border-[#C9A06A]/70 rounded-tr-md pointer-events-none z-10" />
-              <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-[2px] border-l-[2px] border-[#C9A06A]/70 rounded-bl-md pointer-events-none z-10" />
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-[2px] border-r-[2px] border-[#C9A06A]/70 rounded-br-md pointer-events-none z-10" />
+        <div className="relative group/mobileslider md:hidden">
+          {/* Left Arrow */}
+          <button 
+            onClick={() => scrollMobile('left')}
+            className="hidden [@media(hover:hover)]:flex absolute left-2 top-[45%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md shadow-md border border-[#C9A06A]/30 items-center justify-center text-white hover:bg-[#C9A06A] transition-all opacity-0 group-hover/mobileslider:opacity-100"
+            aria-label="Scroll left"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
 
-              <GalleryVideoItem
-                item={item}
-                isActive={true}
-                isMuted={isMuted}
-                onToggleMute={toggleMute}
-                isMobile={true}
-              />
-            </motion.div>
-          ))}
+          <div ref={mobileScrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 pt-4 hide-scrollbar -mx-4 px-4 sm:-mx-8 sm:px-8">
+            {galleryVideos.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ scale: 0.92, opacity: 0.8 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ margin: "-10% 0px -10% 0px", amount: 0.6 }}
+                className="relative shrink-0 w-[86vw] max-w-[500px] aspect-video rounded-[20px] p-2 sm:p-2.5 bg-[#1A0A04]/40 border border-[#C9A06A]/20 snap-center shadow-[0_15px_30px_-5px_rgba(0,0,0,0.3)]"
+              >
+                {/* Gold frame corner accents */}
+                <div className="absolute -top-1 -left-1 w-6 h-6 border-t-[2px] border-l-[2px] border-[#C9A06A]/70 rounded-tl-md pointer-events-none z-10" />
+                <div className="absolute -top-1 -right-1 w-6 h-6 border-t-[2px] border-r-[2px] border-[#C9A06A]/70 rounded-tr-md pointer-events-none z-10" />
+                <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-[2px] border-l-[2px] border-[#C9A06A]/70 rounded-bl-md pointer-events-none z-10" />
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-[2px] border-r-[2px] border-[#C9A06A]/70 rounded-br-md pointer-events-none z-10" />
+
+                <GalleryVideoItem
+                  item={item}
+                  isActive={true}
+                  isMuted={isMuted}
+                  onToggleMute={toggleMute}
+                  isMobile={true}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button 
+            onClick={() => scrollMobile('right')}
+            className="hidden [@media(hover:hover)]:flex absolute right-2 top-[45%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md shadow-md border border-[#C9A06A]/30 items-center justify-center text-white hover:bg-[#C9A06A] transition-all opacity-0 group-hover/mobileslider:opacity-100"
+            aria-label="Scroll right"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
 
         {/* Desktop Interactive sliding video strip with 16:9 widescreen active ratio */}
         <div 
-          className="hidden lg:flex items-center gap-3 w-full h-[360px] xl:h-[390px]"
+          className="hidden md:flex items-center gap-3 w-full h-[360px] xl:h-[390px]"
           onMouseLeave={() => setHoveredIndex(defaultIndex)}
         >
           {galleryVideos.map((item, i) => {

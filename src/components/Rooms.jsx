@@ -131,20 +131,7 @@ export default function Rooms() {
             Chidiya Ghar is designed to accommodate people from diverse professional backgrounds. Our flexibility of stay caters to both short-term requirements and extended stays.
           </p>
         </Reveal>
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, margin: "-10%" }}
-          variants={{
-            hidden: { opacity: 0, clipPath: 'inset(0% 0% 100% 0%)', y: -20 },
-            show: { 
-              opacity: 1, 
-              clipPath: 'inset(-20% -20% -20% -20%)', 
-              y: 0,
-              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-            }
-          }}
-        >
+        <Reveal delay={0.8}>
           <motion.div 
             whileHover="hover"
             className="flex flex-wrap justify-center gap-1.5 sm:gap-2 w-full mx-auto mb-5 py-4 -my-4"
@@ -168,7 +155,7 @@ export default function Rooms() {
                 {/* Base Faint Border */}
                 <span className="absolute inset-0 rounded-full border border-[#7B2D16]/20 pointer-events-none"></span>
                 
-                {/* Animated Dark Border (constructs continuously on hover) */}
+                {/* Animated Dark Border - hidden on mobile to simplify */}
                 <motion.span 
                   variants={{
                     hover: {
@@ -177,14 +164,14 @@ export default function Rooms() {
                     }
                   }}
                   initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-                  className="absolute inset-0 rounded-full border border-[#7B2D16] pointer-events-none"
+                  className="absolute inset-0 rounded-full border border-[#7B2D16] pointer-events-none hidden sm:block"
                 ></motion.span>
                 
                 <span className="relative z-10">{tag}</span>
               </span>
             ))}
           </motion.div>
-        </motion.div>
+        </Reveal>
         <Reveal delay={1.1}>
           <p className="text-[#7B2D16] font-bold text-[11px] sm:text-[13px] uppercase tracking-[0.15em] sm:tracking-[0.2em]">
             Stay for a day. Stay for a month. Stay for as long as your work requires.
@@ -214,7 +201,7 @@ export default function Rooms() {
           {/* Left Arrow */}
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-2 lg:-left-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-[#eee] flex items-center justify-center text-[#1a1a1a] hover:bg-[#7B2D16] hover:text-white transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
+            className="hidden [@media(hover:hover)]:flex absolute left-2 lg:-left-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-[#eee] items-center justify-center text-[#1a1a1a] hover:bg-[#7B2D16] hover:text-white transition-all opacity-0 group-hover/slider:opacity-100"
             aria-label="Scroll left"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -231,7 +218,7 @@ export default function Rooms() {
           {/* Right Arrow */}
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-2 lg:-right-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-[#eee] flex items-center justify-center text-[#1a1a1a] hover:bg-[#7B2D16] hover:text-white transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
+            className="hidden [@media(hover:hover)]:flex absolute right-2 lg:-right-5 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-[#eee] items-center justify-center text-[#1a1a1a] hover:bg-[#7B2D16] hover:text-white transition-all opacity-0 group-hover/slider:opacity-100"
             aria-label="Scroll right"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

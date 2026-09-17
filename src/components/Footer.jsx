@@ -129,7 +129,7 @@ export default function Footer() {
                   </svg>
                   <span className="text-white/55 text-[12px] group-hover:text-white/80 transition-colors">
                     Chidiya Ghar,<br />
-                    Near Mamta Chowk, Balewadi High Street,<br />
+                    Balewadi High Street,<br />
                     Pune 411045
                   </span>
                 </a>
