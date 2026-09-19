@@ -3,22 +3,32 @@ import { motion } from 'framer-motion'
 import { Volume2, VolumeX } from 'lucide-react'
 import Reveal from './common/Reveal'
 
-import vid1 from '../assets/logo/Camera_pan_between_bedroom_images_202608311753.mp4'
-import vid2 from '../assets/logo/Camera_pan_between_bedroom_images_202609011135.mp4'
-import vid3 from '../assets/logo/Camera_pan_between_bedroom_views_202608311745.mp4'
 import vidLandscape from '../assets/logo/0016-Chidiya Ghar-Short Video Landscape.mp4'
-import vid4 from '../assets/logo/Camera_panning_across_bedroom_in…_202608311757.mp4'
-import vid5 from '../assets/logo/Create_room_camera_pan_animation_202608311541.mp4'
-import vid6 from '../assets/logo/Create_bedroom_camera_transition_202609011143.mp4'
+import room1 from '../assets/logo/Room 1.mp4'
+import room2 from '../assets/logo/Room 2.mp4'
+import room3 from '../assets/logo/Room 3.mp4'
+import room4 from '../assets/logo/Room 4.mp4'
+import room5 from '../assets/logo/Room 5.mp4'
+import room6 from '../assets/logo/Room 6.mp4'
+import room7 from '../assets/logo/Room 7.mp4'
+
+const otherVideos = [
+  { src: room1, title: 'Room 1' },
+  { src: room2, title: 'Room 2' },
+  { src: room3, title: 'Room 3' },
+  { src: room4, title: 'Room 4' },
+  { src: room5, title: 'Room 5' },
+  { src: room6, title: 'Room 6' },
+  { src: room7, title: 'Room 7' },
+]
+
+// Dynamically compute middle index so the landscape video is always centered
+const middleIndex = Math.floor(otherVideos.length / 2)
 
 const galleryVideos = [
-  { src: vid1, title: 'Suite Pan' },
-  { src: vid2, title: 'Luxury Bedroom' },
-  { src: vid3, title: 'Cozy Interior' },
+  ...otherVideos.slice(0, middleIndex),
   { src: vidLandscape, title: 'Chidiya Ghar Experience' },
-  { src: vid4, title: 'Premium Suite' },
-  { src: vid5, title: 'Room Panorama' },
-  { src: vid6, title: 'Room Transition' },
+  ...otherVideos.slice(middleIndex)
 ]
 
 function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = false }) {
@@ -66,7 +76,7 @@ function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = fa
 }
 
 export default function GallerySection() {
-  const defaultIndex = 3 // middle video (0016-Chidiya Ghar-Short Video Landscape.mp4)
+  const defaultIndex = middleIndex // Dynamically set to the middle video index
   const [hoveredIndex, setHoveredIndex] = useState(defaultIndex)
   const [isMuted, setIsMuted] = useState(true)
   const mobileScrollRef = useRef(null)
