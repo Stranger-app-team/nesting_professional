@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import heroVideo from '../assets/logo/Camera_panning_across_bedroom_in…_202608311757.mp4'
+import heroVideo from '../assets/logo/Room 4.mp4'
 
 /* ────────────────────────────────────────────────────────────
    Bird row SVG — matches reference exactly
