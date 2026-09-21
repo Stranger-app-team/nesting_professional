@@ -15,7 +15,6 @@ import ScrollCompanion from './components/common/ScrollCompanion'
 import CursorTrail from './components/common/CursorTrail'
 
 import loaderVideo from './assets/logo/Chidiya Ghar Logo Final Colour.mp4'
-
 // Full-screen video loading curtain
 function LoadCurtain({ onDone }) {
   const videoRef = useRef(null)
