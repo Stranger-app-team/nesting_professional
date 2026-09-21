@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import heroVideo from '../assets/logo/Room 4.mp4'
+import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
+import nestingProfSvg from '../assets/image/NESTING PROFESSIONALS.svg'
 
 /* ────────────────────────────────────────────────────────────
    Bird row SVG — matches reference exactly
@@ -198,7 +200,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
         
         {/* Text container */}
-        <div className="pointer-events-auto" style={{ maxWidth: 500 }}>
+        <div className="pointer-events-auto p-8 md:p-10 rounded-2xl" style={{ maxWidth: 500, background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
           {/* WELCOME TO */}
           <motion.p
             className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
@@ -209,27 +211,28 @@ export default function Hero() {
             Welcome To
           </motion.p>
 
-          {/* CHIDIYA GHAR */}
-          <motion.h1
-            className="font-display"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 6, whiteSpace: 'nowrap' }}
-          >
-            <span style={{ color: '#1a1a1a' }}>Chidiya </span>
-            <span style={{ color: '#2A1205' }}>Ghar</span>
-          </motion.h1>
+          <div style={{ display: 'inline-block', maxWidth: '100%' }}>
+            {/* CHIDIYA GHAR */}
+            <motion.h1
+              className="font-display"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 12, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}
+            >
+              <img src={chidiyaGharTextSvg} alt="Chidiya Ghar" style={{ height: '1.2em', width: 'auto' }} />
+            </motion.h1>
 
-          {/* Nesting Professional */}
-          <motion.p
-            className="text-[12px] md:text-[15px] font-normal tracking-[0.52em] text-[#1a1a1a] uppercase mb-6"
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.5 }}
-          >
-            Nesting Professionals
-          </motion.p>
+            {/* Nesting Professional */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.28, duration: 0.5 }}
+              style={{ width: '100%', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
+            >
+              <img src={nestingProfSvg} alt="Nesting Professionals" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </motion.div>
+          </div>
 
           {/* Bird row illustration */}
           {/* <motion.div

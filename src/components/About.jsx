@@ -74,7 +74,7 @@ function BirdsOnWire() {
         loop
         muted
         playsInline
-        className="w-full min-w-[520px] max-w-none h-auto object-cover select-none pointer-events-none mix-blend-multiply"
+        className="w-full min-w-[520px] max-w-none h-auto object-cover select-none pointer-events-none mix-blend-multiply translate-y-1"
         style={{
           maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent), linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
@@ -98,7 +98,7 @@ export default function About() {
           
           {/* ─── The Concept & Philosophy ─── */}
           <div
-            className="rounded-[20px] pt-7 px-7 lg:pt-10 lg:px-10 pb-[3px] relative overflow-hidden flex flex-col justify-between h-full min-h-[520px] lg:min-h-[580px] scroll-mt-24"
+            className="rounded-[20px] pt-7 px-7 lg:pt-10 lg:px-10 pb-0 relative overflow-hidden flex flex-col justify-between h-full min-h-[520px] lg:min-h-[580px] scroll-mt-24"
             style={{ 
               backgroundColor: '#FDF8F4',
               boxShadow: cardShadow,
@@ -165,7 +165,7 @@ export default function About() {
               </div>
             </div>
             
-            <div className="shrink-0 w-full mb-[3px] z-20 relative">
+            <div className="shrink-0 w-full z-20 relative">
               <BirdsOnWire />
             </div>
           </div>
