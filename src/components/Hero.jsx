@@ -179,6 +179,105 @@ function BookingBar() {
   )
 }
 
+/* ────────────────────────────────────────────────────────────
+   Pricing Card Components (for Room 3 & 4)
+──────────────────────────────────────────────────────────── */
+const CheckIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="#65A30D" />
+    <path d="M7 12.5L10.5 16L17 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const CrossIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="#DC2626" />
+    <path d="M8 8L16 16M16 8L8 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const BedIcon = () => (
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#1A0B03" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4">
+    <path d="M8 40h48v6H8z" />
+    <path d="M12 46v6 M52 46v6" />
+    <path d="M8 32h48v8H8z" />
+    <path d="M12 32v-12c0-2 1.5-4 4-4h32c2.5 0 4 2 4 4v12" />
+    <path d="M18 22h12v10H18z M34 22h12v10H34z" />
+    <path d="M20 8l2-4 2 4 4 2-4 2-2 4-2-4-4-2z" />
+    <path d="M40 10l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" />
+  </svg>
+);
+
+const BalconyBedIcon = () => (
+  <svg width="72" height="64" viewBox="0 0 72 64" fill="none" stroke="#1A0B03" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4">
+    <path d="M2 42h28v4H2z" />
+    <path d="M6 46v4 M26 46v4" />
+    <path d="M2 36h28v6H2z" />
+    <path d="M4 36v-8c0-1.5 1-2.5 2.5-2.5h19c1.5 0 2.5 1 2.5 2.5v8" />
+    <path d="M8 29h6v7H8z M18 29h6v7H18z" />
+    <path d="M10 16l1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5z" />
+    <path d="M36 42h34v4H36z" />
+    <path d="M38 42v-16 M68 42v-16" />
+    <path d="M38 32h30" />
+    <path d="M43 42v-10 M48 42v-10 M53 42v-10 M58 42v-10 M63 42v-10" />
+    <path d="M46 26v-14h14v14" />
+    <path d="M53 12v14 M46 19h14" />
+    <path d="M39 26h4v-2h-4z M40 24v-3l-2-2 M41 24l2-3" />
+  </svg>
+);
+
+const standardRoomFeatures = [
+  { text: 'Private Balcony', included: false },
+  { text: 'Spacious Double Bed', included: true },
+  { text: 'Natural Light & Fresh Air', included: true },
+  { text: 'Work-Friendly Space', included: true },
+];
+
+const balconyRoomFeatures = [
+  { text: 'Private Balcony', included: true },
+  { text: 'Spacious Double Bed', included: true },
+  { text: 'Natural Light & Fresh Air', included: true },
+  { text: 'Work-Friendly Space', included: true },
+];
+
+const PricingCard = ({ title, price, icon, features }) => {
+  return (
+    <div 
+      className="p-6 md:p-8 rounded-3xl flex flex-col justify-between"
+      style={{
+        background: 'transparent',
+        backgroundColor: 'rgba(243, 234, 219, 0.2)', 
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+        width: '100%',
+        maxWidth: '320px',
+        border: '1px solid rgba(255,255,255,0.1)'
+      }}
+    >
+      <div>
+        {icon}
+        <h3 className="text-[26px] font-bold text-[#1A0B03] mb-6 leading-[1.1]">{title}</h3>
+        <ul className="space-y-4 mb-8">
+          {features.map((feature, idx) => (
+            <li key={idx} className="flex items-center gap-3">
+              {feature.included ? <CheckIcon /> : <CrossIcon />}
+              <span className="text-[16px] font-semibold text-[#1A0B03]">{feature.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div className="pt-5 border-t-[1.5px] border-[#1A0B03]/20">
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-[28px] font-extrabold text-[#1A0B03]">{price}</span>
+          <span className="text-[13px] font-bold text-[#1A0B03] tracking-wide">/Night</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Hero() {
   // Start with a random video index between 0 and 3
   const [activeVideoIndex, setActiveVideoIndex] = useState(() =>
@@ -248,9 +347,40 @@ export default function Hero() {
       {/* ── Content Layer ── */}
       <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
         
-        {/* Text container */}
-        <div className="pointer-events-auto p-8 md:p-10 rounded-2xl" style={{ maxWidth: 500, background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
-          {/* WELCOME TO */}
+        <AnimatePresence mode="wait">
+          {(activeVideoIndex === 2 || activeVideoIndex === 3) ? (
+            <motion.div
+              key="pricing-cards"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="pointer-events-auto flex flex-col md:flex-row items-center justify-between gap-6 w-full"
+            >
+              <PricingCard 
+                title="Standard Room" 
+                price="₹ 3,057.65" 
+                icon={<BedIcon />} 
+                features={standardRoomFeatures} 
+              />
+              <PricingCard 
+                title={<>Standard Room<br />with Balcony</>}
+                price="₹ 3,292.94" 
+                icon={<BalconyBedIcon />} 
+                features={balconyRoomFeatures} 
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="welcome-text"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="pointer-events-auto p-8 md:p-10 rounded-2xl" 
+              style={{ maxWidth: 500, background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+            >
+              {/* WELCOME TO */}
           <motion.p
             className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
             initial={{ opacity: 0, y: 8 }}
@@ -319,7 +449,9 @@ export default function Hero() {
               Explore Rooms
             </motion.a>
           </motion.div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* ── Booking bar strip (overlapping borders - EXACT original position) ── */}
