@@ -1,8 +1,18 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import heroVideo from '../assets/logo/Room 4.mp4'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import room1Video from '../assets/logo/Room 1.mp4'
+import room2Video from '../assets/logo/Room 2.mp4'
+import room3Video from '../assets/logo/Room 3.mp4'
+import room4Video from '../assets/logo/Room 4.mp4'
 import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
 import nestingProfSvg from '../assets/image/NESTING PROFESSIONALS.svg'
+
+const HERO_VIDEOS = [
+  { id: 1, title: 'Deluxe Suite', code: 'Room 01', video: room1Video, desc: 'Luxury Living & Comfort' },
+  { id: 2, title: 'Executive Studio', code: 'Room 02', video: room2Video, desc: 'Modern Architectural Space' },
+  { id: 3, title: 'Premium Suite', code: 'Room 03', video: room3Video, desc: 'Serene Ambience & Views' },
+  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: room4Video, desc: 'Panoramic Sophistication' },
+]
 
 /* ────────────────────────────────────────────────────────────
    Bird row SVG — matches reference exactly
@@ -44,7 +54,7 @@ function BirdRowSVG() {
 }
 
 /* ────────────────────────────────────────────────────────────
-   Booking Bar
+   Booking Bar (100% Exact Original Code & Styling)
 ──────────────────────────────────────────────────────────── */
 function BookingBar() {
   const CalIcon = () => (
@@ -170,22 +180,61 @@ function BookingBar() {
 }
 
 export default function Hero() {
+  // Start with a random video index between 0 and 3
+  const [activeVideoIndex, setActiveVideoIndex] = useState(() =>
+    Math.floor(Math.random() * HERO_VIDEOS.length)
+  )
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const videoRefs = useRef([])
+
+  // Ensure the active video plays seamlessly when active index changes
+  useEffect(() => {
+    HERO_VIDEOS.forEach((_, idx) => {
+      const v = videoRefs.current[idx]
+      if (v) {
+        if (idx === activeVideoIndex) {
+          v.currentTime = 0
+          v.play().catch(() => {})
+        }
+      }
+    })
+  }, [activeVideoIndex])
+
+  const handleVideoEnded = (idx) => {
+    if (idx === activeVideoIndex) {
+      // Transition seamlessly to the next video when current video ends
+      setActiveVideoIndex((prev) => (prev + 1) % HERO_VIDEOS.length)
+    }
+  }
+
   return (
     <section id="top" style={{ background: '#fff', position: 'relative', paddingBottom: '30px' }}>
 
-      {/* ── Background Layer (Full Bleed Image) ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <motion.video
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.9, ease: 'easeOut' }}
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover object-center"
-        />
+      {/* ── Background Layer (Seamless Stacked Videos with Crossfade) ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-black">
+        {HERO_VIDEOS.map((item, index) => {
+          const isActive = index === activeVideoIndex
+          return (
+            <motion.div
+              key={item.id}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: index === activeVideoIndex ? 1 : 0 }}
+              animate={{ opacity: isActive ? 1 : 0 }}
+              transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <video
+                ref={(el) => (videoRefs.current[index] = el)}
+                src={item.video}
+                autoPlay={isActive}
+                muted
+                playsInline
+                onEnded={() => handleVideoEnded(index)}
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+          )
+        })}
+
         {/* Subtle low fade on left half section */}
         <div 
           className="absolute inset-y-0 left-0 w-full md:w-[50%] pointer-events-none z-[1]" 
@@ -269,26 +318,107 @@ export default function Hero() {
             >
               Explore Rooms
             </motion.a>
-
-            <motion.a
-              href="#about"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#1a1a1a', fontSize: 15, fontWeight: 500 }}
-            >
-              {/* <span style={{ width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #bbb', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
-                <svg width="9" height="11" viewBox="0 0 9 11" fill="none"><polygon points="0,0 9,5.5 0,11" fill="#1a1a1a"/></svg>
-              </span> */}
-              {/* Watch Video */}
-            </motion.a>
           </motion.div>
         </div>
       </div>
 
-      {/* ── Booking bar strip (overlapping borders) ── */}
-      {/* It sits absolute at the bottom, translating down 50% so it overlaps the Hero/Rooms border */}
-      <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-30 flex justify-center w-full">
-        <BookingBar />
+      {/* ── Booking bar strip (overlapping borders - EXACT original position) ── */}
+      <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-30 flex justify-center w-full pointer-events-none">
+        <div className="relative pointer-events-auto flex flex-col items-center justify-center w-full">
+          
+          {/* ── 4 Carousel Dots Container (Positioned ABSOLUTELY above BookingBar) ── */}
+          <div className="absolute bottom-full mb-3.5 flex flex-col items-center justify-center">
+            
+            {/* Smooth Hover Video Preview Popup Modal (Centered over dots bar with dynamic pointer arrow) */}
+            <AnimatePresence>
+              {hoveredIndex !== null && (
+                <motion.div
+                  key={hoveredIndex}
+                  initial={{ opacity: 0, y: 10, scale: 0.92 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.94 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute bottom-full mb-3.5 w-52 sm:w-60 bg-[#1A0B03]/95 text-white p-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/25 pointer-events-none z-[100] backdrop-blur-2xl"
+                >
+                  {/* Mini Video Preview Container */}
+                  <div className="relative w-full h-32 rounded-xl overflow-hidden mb-2.5 bg-black/80 border border-white/15 shadow-inner">
+                    <video
+                      src={HERO_VIDEOS[hoveredIndex].video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-2 left-2 bg-[#7B2D16] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest shadow-md">
+                      Preview
+                    </div>
+                  </div>
+
+                  {/* Title & Info */}
+                  <div className="px-1 text-left">
+                    <div className="text-[12px] font-bold text-[#F3EADB] flex items-center justify-between">
+                      <span>{HERO_VIDEOS[hoveredIndex].title}</span>
+                      <span className="text-[9px] font-semibold text-[#E0B896] uppercase bg-white/10 px-1.5 py-0.5 rounded">
+                        {HERO_VIDEOS[hoveredIndex].code}
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-gray-300 mt-1 font-light line-clamp-1 leading-snug">
+                      {HERO_VIDEOS[hoveredIndex].desc}
+                    </p>
+                  </div>
+
+                  {/* Dynamic Arrow Pointer tracking the exact hovered dot */}
+                  <div
+                    className="absolute top-full -mt-[1px] -translate-x-1/2 border-[6px] border-transparent border-t-[#1A0B03]/95 transition-all duration-200 ease-out"
+                    style={{
+                      left: `${((hoveredIndex + 0.5) / HERO_VIDEOS.length) * 100}%`
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Dots Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="flex items-center justify-center bg-[#2A1205]/25 backdrop-blur-[3px] px-3 py-0.5 rounded-full border border-white/15 shadow-[0_10px_35px_rgba(0,0,0,0.4)] z-40"
+            >
+              {HERO_VIDEOS.map((room, index) => {
+                const isActive = index === activeVideoIndex
+                const isHovered = hoveredIndex === index
+
+                return (
+                  <div
+                    key={room.id}
+                    className="relative flex items-center justify-center w-7 h-7 sm:w-7 sm:h-7 cursor-pointer"
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    onClick={() => setActiveVideoIndex(index)}
+                  >
+                    {/* Simple Rounded Circle Indicator Dot */}
+                    <button
+                      type="button"
+                      aria-label={`Select ${room.title}`}
+                      className={`rounded-full transition-all duration-300 pointer-events-none ${
+                        isActive
+                          ? 'w-3.5 h-3.5 bg-white shadow-[0_0_14px_rgba(255,255,255,0.55)] scale-110'
+                          : isHovered
+                          ? 'w-3 h-3 bg-white/95 scale-125'
+                          : 'w-3 h-3 bg-white/45 hover:bg-white/80'
+                      }`}
+                    />
+                  </div>
+                )
+              })}
+            </motion.div>
+
+          </div>
+
+          <BookingBar />
+        </div>
       </div>
 
     </section>

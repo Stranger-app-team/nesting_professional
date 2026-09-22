@@ -83,16 +83,16 @@ export default function App() {
         <main style={{ backgroundColor: '#FAF6F1' }} className="flex-1 pt-16 lg:pt-0">
         {/* Hero — white badge */}
         <Hero />
-        {/* About — white badge */}
-        <About />
+        {/* Gallery — warm cream */}
+        <GallerySection />
         {/* Amenities — white badge */}
         <Amenities />
         {/* Dining — brown */}
         <Dining />
         {/* Rooms & Suites — brown */}
         <Rooms />
-        {/* Gallery — warm cream */}
-        <GallerySection />
+        {/* About — white badge */}
+        <About />
         {/* Pune Location & Connectivity — small compact section */}
         <LocationMap />
         {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace (commented out) */}

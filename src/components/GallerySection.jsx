@@ -10,7 +10,6 @@ import room3 from '../assets/logo/Room 3.mp4'
 import room4 from '../assets/logo/Room 4.mp4'
 import room5 from '../assets/logo/Room 5.mp4'
 import room6 from '../assets/logo/Room 6.mp4'
-import room7 from '../assets/logo/Room 7.mp4'
 
 const otherVideos = [
   { src: room1, title: 'Room 1' },
@@ -19,7 +18,6 @@ const otherVideos = [
   { src: room4, title: 'Room 4' },
   { src: room5, title: 'Room 5' },
   { src: room6, title: 'Room 6' },
-  { src: room7, title: 'Room 7' },
 ]
 
 // Dynamically compute middle index so the landscape video is always centered
@@ -111,7 +109,7 @@ export default function GallerySection() {
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
 
         {/* Section heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-8">
           <Reveal type="fade">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-[1px] bg-[#C9A06A]/30"></div>
