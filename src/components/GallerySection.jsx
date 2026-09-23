@@ -9,7 +9,7 @@ import room2 from '../assets/logo/Room 2.mp4'
 import room3 from '../assets/logo/Room 3.mp4'
 import room4 from '../assets/logo/Room 4.mp4'
 import room5 from '../assets/logo/Room 5.mp4'
-import room6 from '../assets/logo/Room 6.mp4'
+import room6 from '../assets/logo/Room 1.mp4'
 
 const otherVideos = [
   { src: room1, title: 'Room 1' },

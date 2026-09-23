@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import room1Img from '../assets/hero/hero_1.png'
-import room2Img from '../assets/hero/hero_2.png'
+import room2Img from '../assets/hero/hero_2.jpeg'
 import mapAnimationVideo from '../assets/hero/map animation_1.mp4'
 import whatsAppVideo from '../assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.mp4'
 import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
@@ -244,7 +244,9 @@ export default function Hero() {
               animate={{ opacity: isActive ? 1 : 0 }}
               transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
             >
-              {item.type === 'image' ? (
+              {index === 3 ? (
+                <div className="w-full h-full bg-[#ffffff]" />
+              ) : item.type === 'image' ? (
                 <img
                   src={item.video}
                   alt={item.title}
@@ -279,7 +281,97 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
         
         <AnimatePresence mode="wait">
-          {activeVideoIndex !== 3 && (
+          {activeVideoIndex === 3 ? (
+            <motion.div
+              key="whatsapp-slide"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="pointer-events-auto flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-12 w-full"
+            >
+              {/* Left Column: Welcome Card */}
+              <div
+                className="p-8 md:p-10 rounded-2xl w-full max-w-[500px]" 
+                style={{ background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+              >
+                {/* WELCOME TO */}
+                <motion.p
+                  className="font-display text-[20px] md:text-[20px] font-normal tracking-[0.22em] text-[#7B2D16] uppercase mb-1"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.5 }}
+                >
+                  Welcome To
+                </motion.p>
+
+                <div style={{ display: 'inline-block', maxWidth: '100%' }}>
+                  {/* CHIDIYA GHAR */}
+                  <motion.h1
+                    className="font-display"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 12, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}
+                  >
+                    <img src={chidiyaGharTextSvg} alt="Chidiya Ghar" style={{ height: '1.2em', width: 'auto' }} />
+                  </motion.h1>
+
+                  {/* Nesting Professional */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.28, duration: 0.5 }}
+                    style={{ width: '100%', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
+                  >
+                    <img src={nestingProfSvg} alt="Nesting Professionals" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                  </motion.div>
+                </div>
+
+                {/* Tagline */}
+                <motion.p
+                  className="text-[16px] md:text-[19px] font-light text-[#555] leading-relaxed mb-8 max-w-[400px]"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.48, duration: 0.6 }}
+                >
+                  Your home away from home, while you pursue your journey.
+                </motion.p>
+
+                {/* CTA row */}
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}
+                >
+                  <motion.a
+                    href="#rooms"
+                    whileHover={{ backgroundColor: '#1a0b03' }}
+                    whileTap={{ scale: 0.97 }}
+                    style={{ background: '#2A1205', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
+                  >
+                    Explore Rooms
+                  </motion.a>
+                </motion.div>
+              </div>
+
+              {/* Right Column: WhatsApp Video Framed Card */}
+              <div className="w-full max-w-[580px] lg:max-w-[1480px] flex items-center justify-center">
+                <div className="relative w-full bg-white rounded-[32px]  overflow-hidden flex items-center justify-center">
+                  <video
+                    ref={(el) => (videoRefs.current[3] = el)}
+                    src={HERO_VIDEOS[3].video}
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={() => handleVideoEnded(3)}
+                    className="w-full h-auto rounded-[22px] object-contain"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ) : (
             <motion.div
               key="welcome-text"
               initial={{ opacity: 0, y: 20 }}
@@ -291,7 +383,7 @@ export default function Hero() {
             >
               {/* WELCOME TO */}
               <motion.p
-                className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
+                className="font-display text-[20px] md:text-[20px] font-normal tracking-[0.22em] text-[#7B2D16] uppercase mb-1"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}

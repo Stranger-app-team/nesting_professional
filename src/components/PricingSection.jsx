@@ -43,7 +43,7 @@ const PRICING_PLANS = [
   {
     id: 'standard',
     title: 'Standard Room',
-    price: '₹ 3,057.65',
+    price: '₹ 2,599',
     unit: '/Night',
     isPopular: false,
     features: [
@@ -58,7 +58,7 @@ const PRICING_PLANS = [
   {
     id: 'balcony',
     title: 'Standard Room with Balcony',
-    price: '₹ 3,292.94',
+    price: '₹ 2,799',
     unit: '/Night',
     isPopular: true,
     badgeText: 'MOST POPULAR',
