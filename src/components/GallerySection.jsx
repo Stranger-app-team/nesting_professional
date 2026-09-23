@@ -106,10 +106,10 @@ export default function GallerySection() {
 
   return (
     <section id="gallery" style={{ backgroundColor: '#2A1205' }} className="pt-12 pb-16 scroll-mt-24">
-      <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
+      <div className="max-w-[1680px] mx-auto px-4 lg:px-6">
 
         {/* Section heading */}
-        <div className="text-center mb-12 mt-8">
+        <div className="text-center mb-8 mt-8">
           <Reveal type="fade">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-[1px] bg-[#C9A06A]/30"></div>
@@ -152,7 +152,7 @@ export default function GallerySection() {
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 viewport={{ margin: "-10% 0px -10% 0px", amount: 0.6 }}
-                className="relative shrink-0 w-[86vw] max-w-[500px] aspect-video rounded-[20px] p-2 sm:p-2.5 bg-[#1A0A04]/40 border border-[#C9A06A]/20 snap-center shadow-[0_15px_30px_-5px_rgba(0,0,0,0.3)]"
+                className="relative shrink-0 w-[86vw] sm:w-[82vw] max-w-[530px] aspect-video rounded-[20px] p-2 sm:p-2.5 bg-[#1A0A04]/40 border border-[#C9A06A]/20 snap-center shadow-[0_15px_30px_-5px_rgba(0,0,0,0.3)]"
               >
                 {/* Gold frame corner accents */}
                 <div className="absolute -top-1 -left-1 w-6 h-6 border-t-[2px] border-l-[2px] border-[#C9A06A]/70 rounded-tl-md pointer-events-none z-10" />
@@ -185,7 +185,7 @@ export default function GallerySection() {
 
         {/* Desktop Interactive sliding video strip with 16:9 widescreen active ratio */}
         <div 
-          className="hidden md:flex items-center gap-3 w-full h-[360px] xl:h-[390px]"
+          className="hidden md:flex items-center gap-3 w-full h-[400px] lg:h-[430px] xl:h-[450px]"
           onMouseLeave={() => setHoveredIndex(defaultIndex)}
         >
           {galleryVideos.map((item, i) => {
@@ -197,7 +197,7 @@ export default function GallerySection() {
                 onMouseEnter={() => setHoveredIndex(i)}
                 className="relative rounded-[20px] p-2 bg-[#1A0A04]/40 border border-[#C9A06A]/20 h-full select-none"
                 style={{
-                  flex: isHovered ? 5.2 : 0.8,
+                  flex: isHovered ? 5.8 : 0.75,
                   transform: isHovered ? 'scale(1.02)' : 'scale(0.96)',
                   zIndex: isHovered ? 20 : 1,
                   opacity: isHovered ? 1 : 0.8,

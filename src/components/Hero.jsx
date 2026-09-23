@@ -1,17 +1,33 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import room1Video from '../assets/logo/Room 1.mp4'
-import room2Video from '../assets/logo/Room 2.mp4'
+import room1Img from '../assets/hero/hero_1.png'
+import room2Img from '../assets/hero/hero_2.png'
 import room3Video from '../assets/logo/Room 3.mp4'
 import room4Video from '../assets/logo/Room 4.mp4'
 import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
 import nestingProfSvg from '../assets/image/NESTING PROFESSIONALS.svg'
 
 const HERO_VIDEOS = [
-  { id: 1, title: 'Deluxe Suite', code: 'Room 01', video: room1Video, desc: 'Luxury Living & Comfort' },
-  { id: 2, title: 'Executive Studio', code: 'Room 02', video: room2Video, desc: 'Modern Architectural Space' },
-  { id: 3, title: 'Premium Suite', code: 'Room 03', video: room3Video, desc: 'Serene Ambience & Views' },
-  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: room4Video, desc: 'Panoramic Sophistication' },
+  { 
+    id: 1, 
+    title: 'Deluxe Suite', 
+    code: 'Room 01', 
+    video: room1Img, 
+    type: 'image', 
+    desc: 'Luxury Living & Comfort',
+    position: 'object-right sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
+  },
+  { 
+    id: 2, 
+    title: 'Executive Studio', 
+    code: 'Room 02', 
+    video: room2Img, 
+    type: 'image', 
+    desc: 'Modern Architectural Space',
+    position: 'object-right sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
+  },
+  { id: 3, title: 'Premium Suite', code: 'Room 03', video: room3Video, type: 'video', desc: 'Serene Ambience & Views' },
+  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: room4Video, type: 'video', desc: 'Panoramic Sophistication' },
 ]
 
 /* ────────────────────────────────────────────────────────────
@@ -286,17 +302,21 @@ export default function Hero() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const videoRefs = useRef([])
 
-  // Ensure the active video plays seamlessly when active index changes
+  // Ensure the active media plays seamlessly or auto-advances
   useEffect(() => {
-    HERO_VIDEOS.forEach((_, idx) => {
-      const v = videoRefs.current[idx]
+    const currentItem = HERO_VIDEOS[activeVideoIndex]
+    if (currentItem?.type === 'video') {
+      const v = videoRefs.current[activeVideoIndex]
       if (v) {
-        if (idx === activeVideoIndex) {
-          v.currentTime = 0
-          v.play().catch(() => {})
-        }
+        v.currentTime = 0
+        v.play().catch(() => {})
       }
-    })
+    } else if (currentItem?.type === 'image') {
+      const timer = setTimeout(() => {
+        setActiveVideoIndex((prev) => (prev + 1) % HERO_VIDEOS.length)
+      }, 6000)
+      return () => clearTimeout(timer)
+    }
   }, [activeVideoIndex])
 
   const handleVideoEnded = (idx) => {
@@ -321,15 +341,23 @@ export default function Hero() {
               animate={{ opacity: isActive ? 1 : 0 }}
               transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
             >
-              <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                src={item.video}
-                autoPlay={isActive}
-                muted
-                playsInline
-                onEnded={() => handleVideoEnded(index)}
-                className="w-full h-full object-cover object-center"
-              />
+              {item.type === 'image' ? (
+                <img
+                  src={item.video}
+                  alt={item.title}
+                  className={`w-full h-full object-cover ${item.position || 'object-center'}`}
+                />
+              ) : (
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  src={item.video}
+                  autoPlay={isActive}
+                  muted
+                  playsInline
+                  onEnded={() => handleVideoEnded(index)}
+                  className="w-full h-full object-cover object-center"
+                />
+              )}
             </motion.div>
           )
         })}
@@ -472,16 +500,24 @@ export default function Hero() {
                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                   className="absolute bottom-full mb-3.5 w-52 sm:w-60 bg-[#1A0B03]/95 text-white p-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/25 pointer-events-none z-[100] backdrop-blur-2xl"
                 >
-                  {/* Mini Video Preview Container */}
+                  {/* Mini Media Preview Container */}
                   <div className="relative w-full h-32 rounded-xl overflow-hidden mb-2.5 bg-black/80 border border-white/15 shadow-inner">
-                    <video
-                      src={HERO_VIDEOS[hoveredIndex].video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
+                    {HERO_VIDEOS[hoveredIndex].type === 'image' ? (
+                      <img
+                        src={HERO_VIDEOS[hoveredIndex].video}
+                        alt={HERO_VIDEOS[hoveredIndex].title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={HERO_VIDEOS[hoveredIndex].video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                     <div className="absolute top-2 left-2 bg-[#7B2D16] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest shadow-md">
                       Preview
                     </div>

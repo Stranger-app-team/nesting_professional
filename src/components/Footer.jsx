@@ -85,6 +85,7 @@ export default function Footer() {
                 { name: 'Home', href: '#top' },
                 { name: 'About Us', href: '#about' },
                 { name: 'Rooms & Suites', href: '#rooms' },
+                { name: 'Pricing & Tariff', href: '#pricing' },
                 { name: 'Amenities', href: '#amenities' },
                 { name: 'Gallery', href: '#gallery' },
                 { name: 'Location', href: '#location' },

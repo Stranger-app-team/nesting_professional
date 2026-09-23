@@ -8,6 +8,7 @@ import Dining from './components/Dining'
 import About from './components/About'
 import GallerySection from './components/GallerySection'
 import LocationMap from './components/LocationMap'
+import PricingSection from './components/PricingSection'
 import MeetingBanner from './components/MeetingBanner'
 import Footer from './components/Footer'
 import FloatingInquiry from './components/FloatingInquiry'
@@ -85,14 +86,16 @@ export default function App() {
         <Hero />
         {/* Gallery — warm cream */}
         <GallerySection />
-        {/* Amenities — white badge */}
-        <Amenities />
+        {/* About — white badge */}
+        <About />
         {/* Dining — brown */}
         <Dining />
         {/* Rooms & Suites — brown */}
         <Rooms />
-        {/* About — white badge */}
-        <About />
+        {/* Pricing & Tariff Section */}
+        <PricingSection />
+        {/* Amenities — white badge */}
+        <Amenities />
         {/* Pune Location & Connectivity — small compact section */}
         <LocationMap />
         {/* Got a Meeting Tomorrow CTA Banner — warm cream & workspace (commented out) */}

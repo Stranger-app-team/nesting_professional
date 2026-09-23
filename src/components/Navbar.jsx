@@ -7,10 +7,11 @@ import mainLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.png'
 const navLinks = [
   { label: 'Home', href: '#top', icon: Home },
   { label: 'Gallery', href: '#gallery', icon: ImageIcon },
-  { label: 'Amenities', href: '#amenities', icon: Leaf },
+  { label: 'About', href: '#about', icon: User },
   { label: 'Dining', href: '#dining', icon: Utensils },
   { label: 'Rooms', href: '#rooms', icon: BedDouble },
-  { label: 'About', href: '#about', icon: User },
+  { label: 'Pricing', href: '#pricing', icon: Tag },
+  { label: 'Amenities', href: '#amenities', icon: Leaf },
   // { label: 'Offers', href: '#offers', icon: Tag },
   { label: 'Contact', href: '#contact', icon: Mail },
 ]
