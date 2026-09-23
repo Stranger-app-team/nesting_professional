@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import room1Img from '../assets/hero/hero_1.png'
 import room2Img from '../assets/hero/hero_2.png'
-import room3Video from '../assets/logo/Room 3.mp4'
-import room4Video from '../assets/logo/Room 4.mp4'
+import mapAnimationVideo from '../assets/hero/map animation_1.mp4'
+import whatsAppVideo from '../assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.mp4'
 import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
 import nestingProfSvg from '../assets/image/NESTING PROFESSIONALS.svg'
 
@@ -26,8 +26,8 @@ const HERO_VIDEOS = [
     desc: 'Modern Architectural Space',
     position: 'object-right sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
   },
-  { id: 3, title: 'Premium Suite', code: 'Room 03', video: room3Video, type: 'video', desc: 'Serene Ambience & Views' },
-  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: room4Video, type: 'video', desc: 'Panoramic Sophistication' },
+  { id: 3, title: 'Premium Suite', code: 'Room 03', video: mapAnimationVideo, type: 'video', desc: 'Serene Ambience & Views' },
+  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: whatsAppVideo, type: 'video', desc: 'Panoramic Sophistication' },
 ]
 
 /* ────────────────────────────────────────────────────────────
@@ -195,104 +195,7 @@ function BookingBar() {
   )
 }
 
-/* ────────────────────────────────────────────────────────────
-   Pricing Card Components (for Room 3 & 4)
-──────────────────────────────────────────────────────────── */
-const CheckIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" fill="#65A30D" />
-    <path d="M7 12.5L10.5 16L17 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
-const CrossIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" fill="#DC2626" />
-    <path d="M8 8L16 16M16 8L8 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const BedIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#1A0B03" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4">
-    <path d="M8 40h48v6H8z" />
-    <path d="M12 46v6 M52 46v6" />
-    <path d="M8 32h48v8H8z" />
-    <path d="M12 32v-12c0-2 1.5-4 4-4h32c2.5 0 4 2 4 4v12" />
-    <path d="M18 22h12v10H18z M34 22h12v10H34z" />
-    <path d="M20 8l2-4 2 4 4 2-4 2-2 4-2-4-4-2z" />
-    <path d="M40 10l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" />
-  </svg>
-);
-
-const BalconyBedIcon = () => (
-  <svg width="72" height="64" viewBox="0 0 72 64" fill="none" stroke="#1A0B03" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4">
-    <path d="M2 42h28v4H2z" />
-    <path d="M6 46v4 M26 46v4" />
-    <path d="M2 36h28v6H2z" />
-    <path d="M4 36v-8c0-1.5 1-2.5 2.5-2.5h19c1.5 0 2.5 1 2.5 2.5v8" />
-    <path d="M8 29h6v7H8z M18 29h6v7H18z" />
-    <path d="M10 16l1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5z" />
-    <path d="M36 42h34v4H36z" />
-    <path d="M38 42v-16 M68 42v-16" />
-    <path d="M38 32h30" />
-    <path d="M43 42v-10 M48 42v-10 M53 42v-10 M58 42v-10 M63 42v-10" />
-    <path d="M46 26v-14h14v14" />
-    <path d="M53 12v14 M46 19h14" />
-    <path d="M39 26h4v-2h-4z M40 24v-3l-2-2 M41 24l2-3" />
-  </svg>
-);
-
-const standardRoomFeatures = [
-  { text: 'Private Balcony', included: false },
-  { text: 'Spacious Double Bed', included: true },
-  { text: 'Natural Light & Fresh Air', included: true },
-  { text: 'Work-Friendly Space', included: true },
-];
-
-const balconyRoomFeatures = [
-  { text: 'Private Balcony', included: true },
-  { text: 'Spacious Double Bed', included: true },
-  { text: 'Natural Light & Fresh Air', included: true },
-  { text: 'Work-Friendly Space', included: true },
-];
-
-const PricingCard = ({ title, price, icon, features }) => {
-  return (
-    <div 
-      className="p-6 md:p-8 rounded-3xl flex flex-col justify-between"
-      style={{
-        background: 'transparent',
-        backgroundColor: 'rgba(243, 234, 219, 0.2)', 
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
-        width: '100%',
-        maxWidth: '320px',
-        border: '1px solid rgba(255,255,255,0.1)'
-      }}
-    >
-      <div>
-        {icon}
-        <h3 className="text-[26px] font-bold text-[#1A0B03] mb-6 leading-[1.1]">{title}</h3>
-        <ul className="space-y-4 mb-8">
-          {features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-3">
-              {feature.included ? <CheckIcon /> : <CrossIcon />}
-              <span className="text-[16px] font-semibold text-[#1A0B03]">{feature.text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <div className="pt-5 border-t-[1.5px] border-[#1A0B03]/20">
-        <div className="flex items-baseline gap-1.5">
-          <span className="text-[28px] font-extrabold text-[#1A0B03]">{price}</span>
-          <span className="text-[13px] font-bold text-[#1A0B03] tracking-wide">/Night</span>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function Hero() {
   // Start with a random video index between 0 and 3
@@ -376,29 +279,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
         
         <AnimatePresence mode="wait">
-          {(activeVideoIndex === 2 || activeVideoIndex === 3) ? (
-            <motion.div
-              key="pricing-cards"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6 }}
-              className="pointer-events-auto flex flex-col md:flex-row items-center justify-between gap-6 w-full"
-            >
-              <PricingCard 
-                title="Standard Room" 
-                price="₹ 3,057.65" 
-                icon={<BedIcon />} 
-                features={standardRoomFeatures} 
-              />
-              <PricingCard 
-                title={<>Standard Room<br />with Balcony</>}
-                price="₹ 3,292.94" 
-                icon={<BalconyBedIcon />} 
-                features={balconyRoomFeatures} 
-              />
-            </motion.div>
-          ) : (
+          {activeVideoIndex !== 3 && (
             <motion.div
               key="welcome-text"
               initial={{ opacity: 0, y: 20 }}
@@ -409,40 +290,40 @@ export default function Hero() {
               style={{ maxWidth: 500, background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
             >
               {/* WELCOME TO */}
-          <motion.p
-            className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-          >
-            Welcome To
-          </motion.p>
+              <motion.p
+                className="font-display text-[20px] md:text-[30px] font-black tracking-[0.22em] text-[#7B2D16] uppercase mb-3"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+              >
+                Welcome To
+              </motion.p>
 
-          <div style={{ display: 'inline-block', maxWidth: '100%' }}>
-            {/* CHIDIYA GHAR */}
-            <motion.h1
-              className="font-display"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 12, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}
-            >
-              <img src={chidiyaGharTextSvg} alt="Chidiya Ghar" style={{ height: '1.2em', width: 'auto' }} />
-            </motion.h1>
+              <div style={{ display: 'inline-block', maxWidth: '100%' }}>
+                {/* CHIDIYA GHAR */}
+                <motion.h1
+                  className="font-display"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 600, lineHeight: 1.05, marginBottom: 12, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}
+                >
+                  <img src={chidiyaGharTextSvg} alt="Chidiya Ghar" style={{ height: '1.2em', width: 'auto' }} />
+                </motion.h1>
 
-            {/* Nesting Professional */}
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28, duration: 0.5 }}
-              style={{ width: '100%', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
-            >
-              <img src={nestingProfSvg} alt="Nesting Professionals" style={{ width: '100%', height: 'auto', display: 'block' }} />
-            </motion.div>
-          </div>
+                {/* Nesting Professional */}
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.28, duration: 0.5 }}
+                  style={{ width: '100%', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}
+                >
+                  <img src={nestingProfSvg} alt="Nesting Professionals" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </motion.div>
+              </div>
 
-          {/* Bird row illustration */}
-          {/* <motion.div
+              {/* Bird row illustration */}
+              {/* <motion.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.38, duration: 0.6 }}
@@ -451,32 +332,32 @@ export default function Hero() {
             <BirdRowSVG />
           </motion.div> */}
 
-          {/* Tagline */}
-          <motion.p
-            className="text-[16px] md:text-[19px] font-light text-[#555] leading-relaxed mb-8 max-w-[400px]"
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.48, duration: 0.6 }}
-          >
-            Your home away from home, while you pursue your journey.
-          </motion.p>
+              {/* Tagline */}
+              <motion.p
+                className="text-[16px] md:text-[19px] font-light text-[#555] leading-relaxed mb-8 max-w-[400px]"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.48, duration: 0.6 }}
+              >
+                Your home away from home, while you pursue your journey.
+              </motion.p>
 
-          {/* CTA row */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}
-          >
-            <motion.a
-              href="#rooms"
-              whileHover={{ backgroundColor: '#1a0b03' }}
-              whileTap={{ scale: 0.97 }}
-              style={{ background: '#2A1205', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
-            >
-              Explore Rooms
-            </motion.a>
-          </motion.div>
+              {/* CTA row */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}
+              >
+                <motion.a
+                  href="#rooms"
+                  whileHover={{ backgroundColor: '#1a0b03' }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{ background: '#2A1205', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 28px', borderRadius: 6, transition: 'background 0.2s', letterSpacing: '0.03em' }}
+                >
+                  Explore Rooms
+                </motion.a>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
