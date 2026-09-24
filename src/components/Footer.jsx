@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import highlightLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.png'
+import highlightLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.webp'
 
 // Decorative bird background
 function FooterBirds() {

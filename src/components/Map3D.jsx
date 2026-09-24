@@ -3,7 +3,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html, Line } from '@react-three/drei';
 import * as THREE from 'three';
 import { Bus, Plane, TrainFront, Car } from 'lucide-react';
-import puneMapImg from '../assets/image/pune-location.png';
+import puneMapImg from '../assets/image/pune-location.webp';
 
 // Scale factor for the map (2x)
 const MAP_SCALE = 80;

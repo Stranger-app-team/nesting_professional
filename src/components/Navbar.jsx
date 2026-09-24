@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Home, BedDouble, Leaf, Utensils, User, Image as ImageIcon, Tag, Mail } from 'lucide-react'
 
-import mainLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.png'
+import mainLogo from '../assets/logo/001-CHIDIYA GHAR LOGO final.webp'
 
 const navLinks = [
   { label: 'Home', href: '#top', icon: Home },

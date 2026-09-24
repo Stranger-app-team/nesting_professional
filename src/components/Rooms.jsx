@@ -2,11 +2,11 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ImageWithFallback from './common/ImageWithFallback'
 import Reveal from './common/Reveal'
-import acc1 from '../assets/image/acc-1.png'
-import acc2 from '../assets/image/acc-2.png'
-import acc3 from '../assets/image/acc-3.png'
-import acc4 from '../assets/image/acc-4.png'
-import acc5 from '../assets/image/acc-5.png'
+import acc1 from '../assets/image/acc-1.webp'
+import acc2 from '../assets/image/acc-2.webp'
+import acc3 from '../assets/image/acc-3.webp'
+import acc4 from '../assets/image/acc-4.webp'
+import acc5 from '../assets/image/acc-5.webp'
 
 const rooms = [
   {

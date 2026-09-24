@@ -4,8 +4,8 @@ import { philosophy } from '../data/content'
 import ImageWithFallback from './common/ImageWithFallback'
 import Reveal from './common/Reveal'
 import TextMask from './common/TextMask'
-import openUpImg from '../assets/image/openup.png'
-import openDownImg from '../assets/image/opendown.png'
+import openUpImg from '../assets/image/openup.webp'
+import openDownImg from '../assets/image/opendown.webp'
 
 // Floating feather SVG decorations
 function FloatingFeather({ style, className = '' }) {

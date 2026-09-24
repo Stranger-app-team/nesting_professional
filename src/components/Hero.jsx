@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import room1Img from '../assets/hero/hero_1.png'
-import room2Img from '../assets/hero/hero_2.jpeg'
-import mapAnimationVideo from '../assets/hero/map animation_1.mp4'
-import whatsAppVideo from '../assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.mp4'
+import room1Img from '../assets/hero/hero_1.webp'
+import room2Img from '../assets/hero/hero_2.webp'
+import mapAnimationVideo from '../assets/hero/map animation_1.webm'
+import whatsAppVideo from '../assets/logo/WhatsApp Video 2026-09-12 at 3.49.15 PM.webm'
 import chidiyaGharTextSvg from '../assets/image/chidiya-ghar-exact.svg'
 import nestingProfSvg from '../assets/image/NESTING PROFESSIONALS.svg'
 

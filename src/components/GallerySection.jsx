@@ -3,13 +3,13 @@ import { motion } from 'framer-motion'
 import { Volume2, VolumeX } from 'lucide-react'
 import Reveal from './common/Reveal'
 
-import vidLandscape from '../assets/logo/0016-Chidiya Ghar-Short Video Landscape.mp4'
-import room1 from '../assets/logo/Room 1.mp4'
-import room2 from '../assets/logo/Room 2.mp4'
-import room3 from '../assets/logo/Room 3.mp4'
-import room4 from '../assets/logo/Room 4.mp4'
-import room5 from '../assets/logo/Room 5.mp4'
-import room6 from '../assets/logo/Room 1.mp4'
+import vidLandscape from '../assets/logo/0016-Chidiya Ghar-Short Video Landscape.webm'
+import room1 from '../assets/logo/Room 1.webm'
+import room2 from '../assets/logo/Room 2.webm'
+import room3 from '../assets/logo/Room 3.webm'
+import room4 from '../assets/logo/Room 4.webm'
+import room5 from '../assets/logo/Room 5.webm'
+import room6 from '../assets/logo/Room 1.webm'
 
 const otherVideos = [
   { src: room1, title: 'Room 1' },

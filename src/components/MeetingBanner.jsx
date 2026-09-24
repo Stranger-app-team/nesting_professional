@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Reveal from './common/Reveal'
-import meetingImg from '../assets/image/meeting-banner.jpg'
+import meetingImg from '../assets/image/meeting-banner.webp'
 
 export default function MeetingBanner() {
   return (

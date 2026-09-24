@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import Reveal from './common/Reveal'
-import birdSvgImage from '../assets/image/Bird Svg.svg'
-import birdVideo from '../assets/logo/logo.mp4'
+import birdVideo from '../assets/logo/logo.webm'
 
 const whyUsData = [
   {

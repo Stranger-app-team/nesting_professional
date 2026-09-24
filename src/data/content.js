@@ -4,21 +4,21 @@
 // renders — see README "Swapping in your own images".
 // ────────────────────────────────────────────────────────────────
 
-import acc1 from '../assets/image/acc-1.png';
-import acc2 from '../assets/image/acc-2.png';
-import acc3 from '../assets/image/acc-3.png';
-import acc4 from '../assets/image/acc-4.png';
-import acc5 from '../assets/image/acc-5.png';
-import gal1 from '../assets/image/gal-1.png';
-import gal2 from '../assets/image/gal-2.png';
-import gal3 from '../assets/image/gal-3.png';
-import gal4 from '../assets/image/gal-4.png';
-import gal5 from '../assets/image/gal-5.png';
-import test1 from '../assets/image/testimonial-1.jpg';
-import test2 from '../assets/image/testimonial-2.jpg';
-import test3 from '../assets/image/testimonial-3.jpg';
-import sectionBg from '../assets/image/section-bg.png';
-import philosophyNew from '../assets/image/philosophy-new.jpg';
+import acc1 from '../assets/image/acc-1.webp';
+import acc2 from '../assets/image/acc-2.webp';
+import acc3 from '../assets/image/acc-3.webp';
+import acc4 from '../assets/image/acc-4.webp';
+import acc5 from '../assets/image/acc-5.webp';
+import gal1 from '../assets/image/gal-1.webp';
+import gal2 from '../assets/image/gal-2.webp';
+import gal3 from '../assets/image/gal-3.webp';
+import gal4 from '../assets/image/gal-4.webp';
+import gal5 from '../assets/image/gal-5.webp';
+import test1 from '../assets/image/testimonial-1.webp';
+import test2 from '../assets/image/testimonial-2.webp';
+import test3 from '../assets/image/testimonial-3.webp';
+import sectionBg from '../assets/image/section-bg.webp';
+import philosophyNew from '../assets/image/philosophy-new.webp';
 
 export const nav = [
   { label: 'The nests', href: '#nests' },
