@@ -50,13 +50,13 @@ export default function Navbar() {
   return (
     <>
       {/* ---------------- MOBILE HEADER (lg:hidden) ---------------- */}
-      <header className={`lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
+      <header className={`lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#7B2D16]/10' : 'bg-white/50 backdrop-blur-sm'}`}>
         <div className="px-4 py-2 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center shrink-0">
             <motion.img
               src={mainLogo}
               alt="Chidiya Ghar Logo"
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-8 md:h-10 w-auto object-contain brightness-0"
               whileHover={{ scale: 1.05 }}
             />
           </a>
@@ -142,7 +142,7 @@ export default function Navbar() {
           >
             <div className="flex justify-between items-center p-6 border-b border-[#7B2D16]/10">
               <a href="#top" onClick={() => setOpen(false)} className="block outline-none">
-                <img src={mainLogo} alt="Chidiya Ghar" className="h-8 w-auto object-contain" />
+                <img src={mainLogo} alt="Chidiya Ghar" className="h-8 w-auto object-contain brightness-0" />
               </a>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-2xl hover:text-[#7B2D16] transition-colors">
                 ✕
