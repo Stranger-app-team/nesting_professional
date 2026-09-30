@@ -15,7 +15,7 @@ const HERO_VIDEOS = [
     video: room1Img, 
     type: 'image', 
     desc: 'Luxury Living & Comfort',
-    position: 'object-right sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
+    position: 'object-center sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
   },
   { 
     id: 2, 
@@ -24,9 +24,17 @@ const HERO_VIDEOS = [
     video: room2Img, 
     type: 'image', 
     desc: 'Modern Architectural Space',
-    position: 'object-right sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
+    position: 'object-center sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
   },
-  { id: 3, title: 'Premium Suite', code: 'Room 03', video: mapAnimationVideo, type: 'video', desc: 'Serene Ambience & Views' },
+  { 
+    id: 3, 
+    title: 'Premium Suite', 
+    code: 'Room 03', 
+    video: mapAnimationVideo, 
+    type: 'video', 
+    desc: 'Serene Ambience & Views',
+    position: 'object-right sm:object-center md:object-center'
+  },
   { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: whatsAppVideo, type: 'video', desc: 'Panoramic Sophistication' },
 ]
 
@@ -260,21 +268,21 @@ export default function Hero() {
                   muted
                   playsInline
                   onEnded={() => handleVideoEnded(index)}
-                  className="w-full h-full object-cover object-center"
+                  className={`w-full h-full object-cover ${item.position || 'object-center'}`}
                 />
               )}
             </motion.div>
           )
         })}
 
-        {/* Subtle low fade on left half section */}
+        {/* Responsive dual gradient overlay for readable text & smooth edge blending */}
         <div 
-          className="absolute inset-y-0 left-0 w-full md:w-[50%] pointer-events-none z-[1]" 
+          className="absolute inset-0 pointer-events-none z-[1]" 
           style={{
-            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 60%, transparent 100%)'
+            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.75) 100%), linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 60%, transparent 100%)'
           }}
         />
-        <div className="absolute inset-x-0 bottom-0 h-[40px] bg-gradient-to-t from-white/50 to-transparent pointer-events-none z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-[40px] bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-[1]" />
       </div>
 
       {/* ── Content Layer ── */}
@@ -292,8 +300,7 @@ export default function Hero() {
             >
               {/* Left Column: Welcome Card */}
               <div
-                className="p-8 md:p-10 rounded-2xl w-full max-w-[500px]" 
-                style={{ background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+                className="p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
               >
                 {/* WELCOME TO */}
                 <motion.p
@@ -378,8 +385,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="pointer-events-auto p-8 md:p-10 rounded-2xl" 
-              style={{ maxWidth: 500, background: 'transparent', backgroundColor: 'rgba(243, 234, 219, 0.1)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+              className="pointer-events-auto p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)]" 
             >
               {/* WELCOME TO */}
               <motion.p
