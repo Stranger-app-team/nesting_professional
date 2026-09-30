@@ -15,7 +15,7 @@ const HERO_VIDEOS = [
     video: room1Img, 
     type: 'image', 
     desc: 'Luxury Living & Comfort',
-    position: 'object-center sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
+    position: 'object-[85%_center] sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
   },
   { 
     id: 2, 
@@ -24,7 +24,7 @@ const HERO_VIDEOS = [
     video: room2Img, 
     type: 'image', 
     desc: 'Modern Architectural Space',
-    position: 'object-center sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
+    position: 'object-[80%_center] sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
   },
   { 
     id: 3, 
@@ -33,9 +33,9 @@ const HERO_VIDEOS = [
     video: mapAnimationVideo, 
     type: 'video', 
     desc: 'Serene Ambience & Views',
-    position: 'object-right sm:object-center md:object-center'
+    position: 'object-[80%_center] sm:object-center md:object-center'
   },
-  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: whatsAppVideo, type: 'video', desc: 'Panoramic Sophistication' },
+  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: whatsAppVideo, type: 'video', desc: 'Panoramic Sophistication', position: 'object-center' },
 ]
 
 /* ────────────────────────────────────────────────────────────
