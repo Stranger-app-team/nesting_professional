@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Maximize2 } from 'lucide-react'
 import ImageWithFallback from './common/ImageWithFallback'
 import Reveal from './common/Reveal'
+import MediaPreviewModal from './common/MediaPreviewModal'
 import acc1 from '../assets/image/acc-1.webp'
 import acc2 from '../assets/image/acc-2.webp'
 import acc3 from '../assets/image/acc-3.webp'
@@ -46,7 +48,7 @@ const rooms = [
   },
 ]
 
-function RoomCard({ room, index }) {
+function RoomCard({ room, index, onPreview }) {
   return (
     <motion.div
       layout
@@ -61,13 +63,20 @@ function RoomCard({ room, index }) {
         borderRadius: '20px' 
       }}
     >
-      {/* Room image — 12px radius inside the 20px card */}
-      <div className="relative h-[180px] sm:h-[250px] overflow-hidden rounded-[12px]">
+      {/* Room image — click to preview */}
+      <div 
+        onClick={() => onPreview && onPreview(room)}
+        className="relative h-[180px] sm:h-[250px] overflow-hidden rounded-[12px] cursor-pointer group/img"
+      >
         <ImageWithFallback
           src={room.image}
           alt={room.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-[12px]"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105 rounded-[12px]"
         />
+        {/* Preview hover icon */}
+        <div className="absolute top-2.5 right-2.5 z-10 opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/60 backdrop-blur-md p-1.5 rounded-full text-white pointer-events-none">
+          <Maximize2 className="w-3.5 h-3.5 text-white" />
+        </div>
       </div>
 
       {/* Card content */}
@@ -83,10 +92,13 @@ function RoomCard({ room, index }) {
           </div>
           {/* Circle arrow button */}
           <motion.button
+            onClick={() => onPreview && onPreview(room)}
             whileHover={{ backgroundColor: '#7B2D16', borderColor: '#7B2D16' }}
             whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-full border border-[#bbb] flex items-center justify-center transition-all duration-200 group/btn"
+            className="w-10 h-10 rounded-full border border-[#bbb] flex items-center justify-center transition-all duration-200 group/btn cursor-pointer"
             style={{ color: '#1a1a1a' }}
+            title="Preview room image"
+            aria-label="Preview room image"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="group-hover/btn:stroke-white transition-colors duration-200">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -100,11 +112,12 @@ function RoomCard({ room, index }) {
 
 export default function Rooms() {
   const scrollRef = useRef(null)
+  const [previewMedia, setPreviewMedia] = useState(null)
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const scrollAmount = direction === 'left' ? -380 : 380
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
   }
 
@@ -211,7 +224,12 @@ export default function Rooms() {
 
           <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 lg:gap-5 pb-8 pt-4 hide-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-8 sm:px-8">
             {rooms.map((room, i) => (
-              <RoomCard key={room.id} room={room} index={i} />
+              <RoomCard 
+                key={room.id} 
+                room={room} 
+                index={i} 
+                onPreview={(r) => setPreviewMedia({ type: 'image', src: r.image, title: r.name })}
+              />
             ))}
           </div>
 
@@ -228,6 +246,13 @@ export default function Rooms() {
         </div>
 
       </div>
+
+      {/* Fullscreen Room Image Preview Modal */}
+      <MediaPreviewModal
+        isOpen={!!previewMedia}
+        onClose={() => setPreviewMedia(null)}
+        media={previewMedia}
+      />
     </section>
   )
 }

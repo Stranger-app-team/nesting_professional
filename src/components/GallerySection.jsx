@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Volume2, VolumeX } from 'lucide-react'
 import Reveal from './common/Reveal'
+import MediaPreviewModal from './common/MediaPreviewModal'
 
 import vidLandscape from '../assets/logo/Chidiya Ghar-Short Video Landscape.webm'
 import room1 from '../assets/logo/Room 1.webm'
@@ -29,7 +30,7 @@ const galleryVideos = [
   ...otherVideos.slice(middleIndex)
 ]
 
-function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = false }) {
+function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, onPreview, isMobile = false }) {
   const videoRef = useRef(null)
 
   useEffect(() => {
@@ -39,7 +40,10 @@ function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = fa
   }, [isMuted, isActive])
 
   return (
-    <div className="w-full h-full rounded-[14px] overflow-hidden relative bg-black group/vid">
+    <div 
+      onClick={isMobile ? () => onPreview && onPreview(item) : undefined}
+      className="w-full h-full rounded-[14px] overflow-hidden relative bg-black group/vid cursor-pointer"
+    >
       <video
         ref={videoRef}
         src={item.src}
@@ -47,7 +51,7 @@ function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = fa
         loop
         muted
         playsInline
-        className="w-full h-full object-cover rounded-[14px]"
+        className="w-full h-full object-cover rounded-[14px] pointer-events-none"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
       
@@ -58,7 +62,7 @@ function GalleryVideoItem({ item, isActive, isMuted, onToggleMute, isMobile = fa
             e.stopPropagation()
             onToggleMute()
           }}
-          className="absolute bottom-3 right-3 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 shadow-lg cursor-pointer"
+          className="absolute bottom-3 right-3 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 shadow-lg cursor-pointer pointer-events-auto"
           title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
           aria-label={isMuted ? 'Unmute Audio' : 'Mute Audio'}
         >
@@ -77,7 +81,13 @@ export default function GallerySection() {
   const defaultIndex = middleIndex // Dynamically set to the middle video index
   const [hoveredIndex, setHoveredIndex] = useState(defaultIndex)
   const [isMuted, setIsMuted] = useState(true)
+  const [previewMedia, setPreviewMedia] = useState(null)
   const mobileScrollRef = useRef(null)
+
+  const isHoverSupported = () => {
+    if (typeof window === 'undefined' || !window.matchMedia) return true
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  }
 
   useEffect(() => {
     if (mobileScrollRef.current && window.innerWidth < 768) {
@@ -102,6 +112,29 @@ export default function GallerySection() {
 
   const toggleMute = () => {
     setIsMuted(prev => !prev)
+  }
+
+  const handleOpenPreview = (item) => {
+    setPreviewMedia({
+      type: 'video',
+      src: item.src,
+      title: item.title
+    })
+  }
+
+  const handleStripItemClick = (i, item) => {
+    const isDesktopHover = isHoverSupported()
+    const currentActive = hoveredIndex ?? defaultIndex
+
+    if (isDesktopHover) {
+      handleOpenPreview(item)
+    } else {
+      if (currentActive === i) {
+        handleOpenPreview(item)
+      } else {
+        setHoveredIndex(i)
+      }
+    }
   }
 
   return (
@@ -165,6 +198,7 @@ export default function GallerySection() {
                   isActive={true}
                   isMuted={isMuted}
                   onToggleMute={toggleMute}
+                  onPreview={handleOpenPreview}
                   isMobile={true}
                 />
               </motion.div>
@@ -183,10 +217,14 @@ export default function GallerySection() {
           </button>
         </div>
 
-        {/* Desktop Interactive sliding video strip with 16:9 widescreen active ratio */}
+        {/* Desktop & Tablet Interactive sliding video strip with 16:9 widescreen active ratio */}
         <div 
-          className="hidden md:flex items-center gap-3 w-full h-[400px] lg:h-[430px] xl:h-[450px]"
-          onMouseLeave={() => setHoveredIndex(defaultIndex)}
+          className="hidden md:flex items-center gap-2 lg:gap-3 w-full h-[380px] lg:h-[430px] xl:h-[450px]"
+          onMouseLeave={() => {
+            if (isHoverSupported()) {
+              setHoveredIndex(defaultIndex)
+            }
+          }}
         >
           {galleryVideos.map((item, i) => {
             const isHovered = (hoveredIndex ?? defaultIndex) === i
@@ -194,10 +232,15 @@ export default function GallerySection() {
             return (
               <div
                 key={i}
-                onMouseEnter={() => setHoveredIndex(i)}
-                className="relative rounded-[20px] p-2 bg-[#1A0A04]/40 border border-[#C9A06A]/20 h-full select-none"
+                onMouseEnter={() => {
+                  if (isHoverSupported()) {
+                    setHoveredIndex(i)
+                  }
+                }}
+                onClick={() => handleStripItemClick(i, item)}
+                className="relative rounded-[20px] p-2 bg-[#1A0A04]/40 border border-[#C9A06A]/20 h-full select-none cursor-pointer"
                 style={{
-                  flex: isHovered ? 5.8 : 0.75,
+                  flex: isHovered ? 5.5 : 0.75,
                   transform: isHovered ? 'scale(1.02)' : 'scale(0.96)',
                   zIndex: isHovered ? 20 : 1,
                   opacity: isHovered ? 1 : 0.8,
@@ -219,6 +262,7 @@ export default function GallerySection() {
                   isActive={isHovered}
                   isMuted={isMuted}
                   onToggleMute={toggleMute}
+                  onPreview={handleOpenPreview}
                   isMobile={false}
                 />
               </div>
@@ -227,6 +271,13 @@ export default function GallerySection() {
         </div>
 
       </div>
+
+      {/* Fullscreen Video Preview Modal */}
+      <MediaPreviewModal
+        isOpen={!!previewMedia}
+        onClose={() => setPreviewMedia(null)}
+        media={previewMedia}
+      />
     </section>
   )
 }

@@ -86,56 +86,84 @@ function BirdsOnWire() {
 }
 
 export default function About() {
+  const [activeMobileTab, setActiveMobileTab] = useState('about')
   const [openAccordion, setOpenAccordion] = useState(0)
   const cardShadow = '0 20px 45px -8px rgba(0, 0, 0, 0.14), 0 8px 18px -4px rgba(0, 0, 0, 0.06)'
 
   return (
-    <section id="about" style={{ backgroundColor: '#2A1205' }} className="pt-20 lg:pt-24 pb-16 scroll-mt-24">
+    <section id="about" style={{ backgroundColor: '#2A1205' }} className="pt-8 sm:pt-14 lg:pt-24 pb-8 sm:pb-12 lg:pb-16 scroll-mt-24">
       <div className="max-w-[1480px] mx-auto px-4 lg:px-8">
         
+        {/* Mobile-only Sleek Tab Toggle */}
+        <div className="flex lg:hidden items-center justify-center mb-5">
+          <div className="inline-flex p-1 rounded-full bg-[#1A0A04]/60 border border-[#C9A06A]/30 backdrop-blur-md">
+            <button
+              onClick={() => setActiveMobileTab('about')}
+              className={`px-5 py-2 rounded-full text-[12px] font-bold tracking-wider uppercase transition-all duration-300 ${
+                activeMobileTab === 'about'
+                  ? 'bg-[#C9A06A] text-[#1A0A04] shadow-md'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => setActiveMobileTab('advantage')}
+              className={`px-5 py-2 rounded-full text-[12px] font-bold tracking-wider uppercase transition-all duration-300 ${
+                activeMobileTab === 'advantage'
+                  ? 'bg-[#C9A06A] text-[#1A0A04] shadow-md'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              The Advantage
+            </button>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-5 items-stretch">
           
           {/* ─── The Concept & Philosophy ─── */}
           <div
-            className="rounded-[20px] pt-7 px-7 lg:pt-10 lg:px-10 pb-0 relative overflow-hidden flex flex-col justify-between h-full min-h-[520px] lg:min-h-[580px] scroll-mt-24"
+            className={`rounded-[20px] pt-5 px-5 sm:pt-7 sm:px-7 lg:pt-10 lg:px-10 pb-0 relative overflow-hidden flex flex-col justify-between h-full min-h-0 lg:min-h-[580px] scroll-mt-24 ${
+              activeMobileTab === 'about' ? 'flex' : 'hidden lg:flex'
+            }`}
             style={{ 
               backgroundColor: '#FDF8F4',
               boxShadow: cardShadow,
               borderRadius: '20px'
             }}
           >
-            <div className="shrink-0 mb-3">
+            <div className="shrink-0 mb-2 sm:mb-3">
               <Reveal type="fade">
                 <div className="flex items-center gap-3 mb-1">
-                  <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
+                  <p className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
                     About Us
                   </p>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
                     <path d="M5 14C8 11 12 11 16 13C17 11 19 9 21 11C20 14 16 17 12 16C8 15 6 18 3 17C2 16 3 15 5 14Z" fill="currentColor"/>
                   </svg>
-                  <div className="w-20 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
+                  <div className="w-16 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
                 </div>
               </Reveal>
             </div>
 
-            <div className="relative flex-1 min-h-0 my-2">
-              <div className="pr-1 pb-4 flex flex-col justify-center h-full">
+            <div className="relative flex-1 min-h-0 my-1 sm:my-2">
+              <div className="pr-1 pb-2 sm:pb-4 flex flex-col justify-center h-full">
                 
-                <div className="space-y-6">
+                <div className="space-y-3 sm:space-y-5 lg:space-y-6">
                   {/* Headline */}
-                  <h3 className="font-display text-[20px] sm:text-[24px] lg:text-[26px] font-normal text-[#1a1a1a] leading-snug">
+                  <h3 className="font-display text-[18px] sm:text-[22px] lg:text-[26px] font-normal text-[#1a1a1a] leading-snug">
                     A modern, professionally managed home-away-from-home for nesting professionals.
                   </h3>
                   
                   {/* Summary Concept Paragraph */}
-                  <p className="text-[#555] text-[14.5px] leading-relaxed">
+                  <p className="text-[#555] text-[13.5px] sm:text-[14.5px] leading-relaxed">
                     Nest comfortably while pursuing your work. We provide a practical living community that bridges the gap between <strong className="font-medium text-[#7B2D16]">expensive hotels and traditional PGs</strong>—free from high costs and rigid limitations.
                   </p>
 
-                  <div className="w-90 h-[1px] bg-[#7B2D16]/20"></div>
-
-                  {/* Summary Philosophy Paragraph */}
-                  <div className="space-y-2">
+                  {/* Summary Philosophy Paragraph (Desktop/Tablet) */}
+                  <div className="hidden sm:block space-y-2">
+                    <div className="w-full h-[1px] bg-[#7B2D16]/20 mb-3"></div>
                     <h4 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]">
                       The Philosophy
                     </h4>
@@ -145,14 +173,15 @@ export default function About() {
                   </div>
                   
                   {/* Quote */}
-                  <div className="p-4 rounded-[12px] bg-[#7B2D16]/5 border border-[#7B2D16]/10">
-                    <p className="font-medium text-[#7B2D16] text-[13px] italic leading-relaxed text-center">
+                  <div className="p-3 sm:p-4 rounded-[12px] bg-[#7B2D16]/5 border border-[#7B2D16]/10">
+                    <p className="font-medium text-[#7B2D16] text-[12px] sm:text-[13px] italic leading-relaxed text-center">
                       "Everyone has somewhere to go and a journey to pursue—for the duration of your stay, Chidiya Ghar becomes your nest."
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-5 border-t border-[#7B2D16]/10 flex flex-col gap-2.5 items-center justify-center">
+                {/* Bottom Corporate Taglines (Desktop/Tablet) */}
+                <div className="hidden sm:flex mt-6 lg:mt-8 pt-4 lg:pt-5 border-t border-[#7B2D16]/10 flex-col gap-2 items-center justify-center">
                   <p className="text-[#7B2D16] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-center">
                     Freedom of living comes with responsibility.
                   </p>
@@ -164,14 +193,17 @@ export default function About() {
               </div>
             </div>
             
-            <div className="shrink-0 w-full z-20 relative">
+            {/* Chidiya / Birds on Wire Image / Video at its exact position */}
+            <div className="shrink-0 w-full z-20 relative mt-1 sm:mt-0">
               <BirdsOnWire />
             </div>
           </div>
 
           {/* ─── The Chidiya Ghar Advantage ─── */}
           <div 
-            className="bg-[#FDF8F4] rounded-[20px] p-7 lg:p-10 flex flex-col h-full"
+            className={`bg-[#FDF8F4] rounded-[20px] p-5 sm:p-7 lg:p-10 flex flex-col h-full min-h-0 ${
+              activeMobileTab === 'advantage' ? 'flex' : 'hidden lg:flex'
+            }`}
             style={{ 
               boxShadow: cardShadow,
               borderRadius: '20px'
@@ -179,23 +211,23 @@ export default function About() {
           >
             <div className="flex flex-col flex-1 h-full overflow-hidden relative">
               <Reveal type="fade">
-                <div className="flex items-center gap-3 mb-2.5">
-                  <p className="text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
+                <div className="flex items-center gap-3 mb-1.5 sm:mb-2.5">
+                  <p className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#7B2D16] uppercase whitespace-nowrap">
                     The Advantage
                   </p>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#7B2D16] shrink-0">
                     <path d="M5 14C8 11 12 11 16 13C17 11 19 9 21 11C20 14 16 17 12 16C8 15 6 18 3 17C2 16 3 15 5 14Z" fill="currentColor"/>
                   </svg>
-                  <div className="w-20 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
+                  <div className="w-16 sm:w-32 h-[1px] bg-[#7B2D16]/30"></div>
                 </div>
               </Reveal>
               <Reveal delay={0.06}>
-                <h2 className="font-display text-[24px] lg:text-[28px] font-normal text-[#1a1a1a] mb-2">
+                <h2 className="font-display text-[18px] sm:text-[24px] lg:text-[28px] font-normal text-[#1a1a1a] mb-2 leading-snug">
                   A Home Without Long-Term Commitments
                 </h2>
               </Reveal>
               
-              <div className="flex-1 overflow-y-auto pr-2 pb-10 custom-scrollbar max-h-[500px]">
+              <div className="flex-1 overflow-y-auto pr-1 sm:pr-2 pb-4 sm:pb-8 custom-scrollbar">
                 <Reveal delay={0.12}>
                   <div className="flex flex-col">
                     {whyUsData.map((item, index) => (
@@ -209,8 +241,9 @@ export default function About() {
                   </div>
                 </Reveal>
 
+                {/* Bridging the Gap (Desktop/Tablet) */}
                 <Reveal delay={0.18}>
-                  <div className="mt-2 pt-4 border-t border-[#7B2D16]/10 space-y-2">
+                  <div className="hidden sm:block mt-2 pt-4 border-t border-[#7B2D16]/10 space-y-2">
                     <h3 className="font-display text-[16px] sm:text-[18px] font-normal text-[#1a1a1a]">
                       Bridging the Living Gap
                     </h3>
@@ -222,7 +255,7 @@ export default function About() {
               </div>
 
               <div 
-                className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#FDF8F4] via-[#FDF8F4]/80 to-transparent z-10" 
+                className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 sm:h-8 bg-gradient-to-t from-[#FDF8F4] via-[#FDF8F4]/80 to-transparent z-10" 
               />
             </div>
           </div>

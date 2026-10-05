@@ -15,7 +15,8 @@ const HERO_VIDEOS = [
     video: room1Img, 
     type: 'image', 
     desc: 'Luxury Living & Comfort',
-    position: 'object-[85%_center] sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]'
+    position: 'object-[85%_center] sm:object-[88%_center] md:object-[75%_center] lg:object-[75%_center]',
+    fit: 'object-cover'
   },
   { 
     id: 2, 
@@ -24,7 +25,9 @@ const HERO_VIDEOS = [
     video: room2Img, 
     type: 'image', 
     desc: 'Modern Architectural Space',
-    position: 'object-[80%_center] sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]'
+    position: 'object-center sm:object-[88%_center] md:object-[85%_center] lg:object-[95%_center]',
+    fit: 'object-contain sm:object-cover',
+    className: 'scale-[2.2] sm:scale-100 origin-[95%_50%] sm:origin-center'
   },
   { 
     id: 3, 
@@ -33,9 +36,20 @@ const HERO_VIDEOS = [
     video: mapAnimationVideo, 
     type: 'video', 
     desc: 'Serene Ambience & Views',
-    position: 'object-[80%_center] sm:object-center md:object-center'
+    position: 'object-center',
+    fit: 'object-contain sm:object-cover',
+    className: 'scale-[1.75] sm:scale-100 origin-[95%_50%] sm:origin-center'
   },
-  { id: 4, title: 'Penthouse Suite', code: 'Room 04', video: whatsAppVideo, type: 'video', desc: 'Panoramic Sophistication', position: 'object-center' },
+  { 
+    id: 4, 
+    title: 'Penthouse Suite', 
+    code: 'Room 04', 
+    video: whatsAppVideo, 
+    type: 'video', 
+    desc: 'Panoramic Sophistication', 
+    position: 'object-center',
+    fit: 'object-contain'
+  },
 ]
 
 /* ────────────────────────────────────────────────────────────
@@ -117,53 +131,53 @@ function BookingBar() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.0, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="mx-auto bg-white rounded-[20px] px-2 py-2 w-[90%] max-w-[780px]"
+      className="mx-auto bg-white rounded-[20px] px-2 py-2 w-[92%] sm:w-[94%] md:w-[90%] max-w-[780px]"
       style={{
         boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
         borderRadius: '20px'
       }}
     >
-      <div className="flex flex-col sm:flex-row items-center sm:divide-x divide-gray-100">
+      <div className="flex flex-col md:flex-row items-center md:divide-x divide-gray-100">
         
-        {/* Top Row on Mobile / Left Section on Desktop */}
-        <div className="flex flex-row w-full sm:w-auto flex-1 divide-x divide-gray-100 border-b border-gray-100 sm:border-b-0">
+        {/* Top Row on Mobile & Tablet / Left Section on Desktop */}
+        <div className="flex flex-row w-full md:w-auto flex-1 divide-x divide-gray-100 border-b border-gray-100 md:border-b-0">
           {/* Check In */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
-            <div className="hidden md:block"><CalIcon /></div>
-            <div className="text-center sm:text-left flex flex-col w-full">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 flex-1 px-1.5 sm:px-3 md:px-4 lg:px-5 py-2.5 sm:py-3">
+            <div className="hidden lg:block"><CalIcon /></div>
+            <div className="text-center md:text-left flex flex-col w-full">
               <label className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5 block">Check In</label>
               <input 
                 type="date"
                 value={checkIn}
                 onChange={(e) => setCheckIn(e.target.value)}
-                className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
+                className="text-[11px] sm:text-[12px] md:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
               />
             </div>
           </div>
 
           {/* Check Out */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
-            <div className="hidden md:block"><CalIcon /></div>
-            <div className="text-center sm:text-left flex flex-col w-full">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 flex-1 px-1.5 sm:px-3 md:px-4 lg:px-5 py-2.5 sm:py-3">
+            <div className="hidden lg:block"><CalIcon /></div>
+            <div className="text-center md:text-left flex flex-col w-full">
               <label className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5 block">Check Out</label>
               <input 
                 type="date"
                 value={checkOut}
                 onChange={(e) => setCheckOut(e.target.value)}
-                className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
+                className="text-[11px] sm:text-[12px] md:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
               />
             </div>
           </div>
 
           {/* Guests */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1 px-1 sm:px-5 py-3">
-            <div className="hidden md:block"><PersonIcon /></div>
-            <div className="text-center sm:text-left flex flex-col w-full">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 flex-1 px-1.5 sm:px-3 md:px-4 lg:px-5 py-2.5 sm:py-3">
+            <div className="hidden lg:block"><PersonIcon /></div>
+            <div className="text-center md:text-left flex flex-col w-full">
               <label className="text-[9px] sm:text-[10px] text-[#7B2D16] font-bold tracking-wider uppercase mb-0.5 block">Guests</label>
               <select 
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
-                className="text-[11px] sm:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
+                className="text-[11px] sm:text-[12px] md:text-[13px] text-[#1a1a1a] font-medium bg-transparent outline-none cursor-pointer w-full"
               >
                 <option value="1 Persons">1 P</option>
                 <option value="2 Persons">2 P</option>
@@ -176,7 +190,7 @@ function BookingBar() {
         </div>
 
         {/* Check Availability button */}
-        <div className="px-3 py-3 w-full sm:w-auto shrink-0">
+        <div className="px-2 sm:px-3 py-2 sm:py-3 w-full md:w-auto shrink-0">
           <motion.button
             onClick={handleCheckAvailability}
             whileHover={{ backgroundColor: '#1a0b03' }}
@@ -186,7 +200,7 @@ function BookingBar() {
               color: '#fff',
               fontWeight: 600,
               fontSize: 13,
-              padding: '12px 22px',
+              padding: '12px 20px',
               borderRadius: '12px',
               border: 'none',
               cursor: 'pointer',
@@ -238,16 +252,16 @@ export default function Hero() {
   }
 
   return (
-    <section id="top" style={{ background: '#fff', position: 'relative', paddingBottom: '30px' }}>
+    <section id="top" className="relative pb-4 sm:pb-6 lg:pb-[30px] bg-white">
 
       {/* ── Background Layer (Seamless Stacked Videos with Crossfade) ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-black">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#FAF7F2]">
         {HERO_VIDEOS.map((item, index) => {
           const isActive = index === activeVideoIndex
           return (
             <motion.div
               key={item.id}
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 w-full h-full flex items-center justify-center bg-[#FAF7F2] overflow-hidden"
               initial={{ opacity: index === activeVideoIndex ? 1 : 0 }}
               animate={{ opacity: isActive ? 1 : 0 }}
               transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
@@ -258,7 +272,7 @@ export default function Hero() {
                 <img
                   src={item.video}
                   alt={item.title}
-                  className={`w-full h-full object-cover ${item.position || 'object-center'}`}
+                  className={`w-full h-full ${item.fit || 'object-cover'} ${item.position || 'object-center'} ${item.className || ''}`}
                 />
               ) : (
                 <video
@@ -268,7 +282,7 @@ export default function Hero() {
                   muted
                   playsInline
                   onEnded={() => handleVideoEnded(index)}
-                  className={`w-full h-full object-cover ${item.position || 'object-center'}`}
+                  className={`w-full h-full ${item.fit || 'object-cover'} ${item.position || 'object-center'} ${item.className || ''}`}
                 />
               )}
             </motion.div>
@@ -286,7 +300,7 @@ export default function Hero() {
       </div>
 
       {/* ── Content Layer ── */}
-      <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[650px] max-h-[820px] lg:h-[95vh] px-4 lg:px-12 xl:px-16 py-32 lg:py-0 pointer-events-none">
+      <div className="relative z-10 w-full max-w-[1800px] mx-auto flex flex-col justify-center min-h-[580px] sm:min-h-[640px] lg:min-h-0 lg:h-[95vh] max-h-[820px] px-4 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-28 lg:py-0 pointer-events-none">
         
         <AnimatePresence mode="wait">
           {activeVideoIndex === 3 ? (
@@ -298,9 +312,9 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="pointer-events-auto flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-12 w-full"
             >
-              {/* Left Column: Welcome Card */}
+              {/* Left Column: Welcome Card (Hidden on mobile for this slide, visible on desktop) */}
               <div
-                className="p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+                className="hidden md:block p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
               >
                 {/* WELCOME TO */}
                 <motion.p
@@ -365,7 +379,7 @@ export default function Hero() {
 
               {/* Right Column: WhatsApp Video Framed Card */}
               <div className="w-full max-w-[580px] lg:max-w-[1480px] flex items-center justify-center">
-                <div className="relative w-full bg-white rounded-[32px]  overflow-hidden flex items-center justify-center">
+                <div className="relative w-full bg-transparent md:bg-white rounded-none md:rounded-[32px] overflow-hidden flex items-center justify-center">
                   <video
                     ref={(el) => (videoRefs.current[3] = el)}
                     src={HERO_VIDEOS[3].video}
@@ -373,19 +387,21 @@ export default function Hero() {
                     muted
                     playsInline
                     onEnded={() => handleVideoEnded(3)}
-                    className="w-full h-auto rounded-[22px] object-contain"
+                    className="w-full h-auto md:rounded-[22px] object-contain max-h-[60vh] md:max-h-none"
                   />
                 </div>
               </div>
             </motion.div>
           ) : (
             <motion.div
-              key="welcome-text"
+              key={`welcome-text-${activeVideoIndex}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="pointer-events-auto p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)]" 
+              className={`pointer-events-auto p-6 sm:p-8 md:p-10 rounded-3xl w-full max-w-[500px] bg-white/40 sm:bg-[#F3EADB]/20 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(0,0,0,0.12)] ${
+                activeVideoIndex !== 0 ? 'hidden md:block' : ''
+              }`} 
             >
               {/* WELCOME TO */}
               <motion.p
